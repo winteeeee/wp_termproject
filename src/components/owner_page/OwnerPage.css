@@ -1,0 +1,115 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style-type: none;
+}
+
+.owner_page {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.top-text {
+    width: 1200px;
+    font-size: 22px;
+    font-weight: bold;
+    border-bottom: 1px solid #999;
+    color: #222;
+    margin: auto;
+    padding-top: 60px;
+    padding-bottom: 27px;
+}
+
+.btn {
+    position: absolute;
+    right: 10px;
+    display: inline-block;
+    font-size: 16px;
+    width: 128px;
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+    cursor: pointer;
+    color: #fff;
+    background-color: #ccc;
+}
+
+
+.my-page-header .sub-header-container {
+    width: 100%;
+    text-align: center;
+}
+
+.my-page-header .sub-header-container .sub-header-title {
+    font-size: 42px;
+    padding: 50px 0;
+}
+
+.menutab-page-whole-div {
+    height: 60px;
+    background-color: #fff;
+    width: 100%;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.menutab-page-whole-div .menutab-page-menutab {
+    text-align: center;
+    overflow: auto;
+    white-space: nowrap;
+    width: 100%;
+    display: inline-block;
+}
+
+.menutab-page-whole-div .menutab-page-menutab .menutab-page-title {
+    width: 50%;
+    display: inline-block;
+}
+
+.menutab-page-whole-div .menutab-page-menutab .menutab-page-title h5 {
+    cursor: pointer;
+    line-height: 60px;
+    white-space: nowrap;
+    font-size: 18px;
+    color: #999;
+}
+
+.my-page-menureg .my-page-menureg-container .info-container {
+    margin: 70px 0 120px;
+    padding: 0 270px;
+}
+
+.my-page-menureg .my-page-menureg-container .info-container .alvolo-input {
+    margin-bottom: 20px;
+}
+
+.my-page-menureg .my-page-menureg-container .info-container .alvolo-input input {
+    background-color: rgb(255, 255, 255);
+    color: rgb(34, 34, 34);
+    padding: 15px 10px;
+    border: 0;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    height: 50px;
+}
+
+.my-page-menureg .my-page-menureg-container .info-container .file-upload {
+    position: relative;
+}
+
+.my-page-menureg .my-page-menureg-container .info-container .file-upload .image-placeholder {
+    background-color: rgb(255, 255, 255);
+    color: rgb(34, 34, 34);
+    padding: 15px 10px;
+    border: 0;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    height: 50px;
+}
+
+.my-page-menureg .my-page-menureg-container .info-container .file-upload input[type="file"] {
+    visibility: hidden;
+}
