@@ -1,14 +1,22 @@
+import {Link, useLocation} from "react-router-dom";
+
 function OwnerPageTab() {
+    const location = useLocation();
+
     return (
         <div className="menutab-page-whole-div">
             <div className="menutab-page-menutab">
-                <div className="menutab-page-title">
-                    <h5>메뉴등록</h5>
-                </div>
+                <Link to="/MenuReg">
+                    <div className="menutab-page-title">
+                        <h5 className={location.pathname === "/MenuReg" ? "selected" : ""}>메뉴등록</h5>
+                    </div>
+                </Link>
 
-                <div className="menutab-page-title">
-                    <h5>판매수량확인</h5>
-                </div>
+                <Link to="/Stats">
+                    <div className="menutab-page-title">
+                        <h5 className={location.pathname === "/Stats"? "selected" : ""}>판매수량확인</h5>
+                    </div>
+                </Link>
             </div>
         </div>
     );
