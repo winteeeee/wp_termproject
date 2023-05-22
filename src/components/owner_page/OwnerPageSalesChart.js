@@ -18,38 +18,31 @@ ChartJS.register(
     Tooltip,
     Legend
 );
-
-export const options = {
-    responsive: true,
-    plugins: {
-        legend: {
-            position: 'top',
+export function OwnerPageSalesChart({labels, sales}) {
+    const options = {
+        responsive: true,
+        plugins: {
+            legend: {
+                display: false,
+                position: 'top',
+            },
+            title: {
+                display: true,
+                text: '요일별 총 매출',
+            },
         },
-        title: {
-            display: true,
-            text: 'Chart.js Bar Chart',
-        },
-    },
-};
+    };
 
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+    const data = {
+        labels,
+        datasets: [
+            {
+                label: '요일',
+                data: sales,
+                backgroundColor: 'rgba(53, 162, 235, 0.5)',
+            },
+        ],
+    };
 
-export const data = {
-    labels,
-    datasets: [
-        {
-            label: 'Dataset 1',
-            data: [100, 200, 300, 400, 500, 600, 700],
-            backgroundColor: 'rgba(255, 99, 132, 0.5)',
-        },
-        {
-            label: 'Dataset 2',
-            data: [100, 200, 300, 400, 500, 600, 700],
-            backgroundColor: 'rgba(53, 162, 235, 0.5)',
-        },
-    ],
-};
-
-export function OwnerPageSalesChart() {
     return <Bar options={options} data={data} />;
 }

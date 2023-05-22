@@ -19,37 +19,30 @@ ChartJS.register(
     Legend
 );
 
-export const options = {
-    responsive: true,
-    plugins: {
-        legend: {
-            position: 'top',
+export function OwnerPageAmountChart({labels, amounts}) {
+    const options = {
+        responsive: true,
+        plugins: {
+            legend: {
+                display: false,
+            },
+            title: {
+                display: true,
+                text: '메뉴별 판매수량',
+            },
         },
-        title: {
-            display: true,
-            text: 'Chart.js Bar Chart',
-        },
-    },
-};
+    };
 
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+    const data = {
+        labels,
+        datasets: [
+            {
+                label: '피자',
+                data: amounts,
+                backgroundColor: 'rgba(53, 162, 235, 0.5)',
+            },
+        ],
+    };
 
-export const data = {
-    labels,
-    datasets: [
-        {
-            label: 'Dataset 1',
-            data: [100, 200, 300, 400, 500, 600, 700],
-            backgroundColor: 'rgba(255, 99, 132, 0.5)',
-        },
-        {
-            label: 'Dataset 2',
-            data: [100, 200, 300, 400, 500, 600, 700],
-            backgroundColor: 'rgba(53, 162, 235, 0.5)',
-        },
-    ],
-};
-
-export function OwnerPageAmountChart() {
     return <Bar options={options} data={data} />;
 }

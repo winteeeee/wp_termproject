@@ -44,6 +44,7 @@ function OwnerPageMenuReg() {
             </div>
         </div>
     )
+    //TODO 확인 버튼 누르면 DB에 insert 되도록 구현
 }
 
 export default OwnerPageMenuReg;
