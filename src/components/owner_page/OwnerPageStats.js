@@ -15,12 +15,16 @@ function OwnerPageStats() {
                 <div className="top-text">
                     메뉴별 판매수량
                 </div>
-                <OwnerPageAmountChart labels={pizzas} amounts={amounts}></OwnerPageAmountChart>
+                <div className="chart-area">
+                    <OwnerPageAmountChart labels={pizzas} amounts={amounts}></OwnerPageAmountChart>
+                </div>
 
                 <div className="top-text">
                     요일별 총 매출
                 </div>
-                <OwnerPageSalesChart labels={dayOfTheWeek} sales={sales}></OwnerPageSalesChart>
+                <div className="chart-area">
+                    <OwnerPageSalesChart labels={dayOfTheWeek} sales={sales}></OwnerPageSalesChart>
+                </div>
             </div>
         </div>
     )

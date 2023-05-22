@@ -20,7 +20,7 @@ function OwnerPageMenuReg() {
                             }}></input>
                         </div>
                         <div className="alvolo-input">
-                            <input type="text" placeholder="가격" onFocus={(e) => {
+                            <input type="number" placeholder="가격" onFocus={(e) => {
                                 e.target.className = "focus";
                             }} onBlur={(e) => {
                                 e.target.className = "";
