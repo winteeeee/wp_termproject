@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
-
 .icon-airplane {
     left: 288px;
     display: none;
@@ -28,6 +26,12 @@
     .web-main-tab-header-layout .web-main-tab-header .web-main-tab-top .tab-top-left {
         padding-left: 30px;
         display: table-cell;
+        width: calc(100% - 30px);
+        width: -webkit-calc(100% - 20px);
+        width: -moz-calc(100% - 20px);
+        width: -ms-calc(100% - 20px);
+        width: -o-calc(100% - 20px);
+        width: 55%;
         width: 20%;
     }
 
@@ -41,25 +45,34 @@
         cursor: pointer;
         width: 170px;
         height: 19px;
-        margin-left: 20px;
+        margin-left: 24px;
     }
 /*</tab-top-left>*/
 
 /*<tab-top-middle>*/
     .web-main-tab-header-layout .web-main-tab-header .web-main-tab-top .tab-top-middle {
         display: table-cell;
+        width: calc(100% - 20px);
+        width: -webkit-calc(100% - 20px);
+        width: -moz-calc(100% - 20px);
+        width: -ms-calc(100% - 20px);
+        width: -o-calc(100% - 20px);
         width: 55%;
         padding-left: 20px;
         text-align: center;
         font-size: 20px;
         letter-spacing: -.3px;
-        font-family: "Noto Sans KR", sans-serif;
+        font-family: "Noto Sans KR Regular";
         color: #fff;
     }
 
     .web-main-tab-header-layout .web-main-tab-header .web-main-tab-top .tab-top-middle .top-middle-text {
         cursor: pointer;
         margin-right: 3%;
+    }
+
+    .web-main-tab-header-layout .web-main-tab-header .web-main-tab-top .tab-top-middle .top-middle-text:last-child {
+        margin-right: 0;
     }
 /*</tab-top-middle>*/
 
@@ -82,7 +95,7 @@
         font-size: 17px;
         width: 100%;
         color: #001951;
-        font-family: "Noto Sans KR";
+        font-family: "Noto Sans KR Regular";
     }
 
     .web-main-tab-header-layout .web-main-tab-header .web-main-tab-top .tab-top-right .tab-text-img-layout .top-right-text-layout .top-right-text {
@@ -132,9 +145,12 @@
         overflow: hidden;
         max-width: 1200px;
         margin: 0 auto;
-        height: 326px;
+        height: 0;
         -webkit-transition: height .2s ease-out;
         transition: height .2s ease-out;
+    }
+    .web-main-tab-header-layout .web-main-tab-header .web-main-tab-collapse.open {
+        height: 326px;
     }
 
 /*<web-collapse-tab-top>*/
@@ -157,7 +173,7 @@
         color: #001951;
         font-size: 21px;
         margin-bottom: 26px;
-        font-family: "Noto Sans KR", Medium;
+        font-family: "Noto Sans KR Medium";
     }
 
     .web-main-tab-header-layout .web-main-tab-header .web-main-tab-collapse .web-collapse-tab-top .tab-item {
@@ -165,7 +181,7 @@
         color: #fff;
         font-size: 16px;
         margin-bottom: 14px;
-        font-family: "Noto Sans KR";
+        font-family: "Noto Sans KR Medium";
     }
 /*</web-collapse-tab-top>*/
 
@@ -175,7 +191,7 @@
         margin-right: 20px;
         color: #fff;
         font-size: 16px;
-        font-family: "Noto Sans KR" Medium;
+        font-family: "Noto Sans KR Medium";
     }
 
     .web-main-tab-header-layout .web-main-tab-header .web-main-tab-collapse .web-collapse-tab-middle .img-arrow-more {

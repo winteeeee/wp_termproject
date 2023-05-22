@@ -1,0 +1,313 @@
+.carditem-web-container {
+    position: relative;
+    width: 590px;
+    height: 240px;
+    background: #fff;
+}
+.carditem-web-container .image-container {
+    display: inline-block;
+    vertical-align: top;
+    width: 276px;
+    height: 240px;
+    background: #fff;
+    overflow: hidden;
+}
+.carditem-web-container .image-container .image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+}
+.carditem-web-container .item {
+    display: inline-block;
+    position: absolute;
+    left: 313px;
+    right: 0;
+    height: 120px;
+    background: #fff;
+}
+.carditem-web-container .item .item-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 50px;
+    color: #333;
+    font-size: 24px;
+    font-family: "Noto Sans KR Bold";
+}
+.carditem-web-container .item .item-description {
+    font-family: "Noto Sans KR Light";
+    font-size: 18px;
+    margin-top: 10px;
+    color: #999;
+}
+.carditem-web-container .item .pizzamenu-item-price {
+    margin-top: 20px;
+    font-family: "Noto Sans KR Bold";
+    font-size: 24px;
+    color: #333;
+}
+.carditem-web-container .item .pizzamenu-item-price .kid, .carditem-web-container .item .pizzamenu-item-price .large {
+    color: #41b6e6;
+}
+.carditem-web-container .item .pizzamenu-item-price .regular {
+    margin-left: 20px;
+    color: #41b6e6;
+}
+.carditem-web-container .item .topping-box {
+    display: inline-block;
+    margin-top: 20px;
+    margin-right: 6px;
+}
+
+@media (min-width: 986px) {
+    .md-content-body .layout-content-scroll .main-pizza-menu {
+        z-index: 5;
+    }
+
+    .pizza-menu {
+        background-color: #f4f4f4;
+    }
+
+/*<pc-pizzamenu-top-text>*/
+    .pizza-menu .pizza-menu-content .pc-pizzamenu .pc-pizzamenu-top-text {
+        width: 1200px;
+        height: 144px;
+        text-align: center;
+        border-bottom: 1px solid #ccc;
+        margin: auto;
+        padding-top: 60px;
+    }
+
+    .pizza-menu .pizza-menu-content .pc-pizzamenu .pc-pizzamenu-top-text .pizzamenu-top-text-body2 {
+        font-family: "Noto Sans KR Light";
+        font-size: 42px;
+        color: #222;
+        margin-bottom: 30px;
+    }
+
+    .pizza-menu .pizza-menu-content .pc-pizzamenu .pc-pizzamenu-top-text .pizzamenu-top-text-footer {
+        font-family: "Noto Sans KR Light";
+        font-size: 18px;
+        color: #222;
+    }
+/*</pc-pizzamenu-top-text>*/
+
+/*<pc-pizzamenu-depth-tab-area>*/
+    .pizza-menu .pizza-menu-content .pc-pizzamenu .pc-pizzamenu-depth-tab-area {
+        width: 1200px;
+        padding-top: 30px;
+        margin: auto;
+    }
+
+    .pizza-menu .pizza-menu-content .pc-pizzamenu .pc-pizzamenu-depth-tab-area .pc-pizzamenu-depth-tab {
+        background-color: #fff;
+    }
+
+    .layout-tab-whole {
+        width: 100%;
+        font-size: 18px;
+        font-family: "Noto Sans KR Regular";
+    }
+
+    .layout-tab-whole .tab-container-web {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .layout-tab-whole .tab-container-web .column {
+        width: 100%;
+    }
+
+    .layout-tab-whole .tab-container-web .tab-title {
+        text-align: center;
+        height: 68px;
+        line-height: 68px;
+        width: 14%;
+    }
+
+    .layout-tab-whole .tab-container-web .active {
+        cursor: pointer;
+        color: #fff;
+        background: #41b6e6;
+        border: 1px solid #41b6e6;
+    }
+
+    .layout-tab-whole .tab-container-web .default {
+        cursor: pointer;
+        color: #ccc;
+    }
+/*</pc-pizzamenu-depth-tab-area>*/
+
+/*<pc-pizzamenu-menu>*/
+    .pizza-menu .pizza-menu-content .pc-pizzamenu .pc-pizzamenu-menu {
+        width: 1200px;
+        background-color: #f4f4f4;
+        padding-top: 30px;
+        margin: auto;
+    }
+
+/*<pizzamenu-text-area>*/
+    .pizza-menu .pizza-menu-content .pc-pizzamenu .pc-pizzamenu-menu .pizzamenu-text-area {
+        width: 1200px;
+        height: 68px;
+        position: relative;
+        text-align: right;
+    }
+
+    .pizza-menu .pizza-menu-content .pc-pizzamenu .pc-pizzamenu-menu .pizzamenu-text-area .pizzamenu-allergie-circle-area {
+        cursor: pointer;
+        position: relative;
+        margin-right: 10px;
+        display: inline-block;
+        font-family: "Noto Sans KR Medium";
+        font-size: 16px;
+    }
+
+    .pizza-menu .pizza-menu-content .pc-pizzamenu .pc-pizzamenu-menu .pizzamenu-text-area .pizzamenu-allergie-circle-area .pizzamenu-allergie-circle {
+        position: absolute;
+        right: 70px;
+        top: -2px;
+        padding: 3px 0;
+        display: inline-block;
+        text-align: center;
+        font-size: 14px;
+        width: 22px;
+        height: 16px;
+        border-radius: 22px;
+        background-color: #f9423a;
+        color: #fff;
+    }
+
+    .pizza-menu .pizza-menu-content .pc-pizzamenu .pc-pizzamenu-menu .pizzamenu-text-area .pizzamenu-rank {
+        border: 2px solid #ccc;
+        position: relative;
+        display: inline-block;
+        width: 276px;
+        background: #fff;
+    }
+
+    .alvolo-select-noline {
+        padding: 0 30px!important;
+        border: 0;
+    }
+
+    .alvolo-select, .alvolo-select-noline {
+        cursor: pointer;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        color: #666;
+        width: calc(100% - 60px);
+        font-family: "Noto Sans KR Light", serif;
+        font-size: 20px;
+        color: #222;
+        background: transparent url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMSIgaGVpZ2h0PSIxMi4xMjUiPjxwYXRoIGQ9Ik0xOC44OC4wMTNMMTAuNSA4LjA1NiAyLjEyLjAxMiAwIDIuMDQ4IDEwLjUgMTIuMTMgMjEgMi4wNDh6IiBmaWxsPSIjMjIyIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4=) no-repeat 100%;
+        background-size: 11px 7px;
+        background-position-x: calc(100% - 15px);
+    }
+/*</pizzamenu-text-area>*/
+
+/*<pc-pizzamenu-card-area>*/
+    .pizza-menu .pizza-menu-content .pc-pizzamenu .pc-pizzamenu-menu .pc-pizzamenu-card-area {
+        width: 1200px;
+        min-width: 1200px;
+    }
+
+    .pizza-menu .pizza-menu-content .pc-pizzamenu .pc-pizzamenu-menu .pc-pizzamenu-card-area .pizzamenu-area-item {
+        margin-top: 40px;
+        position: relative;
+        display: inline-block;
+    }
+
+    .pizza-menu .pizza-menu-content .pc-pizzamenu .pc-pizzamenu-menu .pc-pizzamenu-card-area .pizzamenu-area-item:nth-child(2n) {
+        margin-left: 20px;
+    }
+
+    .topping-box-container {
+        min-width: 82px;
+        height: 38px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+    }
+
+    .topping-box-container .box {
+        background: #fff;
+        border-radius: 19px;
+        border: 1px solid #ccc;
+        color: #999;
+        text-align: center;
+        line-height: 38px;
+        font-family: "Noto Sans KR Light";
+        font-size: 16px;
+        padding: 0 5px;
+    }
+
+    .pizza-menu .pizza-menu-content .pc-pizzamenu .pc-pizzamenu-menu .pc-pizzamenu-card-area .pizzamenu-area-item .shadow-box {
+        position: absolute;
+        top: 0;
+        opacity: 0;
+    }
+
+    .pizza-menu .pizza-menu-content .pc-pizzamenu .pc-pizzamenu-menu .pc-pizzamenu-card-area .pizzamenu-area-item .shadow-box:hover {
+        z-index: 3;
+        opacity: 1;
+    }
+
+    .click-active {
+        width: 590px;
+        height: 240px;
+        background-color: rgba(0,0,0,.8);
+        -webkit-box-shadow: 13.4px 13.4px 16px 0 rgba(53,48,48,.17);
+        box-shadow: 13.4px 13.4px 16px 0 rgba(53,48,48,.17);
+    }
+
+    .click-active .view-button {
+        display: inline-block;
+        width: 155px;
+        height: 51px;
+        border-radius: 50px;
+        font-family: "Noto Sans KR Medium";
+        font-size: 18px;
+        color: #41b6e6;
+        border: 2px solid #41b6e6;
+        margin-right: 30px;
+        margin-left: 125px;
+        text-align: center;
+        margin-top: 93px;
+    }
+
+    .click-active .view-button:hover, .click-active .basket-button:hover {
+        background-color: #41b6e6;
+        color: #fff;
+    }
+
+    .click-active .view-button .inner-container, .click-active .basket-button .inner-container {
+        cursor: pointer;
+        margin-top: 15px;
+    }
+
+    .click-active .view-button .inner-container .view-card, .click-active .basket-button .inner-container .basket-card {
+        vertical-align: middle;
+        width: 22px;
+        height: 23px;
+        margin-right: 8px;
+    }
+
+    .click-active .basket-button {
+        display: inline-block;
+        width: 155px;
+        height: 51px;
+        border-radius: 50px;
+        font-family: "Noto Sans KR Medium";
+        font-size: 18px;
+        color: #41b6e6;
+        border: 2px solid #41b6e6;
+        text-align: center;
+        margin-top: 93px;
+    }
+/*</pc-pizzamenu-card-area>*/
+/*</pc-pizzamenu-menu>*/
+
+
+}

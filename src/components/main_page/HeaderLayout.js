@@ -1,44 +1,53 @@
+import React, {useState} from 'react';
+
 import "./HeaderLayout.css";
 
-import hambuger_button from "./img/hamburger_button.png";
-import logo from "./img/logo.png";
-import icon_pizza from "./img/icon_pizza.png";
-import icon_airplane from "./img/icon_airplane.png";
-import icon_arrow_more from "./img/icon_arrow_more.png";
-import x_button from "./img/x_button.png";
+import hambuger_button from "./img/header_layout/hamburger_button.png";
+import logo from "./img/header_layout/logo.png";
+import icon_pizza from "./img/header_layout/icon_pizza.png";
+import icon_airplane from "./img/header_layout/icon_airplane.png";
+import icon_arrow_more from "./img/header_layout/icon_arrow_more.png";
+import x_button from "./img/header_layout/x_button.png";
 
-function HeaderLayout() {
+const HeaderLayout = ({gotoMain, gotoPizza}) => {
+    const [isOpen, setMenu] = useState(false);
+    
+    function toggleMenu() {
+        setMenu(isOpen => !isOpen);
+    }
+
     return(
         <div className="web-main-tab-header">
-            <MainTabTop></MainTabTop>
+            <MainTabTop toggleMenu={toggleMenu} gotoMain={gotoMain} gotoPizza={gotoPizza}></MainTabTop>
             <LayoutTabSlide></LayoutTabSlide>
-            <MainTabCollapse></MainTabCollapse>
+            <MainTabCollapse isOpen={isOpen} toggleMenu={toggleMenu} gotoPizza={gotoPizza}></MainTabCollapse>
         </div>
     );
 }
 export default HeaderLayout;
 
-function MainTabTop() {
-    const middleTextArray = ["피자", "스페셜반반피자", "세트", "사이드", "하프앤하프", "멤버십˙제휴할인", "이벤트"];
-    const topRightTextArray = ["마이페이지", "회원가입", "로그인"];
-
+function MainTabTop({toggleMenu, gotoMain, gotoPizza}) {
     return (
         <div className="web-main-tab-top">
             <div className="tab-top-left">
-                <img src={hambuger_button} alt="#" className="web-icon-menu"></img>
-                <img src={logo} alt="#" className="web-icon-logo"></img>
+                <img src={hambuger_button} onClick={()=>toggleMenu()} alt="#" className="web-icon-menu"></img>
+                <img src={logo} onClick={()=>gotoMain()} alt="#" className="web-icon-logo"></img>
             </div>
             <div className="tab-top-middle">
-                {middleTextArray.map((text, index) => (
-                    <span key={index} className="top-middle-text">{text}</span>
-                ))}
+                <span onClick={()=>gotoPizza()} className="top-middle-text">피자</span>
+                <span className="top-middle-text">스페셜반반피자</span>
+                <span className="top-middle-text">세트</span>
+                <span className="top-middle-text">사이드</span>
+                <span className="top-middle-text">하프앤하프</span>
+                <span className="top-middle-text">멤버십 ˙ 제휴할인</span>
+                <span className="top-middle-text">이벤트</span>
             </div>
             <div className="tab-top-right">
                 <div className="tab-text-img-layout">
                     <div className="top-right-text-layout">
-                        {topRightTextArray.map((text, index) => (
-                            <span key={index} className="top-right-text">{text}</span>
-                        ))}
+                        <span className="top-right-text"> 마이페이지 </span>
+                        <span className="top-right-text"> 회원가입 </span>
+                        <span className="top-right-text"> 로그인 </span>
                     </div>
                     <img src={icon_pizza} alt="#" className="icon-pizza"></img>
                 </div>
@@ -56,10 +65,9 @@ function LayoutTabSlide() {
     );
 }
 
-function MainTabCollapse() {
+function MainTabCollapse({isOpen, toggleMenu, gotoPizza}) {
     const collapseArray =
-    [["피자", "전체피자", "스페셜반반피자", "세트메뉴", "하프앤하프"], 
-    ["사이드메뉴"],
+    [["사이드메뉴"],
     ["멤버십˙제휴할인", "멤버십 혜택", "통신사 제휴 할인"],
     ["이벤트"],
     ["매장찾기", "지역명 찾기", "매장명 찾기", "현위치 찾기"],
@@ -68,9 +76,21 @@ function MainTabCollapse() {
 
     const middleItemArray = ["회사소개", "가맹문의", "고객센터", "단체주문"];
 
+    function onClickItem() {
+        toggleMenu();
+        gotoPizza();
+    };
+
     return(
-        <div className="web-main-tab-collapse">
+        <div className={`web-main-tab-collapse ${isOpen ? "open" : ''}`}>
             <div className="web-collapse-tab-top">
+                <div className="collapse-tab-item">
+                    <div onClick={()=>onClickItem()} className="tab-item">피자</div>
+                    <div onClick={()=>onClickItem()} className="tab-item">전체피자</div>
+                    <div className="tab-item">스페셜반반피자</div>
+                    <div className="tab-item">세트메뉴</div>
+                    <div className="tab-item">하프앤하프</div>
+            </div>
                 {collapseArray.map((array, index) => (
                     <TabsCollapse key={index} itemArray={array}></TabsCollapse>
                 ))}

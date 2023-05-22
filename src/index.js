@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import reportWebVitals from './reportWebVitals';
 import MainPage from './components/main_page/MainPage';
+
+import './index.css';
+import './fonts/Font.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
