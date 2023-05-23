@@ -37,7 +37,7 @@ function MainImageSlide() {
             setTimeout(() => {
                 setCurrentSlide(1);
                 setMoveDelay(300);
-            }, 1);
+            }, 100);
         } else {
             const nextSlide = (currentSlide + 1) % totalSlides;
             setCurrentSlide(nextSlide);

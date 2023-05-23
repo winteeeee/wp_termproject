@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 import "./HeaderLayout.css";
 
@@ -9,18 +9,36 @@ import icon_airplane from "./img/header_layout/icon_airplane.png";
 import icon_arrow_more from "./img/header_layout/icon_arrow_more.png";
 import x_button from "./img/header_layout/x_button.png";
 
+const pageData = {
+    main: 0,
+    pizza: 1
+}
+
 const HeaderLayout = ({gotoMain, gotoPizza}) => {
     const [isOpen, setMenu] = useState(false);
+    const [pageNum, setPage] = useState(pageData.main);
     
     function toggleMenu() {
         setMenu(isOpen => !isOpen);
     }
 
+    function gotoPizzaPage() {
+        gotoPizza();
+        setMenu(false);
+        setPage(pageData.pizza);
+    }
+
+    function gotoMainPage() {
+        gotoMain();
+        setMenu(false);
+        setPage(pageData.main);
+    }
+
     return(
         <div className="web-main-tab-header">
-            <MainTabTop toggleMenu={toggleMenu} gotoMain={gotoMain} gotoPizza={gotoPizza}></MainTabTop>
-            <LayoutTabSlide></LayoutTabSlide>
-            <MainTabCollapse isOpen={isOpen} toggleMenu={toggleMenu} gotoPizza={gotoPizza}></MainTabCollapse>
+            <MainTabTop toggleMenu={toggleMenu} gotoMain={gotoMainPage} gotoPizza={gotoPizzaPage}></MainTabTop>
+            <LayoutTabSlide pageNum={pageNum}></LayoutTabSlide>
+            <MainTabCollapse isOpen={isOpen} gotoPizza={gotoPizzaPage}></MainTabCollapse>
         </div>
     );
 }
@@ -56,40 +74,60 @@ function MainTabTop({toggleMenu, gotoMain, gotoPizza}) {
     );
 }
 
-function LayoutTabSlide() {
+function LayoutTabSlide({pageNum}) {
+    const minLeft = 284;
+    const minWindowWidth = 1297;
+    const [leftValue, setLeftValue] = useState(minLeft);
+
+    useEffect(() => {
+        const handleWindowResize = () => {
+            const windowWidth = window.innerWidth;
+    
+            if (windowWidth > minWindowWidth) {
+                setLeftValue(() => minLeft + (windowWidth - minWindowWidth) * 0.425);
+            }
+        };
+    
+        window.addEventListener('resize', handleWindowResize);
+    
+        return () => {
+            window.removeEventListener('resize', handleWindowResize);
+        };
+    }, []);
+
+    const iconStyle = {
+        left: `${leftValue}px`,
+        display: pageNum === 0 ? "none" : "block"
+    }
+
     return(
         <div className="layout-tab-slide">
-            <img src={icon_airplane} alt="#" className="icon-airplane"></img>
+            <img src={icon_airplane} alt="#" className="icon-airplane" style={iconStyle}></img>
             <div className="tab-slide-line"></div>
         </div>
     );
 }
 
-function MainTabCollapse({isOpen, toggleMenu, gotoPizza}) {
+function MainTabCollapse({isOpen, gotoPizza}) {
     const collapseArray =
     [["사이드메뉴"],
-    ["멤버십˙제휴할인", "멤버십 혜택", "통신사 제휴 할인"],
+    ["멤버십 ˙ 제휴할인", "멤버십 혜택", "통신사 제휴 할인"],
     ["이벤트"],
     ["매장찾기", "지역명 찾기", "매장명 찾기", "현위치 찾기"],
     ["마이페이지", "주문내역", "쿠폰함", "MY CLASS", "비행기스탬프", "정보수정", "회원탈퇴"],
     ["주문하기", "배달주문하기", "포장주문하기", "간편주문", "E쿠폰", "선물하기"]];
 
-    const middleItemArray = ["회사소개", "가맹문의", "고객센터", "단체주문"];
-
-    function onClickItem() {
-        toggleMenu();
-        gotoPizza();
-    };
+    const middleItemArray = [" 회사소개 ", " 가맹문의 ", " 고객센터 ", " 단체주문 "];
 
     return(
         <div className={`web-main-tab-collapse ${isOpen ? "open" : ''}`}>
             <div className="web-collapse-tab-top">
                 <div className="collapse-tab-item">
-                    <div onClick={()=>onClickItem()} className="tab-item">피자</div>
-                    <div onClick={()=>onClickItem()} className="tab-item">전체피자</div>
-                    <div className="tab-item">스페셜반반피자</div>
-                    <div className="tab-item">세트메뉴</div>
-                    <div className="tab-item">하프앤하프</div>
+                    <div onClick={()=>gotoPizza()} className="tab-item"> 피자 </div>
+                    <div onClick={()=>gotoPizza()} className="tab-item"> 전체피자 </div>
+                    <div className="tab-item"> 스페셜반반피자 </div>
+                    <div className="tab-item"> 세트메뉴 </div>
+                    <div className="tab-item"> 하프앤하프 </div>
             </div>
                 {collapseArray.map((array, index) => (
                     <TabsCollapse key={index} itemArray={array}></TabsCollapse>

@@ -94,5 +94,16 @@ const pizzaData = [
         topping3: "치즈"
     }
 ];
-
 export default pizzaData;
+
+export function getMasterPizza() {
+    return pizzaData.filter(pizza => pizza.kind === pizzaKind.masterPizza);
+}
+
+export function getExpertPizza() {
+    return pizzaData.filter(pizza => pizza.kind === pizzaKind.expertPizza);
+}
+
+export function getLuxuryPizza() {
+    return pizzaData.filter(pizza => pizza.kind === pizzaKind.luxuryPizza);
+}

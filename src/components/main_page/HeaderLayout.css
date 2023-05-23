@@ -1,8 +1,3 @@
-.icon-airplane {
-    left: 288px;
-    display: none;
-}
-
 @media (min-width: 986px) {
 /*<web-main-tab-header>*/
     .web-main-tab-header-layout .web-main-tab-header {
@@ -167,6 +162,10 @@
         display: inline-block;
         width: 14.28%;
         vertical-align: top;
+    }
+
+    .web-main-tab-header-layout .web-main-tab-header .web-main-tab-collapse .web-collapse-tab-top .collapse-tab-item:first-child+.collapse-tab-item+.collapse-tab-item {
+        width: 18.28%;
     }
 
     .web-main-tab-header-layout .web-main-tab-header .web-main-tab-collapse .web-collapse-tab-top .tab-item:first-child {
