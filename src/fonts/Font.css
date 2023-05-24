@@ -39,3 +39,8 @@
     font-weight: normal;
     src: url("./NotoSansKR-Regular.otf") format("opentype");
   }
+
+  @font-face {
+    font-family: "element-icons";
+    src: url("./element-icons.ttf");
+  }

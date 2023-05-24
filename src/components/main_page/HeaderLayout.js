@@ -86,6 +86,9 @@ function LayoutTabSlide({pageNum}) {
             if (windowWidth > minWindowWidth) {
                 setLeftValue(() => minLeft + (windowWidth - minWindowWidth) * 0.425);
             }
+            else if(leftValue > minLeft) {
+                setLeftValue(minLeft);
+            }
         };
     
         window.addEventListener('resize', handleWindowResize);
@@ -93,7 +96,7 @@ function LayoutTabSlide({pageNum}) {
         return () => {
             window.removeEventListener('resize', handleWindowResize);
         };
-    }, []);
+    }, [leftValue]);
 
     const iconStyle = {
         left: `${leftValue}px`,

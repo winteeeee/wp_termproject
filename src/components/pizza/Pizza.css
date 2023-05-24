@@ -59,6 +59,126 @@
     margin-right: 6px;
 }
 
+.layout-pagination-whole {
+    text-align: center;
+    font-family: "Noto Sans KR Light";
+    font-size: 16px;
+}
+.el-pagination {
+    white-space: nowrap;
+    padding: 2px 5px;
+    color: #303133;
+    font-weight: 700;
+}
+.el-pagination:after, .el-pagination:before {
+    display: table;
+    content: "";
+}
+.el-pagination button, .el-pagination span:not([class*=suffix]) {
+    display: inline-block;
+    font-size: 13px;
+    min-width: 35.5px;
+    height: 28px;
+    line-height: 28px;
+    vertical-align: top;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.el-pagination button {
+    border: none;
+    padding: 0 6px;
+    background: 0 0;
+}
+.el-pagination .btn-next, .el-pagination .btn-prev {
+    background: 50% no-repeat #fff;
+    background-size: 16px;
+    cursor: pointer;
+    margin: 0;
+    color: #303133;
+}
+.el-pagination .btn-prev {
+    padding-right: 12px;
+}
+.el-pagination .btn-next {
+    padding-left: 12px;
+}
+.el-pagination button:disabled {
+    color: #c0c4cc;
+    background-color: #fff;
+    cursor: not-allowed;
+}
+[class*=" el-icon-"], [class^=el-icon-] {
+    font-family: "element-icons"!important;
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    vertical-align: baseline;
+    display: inline-block;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.el-pagination .btn-next .el-icon, 
+.el-pagination .btn-prev .el-icon {
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+}
+.el-icon-arrow-left:before {
+    content: "\E6DE";
+}
+.el-icon-arrow-right:before {
+    content: "\E6E0";
+}
+.el-pager, .el-pagination.is-background .btn-next, .el-pagination.is-background .btn-prev {
+    padding: 0;
+}
+.el-pager, .el-pager li {
+    vertical-align: top;
+    margin: 0;
+    display: inline-block;
+    background: #fff;
+    -webkit-box-sizing: border-box;
+}
+.el-pager {
+    -ms-user-select: none;
+    user-select: none;
+    list-style: none;
+    font-size: 0;
+}
+.el-date-table, .el-pager, .el-table th.el-table__cell {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+.el-pager li {
+    padding: 0 4px;
+    font-size: 13px;
+    min-width: 35.5px;
+    height: 28px;
+    line-height: 28px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
+}
+.el-pager li.active {
+    color: #409eff;
+    cursor: default;
+}
+.layout-pagination-whole .layout-pagination .el-pager li {
+    font-size: 16px;
+    display: inline-block;
+}
+.layout-pagination-whole .layout-pagination .el-pager li.active {
+    color: #41b6e6!important;
+    text-decoration: underline;
+}
+.layout-pagination-whole .layout-pagination .el-pager li.number {
+    color: #999;
+    display: inline-block;
+}
+
 @media (min-width: 986px) {
     .md-content-body .layout-content-scroll .main-pizza-menu {
         z-index: 5;
@@ -307,6 +427,21 @@
         margin-top: 93px;
     }
 /*</pc-pizzamenu-card-area>*/
+
+/*<pizzamenu-pagination>*/
+    .pizza-menu .pizza-menu-content .pc-pizzamenu .pc-pizzamenu-menu .pizzamenu-pagination {
+        margin-top: 60px;
+        padding-bottom: 125px;
+    }
+
+    .pizza-menu .pizza-menu-content .pc-pizzamenu .pc-pizzamenu-menu .pizzamenu-pagination .el-pagination .btn-next, .pizza-menu .pizza-menu-content .pc-pizzamenu .pc-pizzamenu-menu .pizzamenu-pagination .el-pagination .btn-prev {
+        background: 50% no-repeat #f4f4f4;
+    }
+    
+    .pizza-menu .pizza-menu-content .pc-pizzamenu .pc-pizzamenu-menu .pizzamenu-pagination .el-pager li {
+        background-color: #f4f4f4;
+    }
+/*</pizzamenu-pagination>*/
 /*</pc-pizzamenu-menu>*/
 
 

@@ -1,3 +1,4 @@
+import React, {useState} from 'react';
 import "./Pizza.css";
 
 import pizzaData from './PizzaData.js';
@@ -77,17 +78,7 @@ function PizzaMenu() {
                 </div>
             </div>
             <PizzaList></PizzaList>
-            <div className="pizzamenu-pagination">
-                <div className="layout-pagination-whole">
-                    <div className="layout-pagination el-pagination">
-                        <button type="button" disabled="disabled" className="btn-prev">
-                            <i className="el-icon el-icon"></i>
-                        </button>
-                        <ul className="el-pager"></ul>
-                        <button type="button" className="btn-next"></button>
-                    </div>
-                </div>
-            </div>
+            <PizzaPagination pizzaNum={pizzaData.length}></PizzaPagination>
         </div>
     );
 }
@@ -145,6 +136,34 @@ function PizzaItem({pizza}) {
                         <img src={icon_basket} className="basket-card" alt='#'></img>
                         장바구니
                     </div>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+function PizzaPagination({pizzaNum}) {
+    const pageNum = (pizzaNum + 1) / 2;
+    const [activePage, setActivePage] = useState(1);
+    const pageItems = [];
+
+    for(let i = 1; i <= pageNum; i++) {
+        pageItems.push(<li key={i} className={activePage === i ? "number active" : "number"}>{i}</li>)
+    }
+
+    return(
+        <div className="pizzamenu-pagination">
+            <div className="layout-pagination-whole">
+                <div className="layout-pagination el-pagination">
+                    <button type="button" disabled="disabled" className="btn-prev">
+                        <i className="el-icon el-icon-arrow-left"></i>
+                    </button>
+                    <ul className="el-pager">
+                        {pageItems}
+                    </ul>
+                    <button type="button" className="btn-next">
+                        <i className="el-icon el-icon-arrow-right"></i>
+                    </button>
                 </div>
             </div>
         </div>
