@@ -16,7 +16,7 @@ const pageData = {
 
 const HeaderLayout = ({gotoMain, gotoPizza}) => {
     const [isOpen, setMenu] = useState(false);
-    const [pageNum, setPage] = useState(pageData.main);
+    const [pageCode, setPage] = useState(pageData.main);
     
     function toggleMenu() {
         setMenu(isOpen => !isOpen);
@@ -37,7 +37,7 @@ const HeaderLayout = ({gotoMain, gotoPizza}) => {
     return(
         <div className="web-main-tab-header">
             <MainTabTop toggleMenu={toggleMenu} gotoMain={gotoMainPage} gotoPizza={gotoPizzaPage}></MainTabTop>
-            <LayoutTabSlide pageNum={pageNum}></LayoutTabSlide>
+            <LayoutTabSlide pageNum={pageCode}></LayoutTabSlide>
             <MainTabCollapse isOpen={isOpen} gotoPizza={gotoPizzaPage}></MainTabCollapse>
         </div>
     );

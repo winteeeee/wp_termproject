@@ -178,6 +178,9 @@
     color: #999;
     display: inline-block;
 }
+.el-pager li, .el-pager li.btn-quicknext:hover, .el-pager li.btn-quickprev:hover {
+    cursor: pointer;
+}
 
 @media (min-width: 986px) {
     .md-content-body .layout-content-scroll .main-pizza-menu {
@@ -306,7 +309,7 @@
         background: #fff;
     }
 
-    .alvolo-select-noline {
+    .alvolo-select-disable, .alvolo-select-noline {
         padding: 0 30px!important;
         border: 0;
     }
@@ -321,6 +324,19 @@
         font-family: "Noto Sans KR Light", serif;
         font-size: 20px;
         color: #222;
+        background: transparent url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMSIgaGVpZ2h0PSIxMi4xMjUiPjxwYXRoIGQ9Ik0xOC44OC4wMTNMMTAuNSA4LjA1NiAyLjEyLjAxMiAwIDIuMDQ4IDEwLjUgMTIuMTMgMjEgMi4wNDh6IiBmaWxsPSIjMjIyIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4=) no-repeat 100%;
+        background-size: 11px 7px;
+        background-position-x: calc(100% - 15px);
+    }
+
+    .alvolo-select-disable {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        width: calc(100% - 60px);
+        font-family: "Noto Sans KR Light",serif;
+        font-size: 20px;
+        color: #ccc;
         background: transparent url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMSIgaGVpZ2h0PSIxMi4xMjUiPjxwYXRoIGQ9Ik0xOC44OC4wMTNMMTAuNSA4LjA1NiAyLjEyLjAxMiAwIDIuMDQ4IDEwLjUgMTIuMTMgMjEgMi4wNDh6IiBmaWxsPSIjMjIyIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4=) no-repeat 100%;
         background-size: 11px 7px;
         background-position-x: calc(100% - 15px);
