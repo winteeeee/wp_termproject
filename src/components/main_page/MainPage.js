@@ -12,24 +12,16 @@ const MainPage = () => {
         pizzaPage: "pizza"
     }
 
-    function gotoMain() {
-        setPageName(page.mainPage);
-    }
-    
-    function gotoPizza() {
-        setPageName(page.pizzaPage);
-    }
-
     return(
         <div>
             <div className="web-main-tab-header-layout">
-                <HeaderLayout gotoMain={gotoMain} gotoPizza={gotoPizza}></HeaderLayout>
+                <HeaderLayout gotoMain={() => (setPageName(page.mainPage))} gotoPizza={(() => setPageName(page.pizzaPage))}></HeaderLayout>
             </div>
             <div className="client-main-page">
                 <div className="content-body">
                     <div className="md-content-body">
                         <div className="layout-content-scroll">
-                            {(pageName === page.mainPage) && <MainContent gotoPizza={gotoPizza}></MainContent>}
+                            {(pageName === page.mainPage) && <MainContent gotoPizza={() => (setPageName(page.pizzaPage))}></MainContent>}
                             {(pageName === page.pizzaPage) && <PizzaPage></PizzaPage>}
                         </div>
                     </div>
