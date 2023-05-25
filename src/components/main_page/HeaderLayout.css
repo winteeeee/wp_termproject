@@ -1,208 +1,206 @@
-@media (min-width: 986px) {
 /*<web-main-tab-header>*/
-    .web-main-tab-header-layout .web-main-tab-header {
-        min-width: 1280px;
-        position: absolute;
-        top: 0;
-        margin: 0 auto;
-        z-index: 4;
-        width: 100%;
-        background-color: #41b6e6;
-    }
+.web-main-tab-header-layout .web-main-tab-header {
+    min-width: 1280px;
+    position: absolute;
+    top: 0;
+    margin: 0 auto;
+    z-index: 4;
+    width: 100%;
+    background-color: #41b6e6;
+}
 
 /*<web-main-tab-top>*/
-    .web-main-tab-header-layout .web-main-tab-header .web-main-tab-top {
-        width: 100%;
-        height: 70px;
-        display: table;
-    }
+.web-main-tab-header-layout .web-main-tab-header .web-main-tab-top {
+    width: 100%;
+    height: 70px;
+    display: table;
+}
 
 /*<tab-top-left>*/
-    .web-main-tab-header-layout .web-main-tab-header .web-main-tab-top .tab-top-left {
-        padding-left: 30px;
-        display: table-cell;
-        width: calc(100% - 30px);
-        width: -webkit-calc(100% - 20px);
-        width: -moz-calc(100% - 20px);
-        width: -ms-calc(100% - 20px);
-        width: -o-calc(100% - 20px);
-        width: 55%;
-        width: 20%;
-    }
+.web-main-tab-header-layout .web-main-tab-header .web-main-tab-top .tab-top-left {
+    padding-left: 30px;
+    display: table-cell;
+    width: calc(100% - 30px);
+    width: -webkit-calc(100% - 20px);
+    width: -moz-calc(100% - 20px);
+    width: -ms-calc(100% - 20px);
+    width: -o-calc(100% - 20px);
+    width: 55%;
+    width: 20%;
+}
 
-    .web-main-tab-header-layout .web-main-tab-header .web-main-tab-top .tab-top-left .web-icon-menu {
-        cursor: pointer;
-        width: 25px;
-        height: 21px;
-    }
+.web-main-tab-header-layout .web-main-tab-header .web-main-tab-top .tab-top-left .web-icon-menu {
+    cursor: pointer;
+    width: 25px;
+    height: 21px;
+}
 
-    .web-main-tab-header-layout .web-main-tab-header .web-main-tab-top .tab-top-left .web-icon-logo {
-        cursor: pointer;
-        width: 170px;
-        height: 19px;
-        margin-left: 24px;
-    }
+.web-main-tab-header-layout .web-main-tab-header .web-main-tab-top .tab-top-left .web-icon-logo {
+    cursor: pointer;
+    width: 170px;
+    height: 19px;
+    margin-left: 24px;
+}
 /*</tab-top-left>*/
 
 /*<tab-top-middle>*/
-    .web-main-tab-header-layout .web-main-tab-header .web-main-tab-top .tab-top-middle {
-        display: table-cell;
-        width: calc(100% - 20px);
-        width: -webkit-calc(100% - 20px);
-        width: -moz-calc(100% - 20px);
-        width: -ms-calc(100% - 20px);
-        width: -o-calc(100% - 20px);
-        width: 55%;
-        padding-left: 20px;
-        text-align: center;
-        font-size: 20px;
-        letter-spacing: -.3px;
-        font-family: "Noto Sans KR Regular";
-        color: #fff;
-    }
+.web-main-tab-header-layout .web-main-tab-header .web-main-tab-top .tab-top-middle {
+    display: table-cell;
+    width: calc(100% - 20px);
+    width: -webkit-calc(100% - 20px);
+    width: -moz-calc(100% - 20px);
+    width: -ms-calc(100% - 20px);
+    width: -o-calc(100% - 20px);
+    width: 55%;
+    padding-left: 20px;
+    text-align: center;
+    font-size: 20px;
+    letter-spacing: -.3px;
+    font-family: "Noto Sans KR Regular";
+    color: #fff;
+}
 
-    .web-main-tab-header-layout .web-main-tab-header .web-main-tab-top .tab-top-middle .top-middle-text {
-        cursor: pointer;
-        margin-right: 3%;
-    }
+.web-main-tab-header-layout .web-main-tab-header .web-main-tab-top .tab-top-middle .top-middle-text {
+    cursor: pointer;
+    margin-right: 3%;
+}
 
-    .web-main-tab-header-layout .web-main-tab-header .web-main-tab-top .tab-top-middle .top-middle-text:last-child {
-        margin-right: 0;
-    }
+.web-main-tab-header-layout .web-main-tab-header .web-main-tab-top .tab-top-middle .top-middle-text:last-child {
+    margin-right: 0;
+}
 /*</tab-top-middle>*/
 
 /*<tab-top-right>*/
-    .web-main-tab-header-layout .web-main-tab-header .web-main-tab-top .tab-top-right {
-        width: 290px;
-        float: right;
-    }
+.web-main-tab-header-layout .web-main-tab-header .web-main-tab-top .tab-top-right {
+    width: 290px;
+    float: right;
+}
 
-    .web-main-tab-header-layout .web-main-tab-header .web-main-tab-top .tab-top-right .tab-text-img-layout {
-        margin-left: auto;
-        max-width: 360px;
-        position: relative;
-    }
+.web-main-tab-header-layout .web-main-tab-header .web-main-tab-top .tab-top-right .tab-text-img-layout {
+    margin-left: auto;
+    max-width: 360px;
+    position: relative;
+}
 
 /*<top-right-text-layout>*/
-    .web-main-tab-header-layout .web-main-tab-header .web-main-tab-top .tab-top-right .tab-text-img-layout .top-right-text-layout {
-        text-align: left;
-        margin-top: 32px;
-        font-size: 17px;
-        width: 100%;
-        color: #001951;
-        font-family: "Noto Sans KR Regular";
-    }
+.web-main-tab-header-layout .web-main-tab-header .web-main-tab-top .tab-top-right .tab-text-img-layout .top-right-text-layout {
+    text-align: left;
+    margin-top: 32px;
+    font-size: 17px;
+    width: 100%;
+    color: #001951;
+    font-family: "Noto Sans KR Regular";
+}
 
-    .web-main-tab-header-layout .web-main-tab-header .web-main-tab-top .tab-top-right .tab-text-img-layout .top-right-text-layout .top-right-text {
-        cursor: pointer;
-        margin-right: 3%;
-        word-break: keep-all;
-    }
+.web-main-tab-header-layout .web-main-tab-header .web-main-tab-top .tab-top-right .tab-text-img-layout .top-right-text-layout .top-right-text {
+    cursor: pointer;
+    margin-right: 3%;
+    word-break: keep-all;
+}
 /*</top-right-text-layout>*/
 
-    .web-main-tab-header-layout .web-main-tab-header .web-main-tab-top .tab-top-right .tab-text-img-layout .icon-pizza {
-        cursor: pointer;
-        position: absolute;
-        width: 44px;
-        height: 47px;
-        top: -10px;
-        right: 20px;
-    }
+.web-main-tab-header-layout .web-main-tab-header .web-main-tab-top .tab-top-right .tab-text-img-layout .icon-pizza {
+    cursor: pointer;
+    position: absolute;
+    width: 44px;
+    height: 47px;
+    top: -10px;
+    right: 20px;
+}
 /*</tab-top-right>*/
 /*</web-main-tab-top>*/
 
 /*<layout-tab-slide>*/
-    .web-main-tab-header-layout .web-main-tab-header .layout-tab-slide {
-        height: 10px;
-        position: relative;
-        z-index: 3;
-    }
-    
-    .web-main-tab-header-layout .web-main-tab-header .layout-tab-slide .icon-airplane {
-        width: 41px;
-        height: 18px;
-        position: absolute;
-        -webkit-transition: left .5s;
-        transition: left .5s;
-    }
-    
-    .web-main-tab-header-layout .web-main-tab-header .layout-tab-slide .tab-slide-line {
-        display: inline-block;
-        vertical-align: middle;
-        width: 100%;
-        height: 1px;
-        background-color: #20aee6;
-    }
+.web-main-tab-header-layout .web-main-tab-header .layout-tab-slide {
+    height: 10px;
+    position: relative;
+    z-index: 3;
+}
+
+.web-main-tab-header-layout .web-main-tab-header .layout-tab-slide .icon-airplane {
+    width: 41px;
+    height: 18px;
+    position: absolute;
+    -webkit-transition: left .5s;
+    transition: left .5s;
+}
+
+.web-main-tab-header-layout .web-main-tab-header .layout-tab-slide .tab-slide-line {
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+    height: 1px;
+    background-color: #20aee6;
+}
 /*</layout-tab-slide>*/
 
 /*<web-main-tab-collapse>*/
-    .web-main-tab-header-layout .web-main-tab-header .web-main-tab-collapse {
-        overflow: hidden;
-        max-width: 1200px;
-        margin: 0 auto;
-        height: 0;
-        -webkit-transition: height .2s ease-out;
-        transition: height .2s ease-out;
-    }
-    .web-main-tab-header-layout .web-main-tab-header .web-main-tab-collapse.open {
-        height: 326px;
-    }
+.web-main-tab-header-layout .web-main-tab-header .web-main-tab-collapse {
+    overflow: hidden;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 0;
+    -webkit-transition: height .2s ease-out;
+    transition: height .2s ease-out;
+}
+.web-main-tab-header-layout .web-main-tab-header .web-main-tab-collapse.open {
+    height: 326px;
+}
 
 /*<web-collapse-tab-top>*/
-    .web-main-tab-header-layout .web-main-tab-header .web-main-tab-collapse .web-collapse-tab-top {
-        height: 270px;
-    }
+.web-main-tab-header-layout .web-main-tab-header .web-main-tab-collapse .web-collapse-tab-top {
+    height: 270px;
+}
 
-    .web-main-tab-header-layout .web-main-tab-header .web-main-tab-collapse .web-collapse-tab-top .collapse-tab-item:first-child, .web-main-tab-header-layout .web-main-tab-header .web-main-tab-collapse .web-collapse-tab-top .collapse-tab-item:first-child+.collapse-tab-item+.collapse-tab-item+.collapse-tab-item {
-        width: 10.28%;
-    }
+.web-main-tab-header-layout .web-main-tab-header .web-main-tab-collapse .web-collapse-tab-top .collapse-tab-item:first-child, .web-main-tab-header-layout .web-main-tab-header .web-main-tab-collapse .web-collapse-tab-top .collapse-tab-item:first-child+.collapse-tab-item+.collapse-tab-item+.collapse-tab-item {
+    width: 10.28%;
+}
 
-    .web-main-tab-header-layout .web-main-tab-header .web-main-tab-collapse .web-collapse-tab-top .collapse-tab-item {
-        margin-top: 48px;
-        display: inline-block;
-        width: 14.28%;
-        vertical-align: top;
-    }
+.web-main-tab-header-layout .web-main-tab-header .web-main-tab-collapse .web-collapse-tab-top .collapse-tab-item {
+    margin-top: 48px;
+    display: inline-block;
+    width: 14.28%;
+    vertical-align: top;
+}
 
-    .web-main-tab-header-layout .web-main-tab-header .web-main-tab-collapse .web-collapse-tab-top .collapse-tab-item:first-child+.collapse-tab-item+.collapse-tab-item {
-        width: 18.28%;
-    }
+.web-main-tab-header-layout .web-main-tab-header .web-main-tab-collapse .web-collapse-tab-top .collapse-tab-item:first-child+.collapse-tab-item+.collapse-tab-item {
+    width: 18.28%;
+}
 
-    .web-main-tab-header-layout .web-main-tab-header .web-main-tab-collapse .web-collapse-tab-top .tab-item:first-child {
-        color: #001951;
-        font-size: 21px;
-        margin-bottom: 26px;
-        font-family: "Noto Sans KR Medium";
-    }
+.web-main-tab-header-layout .web-main-tab-header .web-main-tab-collapse .web-collapse-tab-top .tab-item:first-child {
+    color: #001951;
+    font-size: 21px;
+    margin-bottom: 26px;
+    font-family: "Noto Sans KR Medium";
+}
 
-    .web-main-tab-header-layout .web-main-tab-header .web-main-tab-collapse .web-collapse-tab-top .tab-item {
-        cursor: pointer;
-        color: #fff;
-        font-size: 16px;
-        margin-bottom: 14px;
-        font-family: "Noto Sans KR Medium";
-    }
+.web-main-tab-header-layout .web-main-tab-header .web-main-tab-collapse .web-collapse-tab-top .tab-item {
+    cursor: pointer;
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 14px;
+    font-family: "Noto Sans KR Medium";
+}
 /*</web-collapse-tab-top>*/
 
 /*<web-collapse-tab-middle>*/
-    .web-main-tab-header-layout .web-main-tab-header .web-main-tab-collapse .web-collapse-tab-middle .tab-middle-item {
-        cursor: pointer;
-        margin-right: 20px;
-        color: #fff;
-        font-size: 16px;
-        font-family: "Noto Sans KR Medium";
-    }
+.web-main-tab-header-layout .web-main-tab-header .web-main-tab-collapse .web-collapse-tab-middle .tab-middle-item {
+    cursor: pointer;
+    margin-right: 20px;
+    color: #fff;
+    font-size: 16px;
+    font-family: "Noto Sans KR Medium";
+}
 
-    .web-main-tab-header-layout .web-main-tab-header .web-main-tab-collapse .web-collapse-tab-middle .img-arrow-more {
-        width: 7px;
-        height: 11px;
-    }
+.web-main-tab-header-layout .web-main-tab-header .web-main-tab-collapse .web-collapse-tab-middle .img-arrow-more {
+    width: 7px;
+    height: 11px;
+}
 
-    .web-main-tab-header-layout .web-main-tab-header .web-main-tab-collapse .web-collapse-tab-middle .x-button {
-        cursor: pointer;
-        float: right;
-    }
+.web-main-tab-header-layout .web-main-tab-header .web-main-tab-collapse .web-collapse-tab-middle .x-button {
+    cursor: pointer;
+    float: right;
+}
 /*</web-collapse-tab-middle>*/
 
 /*</web-main-tab-header>*/
-}

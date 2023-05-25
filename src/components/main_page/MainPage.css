@@ -47,23 +47,21 @@ select:focus {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-@media (min-width: 986px) {
-    .web-main-tab-header-layout {
-        position: relative;
-        height: 80px;
-        background-color: #41b6e6;
-    }
+.web-main-tab-header-layout {
+    position: relative;
+    height: 80px;
+    background-color: #41b6e6;
+}
 
-    .client-main-page {
-        min-width: 1280px;
-    }
+.client-main-page {
+    min-width: 1280px;
+}
 
-    .md-content-body {
-        height: 100%;
-    }
+.md-content-body {
+    height: 100%;
+}
 
-    .md-content-body .layout-content-scroll {
-        position: relative;
-        background-color: #f4f4f4;
-    }
+.md-content-body .layout-content-scroll {
+    position: relative;
+    background-color: #f4f4f4;
 }

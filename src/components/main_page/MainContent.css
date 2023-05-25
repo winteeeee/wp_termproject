@@ -134,99 +134,97 @@ audio:not(.md-image), canvas:not(.md-image), embed:not(.md-image), iframe:not(.m
     z-index: -1000;
 }
 
-@media (min-width: 986px) {
 /*<login-before-outbox>*/
-    .md-content-body .layout-content-scroll .login-before-outbox {
-        position: relative;
-        width: 100%;
-        background-color: #41b6e6;
-    }
+.md-content-body .layout-content-scroll .login-before-outbox {
+    position: relative;
+    width: 100%;
+    background-color: #41b6e6;
+}
 
-    .md-content-body .layout-content-scroll .remain-area-fill {
-        height: 0px;
-        display: none;
-    }
+.md-content-body .layout-content-scroll .remain-area-fill {
+    height: 0px;
+    display: none;
+}
 
-    .md-content-body .layout-content-scroll .login-before-outbox .main-image-slide {
-        background-color: #f4f4f4!important;
-        width: 100%;
-        padding-top: 30px;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        justify-content: center;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-    }
+.md-content-body .layout-content-scroll .login-before-outbox .main-image-slide {
+    background-color: #f4f4f4!important;
+    width: 100%;
+    padding-top: 30px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+}
 /*</login-before-outbox>*/
 
 /*<home-logout-order>*/
-    .md-content-body .layout-content-scroll .home-logout-order {
-        cursor: pointer;
-        position: relative;
-        background-color: #f4f4f4;
-        width: 100%;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        display: -webkit-flex;
-        justify-content: center;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-    }
-
-    .btn-red-order {
-        width: 1200px;
-        height: 120px;
-        background: #f9423a;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-flow: column flex;
-        -ms-flex-pack: distribute;
-        justify-content: space-around;
-    }
-
-    .btn-red-order .inner-div {
-        -webkit-box-flex: 1;
-        -ms-flex: 1;
-        flex: 1;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-    }
-
-    .btn-red-order .btn-delivery-icon {
-        height: 64px;
-        margin: auto 40px auto 0;
-        display: inline-block;
-    }
-
-    .btn-red-order .btn-delivery-text, .btn-red-order .btn-box-text {
-        font-family: "Noto Sans KR Medium";
-        font-size: 28px;
-        color: #fff;
-        height: 120px;
-        line-height: 120px;
-    }
-
-    .btn-red-order .btn-red-line {
-        height: 69px;
-        width: 1px;
-        background: #fff;
-        opacity: .3;
-        margin: auto 0;
-    }
-
-    .btn-red-order .btn-box-icon {
-        height: 64px;
-        margin: auto 46px auto 0;
-        display: inline-block;
-    }
-/*</home-logout-order>*/
+.md-content-body .layout-content-scroll .home-logout-order {
+    cursor: pointer;
+    position: relative;
+    background-color: #f4f4f4;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
 }
+
+.btn-red-order {
+    width: 1200px;
+    height: 120px;
+    background: #f9423a;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: column flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+}
+
+.btn-red-order .inner-div {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.btn-red-order .btn-delivery-icon {
+    height: 64px;
+    margin: auto 40px auto 0;
+    display: inline-block;
+}
+
+.btn-red-order .btn-delivery-text, .btn-red-order .btn-box-text {
+    font-family: "Noto Sans KR Medium";
+    font-size: 28px;
+    color: #fff;
+    height: 120px;
+    line-height: 120px;
+}
+
+.btn-red-order .btn-red-line {
+    height: 69px;
+    width: 1px;
+    background: #fff;
+    opacity: .3;
+    margin: auto 0;
+}
+
+.btn-red-order .btn-box-icon {
+    height: 64px;
+    margin: auto 46px auto 0;
+    display: inline-block;
+}
+/*</home-logout-order>*/
