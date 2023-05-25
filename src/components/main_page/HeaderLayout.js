@@ -77,7 +77,7 @@ function MainTabTop({toggleMenu, gotoMain, gotoPizza}) {
 function LayoutTabSlide({pageNum}) {
     const minLeft = 284;
     const minWindowWidth = 1297;
-    const [leftValue, setLeftValue] = useState(minLeft);
+    const [leftValue, setLeftValue] = useState(minLeft + (window.innerWidth - minWindowWidth) * 0.425);
 
     useEffect(() => {
         const handleWindowResize = () => {

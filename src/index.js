@@ -6,13 +6,6 @@ import MainPage from './components/main_page/MainPage';
 import './index.css';
 import './fonts/Font.css';
 
-const mongoose = require('mongoose')
-
-mongoose.connect("mongoURI", {
-  useNewUrlParser: true, setUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false
-}).then(() => console.log('MongoDB Connected..'))
-  .catch(err => console.log(err))
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
