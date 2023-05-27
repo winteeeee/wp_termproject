@@ -74,11 +74,7 @@ function OwnerPageMenuReg() {
             console.log(pizza.get(key));
         }
 
-        axios.post("http://localhost:4000/MenuReg", pizza, {
-            headers: {
-                "Content-Type": "multipart/form-data",
-            }
-        }).then(r => console.log(r));
+        axios.post("http://localhost:4000/MenuReg", pizza).then(r => console.log(r));
     }
 
     return (
@@ -96,8 +92,8 @@ function OwnerPageMenuReg() {
                             <input type="text" value={description} placeholder="설명" onFocus={onFocus} onBlur={onBlur} onChange={descriptionChange}></input>
                         </div>
                         <div className="alvolo-input">
-                            <select onChange={kindChange}>
-                                <option value="null" selected disabled>종류 선택</option>
+                            <select defaultValue="null" onChange={kindChange}>
+                                <option value="null" disabled>종류 선택</option>
                                 <option value="masterPizza">장인피자</option>
                                 <option value="expertPizza">달인피자</option>
                                 <option value="luxuryPizza">명품피자</option>
@@ -134,7 +130,6 @@ function OwnerPageMenuReg() {
             </div>
         </div>
     )
-    //TODO 확인 버튼 누르면 DB에 insert 되도록 구현
 }
 
 export default OwnerPageMenuReg;
