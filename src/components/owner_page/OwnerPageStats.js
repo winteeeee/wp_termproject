@@ -1,13 +1,22 @@
 import {OwnerPageSalesChart} from "./OwnerPageSalesChart";
 import {OwnerPageAmountChart} from "./OwnerPageAmountChart";
+import axios from "axios";
+import {useEffect, useState} from "react";
 
 function OwnerPageStats() {
-    const pizzas = ['쉬림프&핫치킨골드피자', '날개피자', '어깨피자', '꿈을피자', '팔도피자', '웃음꽃피자', '전주불백피자', '팔자피자'];
-    const amounts = [30, 10, 15, 25, 20, 10, 20, 30];
-    const dayOfTheWeek = ['월요일', '화요일', '수요일', '목요일', '금요일', '토요일', '일요일'];
-    const sales = [250000, 230000, 280000, 200000, 390000, 410000, 380000];
+    const [pizzas, setPizzas] = useState([]);
+    const [amounts, setAmounts] = useState([]);
+    const [sales, setSales] = useState([]);
+    const [dayOfTheWeek, setDayOfTheWeek] = useState([]);
+    useEffect(() => {
+        axios.get("http://localhost:4000/Stats/loadData").then((res) => {
+            setPizzas(res.data.pizzaName);
+            setAmounts(res.data.amounts);
+            setSales(res.data.sales);
+            setDayOfTheWeek(res.data.dayOfTheWeek);
+        });
+    }, []);
     //TODO DB에서 값 조회하여 amounts와 sales 구성
-
 
     return (
         <div className="my-page-stats">
