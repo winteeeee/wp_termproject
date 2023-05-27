@@ -5,7 +5,6 @@ const cors = require("cors");
 const yaml = require("js-yaml");
 const fs = require("fs");
 const mongoose= require("mongoose");
-const binarySearch = require("binary-search");
 
 const app = express();
 const form_data = multer();
