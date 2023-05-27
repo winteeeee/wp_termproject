@@ -1,0 +1,50 @@
+.pizza-menu-detail{
+    width: 1800px;
+    height: 3401px;
+    background-color: darkcyan;
+    margin: auto;
+    box-sizing: inherit;
+}
+
+.info-container{
+    width: 1200px;
+    height: 3401px;
+    background-color: aqua;
+    margin: auto;
+    box-sizing: inherit;
+}
+
+.review-page-header{
+    width: 1200px;
+    height: 208px;
+    line-height: 1;
+    font-family: 'Noto Sans KR';
+    font-size: 28px;
+    letter-spacing: .01em;
+    font-weight: 400;
+    display : flex;
+    justify-content : center;
+    align-items : center
+}
+
+.pizza-info-container{
+    width: 1120px;
+    height: 661px;
+    border: 1px solid #ddd;
+    background-color: blue;
+    padding: 40px;
+    position: relative;
+    display: flex;
+}
+
+.pizza-slide-box{
+    width: 570px;
+    height: 475px;
+    background-color: palegoldenrod;
+}
+
+.pizza-item-info{
+    width: 510px;
+    height: 184px;
+    background-color: indianred;
+}
