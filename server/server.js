@@ -1,17 +1,24 @@
 const express = require("express");
-const app = express();
-const hostname = "127.0.0.1";
-const port = 4000;
 const bodyParser = require("body-parser");
 const multer = require("multer");
 const cors = require("cors");
-const form_data = multer();
+const yaml = require("js-yaml");
+const fs = require("fs");
 const mongoose= require("mongoose");
 
-mongoose.connect("mongodb://127.0.0.1:27017/wp_termproject").then(() => {
+const app = express();
+const form_data = multer();
+
+const config = yaml.load(fs.readFileSync("config.yml", 'utf8'));
+const hostname = config["Server"]["Host"];
+const port = config["Server"]["Port"];
+const dbHost = config["MongoDB"]["Host"];
+const dbPort = config["MongoDB"]["Port"];
+const dbName = config["MongoDB"]["Database"];
+
+mongoose.connect(`mongodb://${dbHost}:${dbPort}/${dbName}`).then(() => {
     console.log("DB 연결 성공");
 });
-
 const db = mongoose.connection;
 
 app.use(express.json());
@@ -24,7 +31,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 app.get("/", (req, res) => {
-    return res.send("hello worlds");
+    return res.send("서버 구동중");
 });
 
 app.post("/MenuReg", form_data.single("img"), (req, res) => {
