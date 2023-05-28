@@ -113,6 +113,7 @@ function OrderList() {
                 <font className = "total-price">34,500</font>
                 원
             </h4>
+            <div className="basic-button">주문하기</div>
         </div>
         </body>
     )

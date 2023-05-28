@@ -83,7 +83,7 @@
 }
 /*변경*/
 .basket-body-area .footer-right .btn-change {
-    margin: 3rem 1rem 0 0;
+    margin: 3rem 1rem 0 1rem;
     background: #cbcbcb;
     height: 40px;
     line-height: 40px;
@@ -96,7 +96,7 @@
 /*삭제*/
 .basket-body-area .basket-toolbar-area img{
     margin-top: 3.2rem;
-    margin-left: 2rem;
+    margin-left: 1rem;
     width: 30px;
     height: 30px;
 }
@@ -132,4 +132,21 @@
     padding: 0 0.5rem;
     font-size: 35px;
     font-weight: bold;
+}
+/*주문하기*/
+.basic-button {
+    position: absolute;
+    left: 65%;
+    top:130%;
+    width: 400px;
+    line-height: 64px;
+    height: 64px;
+    background: #41b6e6;
+    font-family: Noto Sans CJK KR Regular;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    color: #fff;
 }
