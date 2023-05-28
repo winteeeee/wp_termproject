@@ -90,20 +90,10 @@ app.post("/MenuReg", form_data.single("img"), (req, res) => {
 
 app.get("/test", async (req, res) => {
     let result = [];
-    let pizzaImg = [];
-    let pizzaName = [];
-    let pizzaPrice = [];
-    let pizzaOption = [];
-
     await db.collection("pizza").find().forEach((r) => {
-        pizzaImg.push(r.img);
-        pizzaName.push(r.name);
-        pizzaPrice.push(r.priceL);
-        pizzaOption.push("테스트");
+        result.push({pizzaImg: r.img, pizzaName: r.name, pizzaPrice: r.priceL, pizzaOption: "테스트"});
     })
-
-    result = {pizzaImg: pizzaImg, pizzaName: pizzaName, pizzaPrice: pizzaPrice, pizzaOption: pizzaOption};
-    console.log(result);
+    //TODO 피자 컬렉션이 아니라 장바구니 컬렉션에서 조회하기
     return res.json(result);
 })
 
