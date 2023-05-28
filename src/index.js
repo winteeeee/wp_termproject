@@ -8,12 +8,13 @@ import OwnerPage from "./components/owner_page/OwnerPage";
 
 import './index.css';
 import './fonts/Font.css';
+import ShoppingBasket from "./components/shopping_basket/ShoppingBasket";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-        <OwnerPage/>
+        <ShoppingBasket/>
     </BrowserRouter>
   </React.StrictMode>
 );
