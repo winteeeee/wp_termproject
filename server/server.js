@@ -88,6 +88,25 @@ app.post("/MenuReg", form_data.single("img"), (req, res) => {
     return res.json(req.body);
 })*/
 
+app.get("/test", async (req, res) => {
+    let result = [];
+    let pizzaImg = [];
+    let pizzaName = [];
+    let pizzaPrice = [];
+    let pizzaOption = [];
+
+    await db.collection("pizza").find().forEach((r) => {
+        pizzaImg.push(r.img);
+        pizzaName.push(r.name);
+        pizzaPrice.push(r.priceL);
+        pizzaOption.push("테스트");
+    })
+
+    result = {pizzaImg: pizzaImg, pizzaName: pizzaName, pizzaPrice: pizzaPrice, pizzaOption: pizzaOption};
+    console.log(result);
+    return res.json(result);
+})
+
 app.listen(port, hostname, () => {
     console.log(`Server running at http://${hostname}:${port}/`);
 });
