@@ -1,15 +1,13 @@
 .pizza-menu-detail{
     width: 1800px;
     height: 3401px;
-    background-color: darkcyan;
     margin: auto;
     box-sizing: inherit;
 }
 
 .info-container{
     width: 1200px;
-    height: 3401px;
-    background-color: aqua;
+    height: 869px;
     margin: auto;
     box-sizing: inherit;
 }
@@ -18,33 +16,208 @@
     width: 1200px;
     height: 208px;
     line-height: 1;
-    font-family: 'Noto Sans KR';
-    font-size: 28px;
+    font-family: 'Noto Sans KR Light';
+    font-size: 42px;
+    font-style: #222;
     letter-spacing: .01em;
     font-weight: 400;
     display : flex;
     justify-content : center;
-    align-items : center
+    align-items : center;
+    opacity: 0.7;
 }
 
 .pizza-info-container{
     width: 1120px;
-    height: 661px;
+    height: 550px;
     border: 1px solid #ddd;
-    background-color: blue;
     padding: 40px;
     position: relative;
     display: flex;
 }
 
 .pizza-slide-box{
-    width: 570px;
+    width: 1710px;
     height: 475px;
-    background-color: palegoldenrod;
+    background-color: #999;
+    overflow: hidden;
 }
 
+.slider{
+    display: flex;
+    position: absolute;
+    width: 570px;
+    height: 475px;
+    z-index : 100;
+    
+}
+
+
+
 .pizza-item-info{
-    width: 510px;
+    width: 550px;
     height: 184px;
-    background-color: indianred;
+}
+
+.pizza-item-name{
+    width: 550px;
+    height: 28px;
+    text-align: center;
+    font-family: 'Noto Sans KR Bold';
+    font-size: 28px;
+    color: #222;
+    margin-bottom: 12px;
+    letter-spacing: .01em;
+    font-weight: 400;
+    box-sizing: inherit;
+}
+
+.pizza-item-english-name{
+    width: 550px;
+    height: 16px;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 16px;
+    color: #999;
+    margin-bottom: 12px;
+    letter-spacing: .01em;
+    font-weight: 400;
+    box-sizing: inherit;
+}
+
+.pizza-item-price{
+    width: 550px;
+    height: 22px;
+    text-align: center;
+    vertical-align: baseline;
+}
+
+.pizza-item-large{
+    font-family: 'Noto Sans KR Bold';
+    font-size: 22px;
+    margin-bottom: 10px;
+    letter-spacing: .01em;
+    font-weight: 400;
+    color: #41b6e6;
+    margin-right: 10px;
+}
+
+.pizza-item-large-price{
+    color: #333;
+    margin-right: 10px;
+    font-family: 'Noto Sans KR Bold';
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.pizza-item-ragular{
+    font-family: 'Noto Sans KR Bold';
+    font-size: 22px;
+    margin-bottom: 10px;
+    letter-spacing: .01em;
+    font-weight: 400;
+    color: #41b6e6;
+    margin-right: 10px;
+}
+
+.pizza-item-ragular-price{
+    color: #333;
+    margin-right: 10px;
+    font-family: 'Noto Sans KR Bold';
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+
+.review-info-container{
+    width: 1200px;
+    height: 1400px;
+    margin: auto;
+    box-sizing: inherit;
+}
+
+.review-menu{
+    width: 1200px;
+    height: 50px;
+    text-align: center;
+    vertical-align: baseline;
+    display: flex;
+}
+
+.review-star-rate{
+    width: 300px;
+    height: 50px;
+    color: #333;
+    margin-right: 10px;
+    font-family: 'Noto Sans KR Bold';
+    font-size: 22px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.review-content{
+    width: 600px;
+    height: 50px;
+    color: #333;
+    margin-right: 10px;
+    font-family: 'Noto Sans KR Bold';
+    font-size: 22px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.review-writer{
+    width: 300px;
+    height: 50px;
+    color: #333;
+    font-family: 'Noto Sans KR Bold';
+    font-size: 22px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.whole-review-box{
+    width: 1200px;
+    height: 1000px;
+    margin: auto;
+    box-sizing: inherit;
+}
+
+.review-box{
+    width: 1200px;
+    height: 50px;
+    text-align: center;
+    vertical-align: baseline;
+    line-height: 40px;
+    border-top: 1px solid #222;
+    display: flex;
+}
+
+.review-star-rate-box{
+    width: 300px;
+    height: 50px;
+    color: #333;
+    margin-right: 10px;
+    font-family: 'Noto Sans KR Bold';
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.review-content-box{
+    width: 600px;
+    height: 50px;
+    color: #333;
+    margin-right: 10px;
+    font-family: 'Noto Sans KR Bold';
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.review-writer-box{
+    width: 300px;
+    height: 50px;
+    color: #333;
+    font-family: 'Noto Sans KR Bold';
+    font-size: 18px;
+    margin-bottom: 10px;
 }
