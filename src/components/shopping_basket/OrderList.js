@@ -11,7 +11,6 @@ function OrderList() {
     const [totalPrice, setTotalPrice] = useState(0)
     const [numberCount, setNumberCount] = useState(1)
     const renderPizzaInfo = () => {
-        let changeImg;
         return pizzaInfo.map((pizzaInfo, index) =>
             <div key={index}>
             <div className="basket-body-area">
