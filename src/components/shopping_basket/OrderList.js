@@ -55,7 +55,6 @@ function OrderList() {
             axios.get("http://localhost:4000/test").then((res) => {
                  pizzaInfo = res.data;
                  setRenderPizza(renderPizzaInfo());
-                 //console.log(pizzaInfo);
             });
         } catch (error) {
             console.error("Error fetching data:", error);
