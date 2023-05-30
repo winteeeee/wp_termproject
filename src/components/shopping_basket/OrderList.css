@@ -12,18 +12,19 @@
 .basket-body-area .body-image-area {
     width: 200px;
     height: 200px;
-    margin-right: 4rem;
 }
 /*피자 이름, 설명*/
 .basket-body-area .body-left-area {
-    margin-top: 2rem;
-    margin-right: 13rem;
+    position: absolute;
+    margin: 2rem 13rem 0 5rem;
+    left:16%;
 }
 .basket-body-area .body-left-area .h4-black {
     font-family: Noto Sans CJK KR Medium;
     font-size: 18px;
     color: #222;
     font-weight: bold;
+    width: 100%;
 }
 .basket-body-area .body-left-area .h6-join-background {
     font-family: Noto Sans CJK KR Regular;
@@ -38,7 +39,7 @@
 /*옵션 변경*/
 .basket-body-area .footer-left .btn-option {
     position:absolute;
-    left:22%;
+    left:22.5%;
     top:70%;
     background: #41b6e6;
     height: 38px;
@@ -53,15 +54,14 @@
 /*피자 수량*/
 .basket-body-area .body-right-area {
     margin-top: 3rem;
-    position: relative;
+    position: absolute;
+    left:57%;
 }
 .basket-body-area .body-right-area img {
     width:  40px;
     height: 40px;
 }
-.basket-body-area .body-right-area  .minusBtn{
-    margin-right: 1rem;
-}
+
 .basket-body-area .body-right-area  .plusBtn{
     margin-left: 3rem;
 }
@@ -71,7 +71,7 @@
     font-weight: 700;
     position: absolute;
     left: 46%;
-    bottom: 80%;
+    top:8px;
 }
 /*가격*/
 .basket-body-area .footer-center {
@@ -80,18 +80,23 @@
     color: #222;
     font-weight: bold;
     margin: 3.5rem 3.5rem 0 3.5rem;
+    position:absolute;
+    left:67%;
+    width:90px;
 }
 /*변경*/
 .basket-body-area .footer-right .btn-change {
     margin: 3rem 1rem 0 1rem;
     background: #cbcbcb;
-    height: 40px;
-    line-height: 40px;
+    height: 35px;
+    line-height: 35px;
     width: 80px;
     font-family: Noto Sans CJK KR Medium;
     font-size: 16px;
     text-align: center;
     color: #fff;
+    position:absolute;
+    left:82%;
 }
 /*삭제*/
 .basket-body-area .basket-toolbar-area img{
@@ -99,6 +104,8 @@
     margin-left: 1rem;
     width: 30px;
     height: 30px;
+    position:absolute;
+    left: 91%;
 }
 /*총합 레이아웃*/
 .total-layout {
