@@ -1,15 +1,16 @@
 import React from 'react';
 import { useState, useRef, useEffect } from "react";
-import "./InfoUpdate.css";
+import "./InfoModify.css";
 import toggleBasic from "./img/no_check.png";
 import toggleBlue from "./img/check.png";
 
-const Modify_info = () => {
+
+const InfoModify = () => {
     return (
         <Modify></Modify>
     )
 }
-export default Modify_info;
+export default InfoModify;
 
 function Modify(){
     const [collapseState, setCollapse] = useState(false);

@@ -6,12 +6,12 @@ import reportWebVitals from './reportWebVitals';
 import './index.css';
 import './fonts/Font.css';
 import Review from './components/review/Review';
-import Modify_info from './components/modify_info/Modify_info';
+import InfoModify from './components/info_modify/InfoModify';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Review />
+    <InfoModify />
   </React.StrictMode>
 );
 
