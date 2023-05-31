@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import './index.css';
 import './fonts/Font.css';
 import Review from './components/review/Review';
+import Modify_info from './components/modify_info/Modify_info';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -155,7 +155,7 @@
     text-align: center;
 }
 
-.review-content{
+.review-context{
     width: 600px;
     height: 50px;
     color: #333;
@@ -185,7 +185,7 @@
 
 .review-box{
     width: 1200px;
-    height: 50px;
+    height: 70px;
     text-align: center;
     vertical-align: baseline;
     line-height: 40px;
@@ -195,29 +195,40 @@
 
 .review-star-rate-box{
     width: 300px;
-    height: 50px;
+    height: 70px;
     color: #333;
     margin-right: 10px;
     font-family: 'Noto Sans KR Bold';
     font-size: 18px;
     margin-bottom: 10px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
 }
 
-.review-content-box{
+.review-context-box{
     width: 600px;
-    height: 50px;
+    height: 70px;
     color: #333;
     margin-right: 10px;
     font-family: 'Noto Sans KR Bold';
     font-size: 18px;
     margin-bottom: 10px;
+    line-height: 30px;
+    vertical-align: middle;
+    justify-content: center;
+    align-items: center;
+    display: flex;
 }
 
 .review-writer-box{
     width: 300px;
-    height: 50px;
+    height: 70px;
     color: #333;
     font-family: 'Noto Sans KR Bold';
     font-size: 18px;
     margin-bottom: 10px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
 }
