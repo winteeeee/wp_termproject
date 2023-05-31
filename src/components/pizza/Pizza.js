@@ -1,13 +1,22 @@
 import React, {useState, useEffect} from 'react';
 import "./Pizza.css";
 
-import pizzaData from './PizzaData.js';
-
 import icon_view from "./img/icon-view.png";
 import icon_basket from "./img/icon-basket.png";
+import pizza_test from "./img/master1.png";
+
+const PizzaDataUrl = "http://localhost:4000/api/loadPizzaData";
 
 const PizzaPage = () => {
     const [activeTab, setActiveTab] = useState(0);
+    const [pizzaData, setPizzaData] = useState([]);
+
+    useEffect(() => {
+      fetch(PizzaDataUrl)
+        .then(response => response.json())
+        .then(data => setPizzaData(data))
+        .catch(error => console.error(error));
+    }, []);
 
     return(
         <div>
@@ -17,7 +26,7 @@ const PizzaPage = () => {
                         <div className="pc-pizzamenu">
                             <PizzaTopText></PizzaTopText>
                             <PizzaTab activeTab={activeTab} setActiveTab={setActiveTab}></PizzaTab>
-                            <PizzaMenu activeTab={activeTab}></PizzaMenu>
+                            <PizzaMenu activeTab={activeTab} pizzaData={pizzaData}></PizzaMenu>
                         </div>
                     </div>
                 </div>
@@ -67,7 +76,7 @@ function PizzaTab({activeTab, setActiveTab}) {
     );
 }
 
-function PizzaMenu({activeTab}) {
+function PizzaMenu({activeTab, pizzaData}) {
     const pageNum = Math.floor((pizzaData.length + 1) / 2);
 
     const [selected, setSelected] = useState("2");
@@ -97,13 +106,13 @@ function PizzaMenu({activeTab}) {
                     </select>
                 </div>
             </div>
-            <PizzaList></PizzaList>
+            <PizzaList pizzaData={pizzaData}></PizzaList>
             <PizzaPagination pageNum={pageNum}></PizzaPagination>
         </div>
     );
 }
 
-function PizzaList() {
+function PizzaList({pizzaData}) {
     return(
         <div className="pc-pizzamenu-card-area">
             {pizzaData.map((pizza, index) => (
@@ -114,11 +123,12 @@ function PizzaList() {
 }
 
 function PizzaItem({pizza}) {
+    console.log({pizza});
     return(
         <div className="pizzamenu-area-item">
             <div className="carditem-web-container">
                 <div className="image-container">
-                    <img src={pizza.imgPath} className="image" alt='#'></img>
+                    <img src={pizza_test} className="image" alt='#'></img>
                 </div>
                 <div className="item">
                     <h5 className='item-name'>{pizza.name}</h5>

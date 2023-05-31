@@ -12,7 +12,13 @@ import './fonts/Font.css';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+<<<<<<< Updated upstream
     <MainPage />
+=======
+    <BrowserRouter>
+        <MainPage/>
+    </BrowserRouter>
+>>>>>>> Stashed changes
   </React.StrictMode>
 );
 
