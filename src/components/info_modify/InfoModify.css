@@ -1,0 +1,398 @@
+.my-page-inside{
+    width: 1200px;
+    height: 1399.78px;
+    margin: auto;
+}
+
+.my-page-header{
+    width: 1200px;
+    height: 142px;
+    line-height: 1;
+    font-family: 'Noto Sans KR Light';
+    font-size: 42px;
+    font-style: #222;
+    letter-spacing: .01em;
+    font-weight: 400;
+    display : flex;
+    justify-content : center;
+    align-items : center;
+    opacity: 0.7;
+}
+
+.mypage-page-tab{
+    width: 1200px;
+    height: 60px;
+}
+
+.menutab-page-whole-div{
+    width: 1200px;
+    height: 60px;
+    display: flex;
+}
+
+.menutab-page-title{
+    width: 16.6667%;
+    height: 60px;
+}
+
+.tab_start{
+    cursor: pointer;
+    line-height: 60px;
+    white-space: nowrap;
+    font-size: 18px;
+    color: #999;
+    border-bottom: 1px solid #999;
+    text-align: center;
+    margin: auto;
+}
+
+.pc-top-text{
+    width: 1200px;
+    font-family: 'Noto Sans KR Bold';
+    font-size: 22px;
+    border-bottom: 1px solid #999;
+    color: #222;
+    margin: auto;
+    padding-top: 60px;
+    padding-bottom: 27px;
+}
+
+.pc-body-container{
+    width: 660px;
+    height: 1017.890px;
+    margin: 70px 0 120px;
+    padding: 0 270px;
+    border: 0;
+    vertical-align: baseline;
+}
+
+.padding-box{
+    width: 660px;
+}
+
+.collapse-box{
+    background-color: #eee;
+    width: 100%;
+    padding: 20px 15px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+h5{
+    font-family: 'Noto Sans KR Regular';
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+h6 {
+    font-family: 'Noto Sans KR Regular';
+    font-size: 15px;
+    color: #999;
+    margin-bottom: 5px;
+}
+
+
+.padding-box2{
+    width: 660px;
+}
+
+.alvolo-input-box-text{
+    width: 660px;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.input-defalut{
+    background-color: rgb(255, 255, 255);
+    color: rgb(34, 34, 34);
+    padding: 15px 10px;
+    border: 0;
+    border-bottom: 1px solid #ddd;
+    font-family: 'Noto Sans KR Regular';
+    font-size: 18px;
+    width: 100%;
+    height: 50px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.special_signInfo{
+    font-size: 12px;
+    color: #f9423a;
+    text-align: left;
+    padding: 10px 0 0 10px;
+    max-width: 660px;
+}
+
+.number-area{
+    width: 660px;
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.number-area-left{
+    width: 30%;
+    margin-right: 10px;
+}
+
+.number-area-right{
+    width: 100%;
+    height: 50px;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+
+.number-area-right > .alvolo-input-auth >.input-add-span{
+    position: absolute;
+    width: 292px;
+    height: 20px;
+    padding: 15px 150px 15px 10px;
+    font-family: 'Noto Sans KR Regular';
+    color: #222;
+    font-size: 18px!important;
+    border: 0;
+    border-bottom: 1px solid #ddd;
+}
+
+
+.alvolo-select{
+    width: 100%;
+    height: 50px;
+    padding: 0 10px!important;
+    border: 0;
+    border-style: none;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    font-family: 'Noto Sans KR Light,serif';
+    font-size: 16px;
+    background: transparent url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMSIgaGVpZ2h0PSIxMi4xMjUiPjxwYXRoIGQ9Ik0xOC44OC4wMTNMMTAuNSA4LjA1NiAyLjEyLjAxMiAwIDIuMDQ4IDEwLjUgMTIuMTMgMjEgMi4wNDh6IiBmaWxsPSIjMjIyIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4=) no-repeat 100%;
+    background-size: 11px 7px;
+    background-position-x: calc(100% - 15px);
+}
+
+.alvolo-select:focus {
+    outline:none;
+}
+
+option {
+    font-weight: normal;
+    display: block;
+    white-space: nowrap;
+    min-height: 1.2em;
+    padding: 0px 2px 1px;
+}
+
+.number-area-in{
+    display: flex;
+    background: #eee;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.number-area-left-in{
+    width: 30%;
+    margin-right: 10px;
+    background: #eee;
+}
+
+.number-area-right-in{
+    width: 100%;
+    height: 50px;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+
+
+
+.number-area-right-in > .alvolo-input-auth >.input-add-span{
+    position: absolute;
+    width: 272px;
+    height: 20px;
+    padding: 15px 150px 15px 10px;
+    font-family: 'Noto Sans KR Regular';
+    color: #222;
+    font-size: 18px!important;
+    border: 0;
+    border-bottom: 1px solid #ddd;
+    background-color: #eee;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+.alvolo-input-auth{
+    position: relative;
+    height: 50px;
+    border-bottom: 1px solid #ddd;
+}
+
+.alvolo-input-box-text-in > .alvolo-input-auth > .input-add-span{
+    position: absolute;
+    width: 272px;
+    height: 20px;
+    padding: 15px 150px 15px 10px;
+    font-family: 'Noto Sans KR Regular';
+    color: #222;
+    font-size: 18px!important;
+    border: 0;
+    border-bottom: 1px solid #ddd;
+    background-color: #eee;
+}
+
+.btn-auth-gray{
+    background-color: #ccc;
+    color: #fff;
+    font-family: 'Noto Sans KR Regular';
+    font-size: 16px!important;
+    letter-spacing: -.4px;
+    width: 128px;
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+    cursor: pointer;
+    padding: 0 8px;
+    position: absolute;
+    right: 10px;
+}
+
+.input-add-span{
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    padding: 15px 150px 15px 10px;
+    font-family: 'Noto Sans KR Regular';
+    color: #222;
+    font-size: 18px!important;
+    border: 0;
+    border-bottom: 1px solid #ddd;
+    outline: none;
+}
+
+.mail-area{
+    display: flex;
+    margin-bottom: 20px;
+    -webkit-box-align: baseline;
+    align-items: baseline;
+    font-size: 18px;
+}
+
+.mail-area-left{
+    width: 47%;
+    margin-right: 5px;
+}
+
+.mail-area-right{
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    position: relative;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow: hidden;
+    margin-left: 5px;
+}
+
+.membership-check-toggle{
+    margin-top: 15px;
+    font-family: 'Noto Sans KR Regular';
+    font-size: 18px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.check-toggle{
+    width: 28px;
+    height: 28px;
+    float: left;
+}
+.context{
+    float: left;
+    line-height: 28px;
+    margin-left: 4px;
+    margin-right: 10px;
+    color: #666;
+    cursor: pointer;
+}
+
+.alvolo-input-box-text >.alvolo-input-auth{
+    width: 660px;
+    height: 50px;
+    display: flex;
+    position: relative;
+}
+
+
+.alvolo-input-box-text >.alvolo-input-auth >.input-add-span{
+    position: absolute;
+    width: 500px;
+    height: 20px;
+    padding: 15px 150px 15px 10px;
+    font-family: 'Noto Sans KR Regular';
+    color: #222;
+    font-size: 18px!important;
+    border: 0;
+    border-bottom: 1px solid #ddd;
+    position: absolute;
+}
+
+
+
+
+.toggle{
+    width: 28px;
+    height: 27px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+.edit-membership-button-container{
+    width: 100%;
+    color: #fff;
+    font-size: 22px;
+    font-family: Noto Sans CJK KR Medium;
+    margin-top: 60px;
+}
+
+.gray-button{
+    width: 325px;
+    height: 64px;
+    background-color: #ccc;
+    line-height: 64px;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+    margin-right: 4px;
+    color: #fff;
+    font-size: 22px;
+    font-family: 'Noto Sans KR Medium';
+}
+
+.blue-button{
+    width: 325px;
+    height: 64px;
+    background-color: #41b6e6;
+    line-height: 64px;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+    color: #fff;
+    font-size: 22px;
+    font-family:'Noto Sans KR Medium';
+}
