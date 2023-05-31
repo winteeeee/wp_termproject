@@ -3,11 +3,13 @@ import ReactDOM from 'react-dom/client';
 import {BrowserRouter} from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 
+import './index.css';
+import './fonts/Font.css';
 import MainPage from './components/main_page/MainPage';
 import OwnerPage from "./components/owner_page/OwnerPage";
 import ShoppingBasket from "./components/shopping_basket/ShoppingBasket";
-import './index.css';
-import './fonts/Font.css';
+import Review from './components/review/Review';
+import InfoModify from './components/info_modify/InfoModify';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
