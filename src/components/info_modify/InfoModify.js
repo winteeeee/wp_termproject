@@ -1,12 +1,8 @@
 import React from 'react';
 import { useState, useRef, useEffect } from "react";
-import "./Modify_info.css";
+import "./InfoUpdate.css";
 import toggleBasic from "./img/no_check.png";
 import toggleBlue from "./img/check.png";
-
-/*disabled 활성화 및 최적화
-collapse 숨기기*/
-
 
 const Modify_info = () => {
     return (
