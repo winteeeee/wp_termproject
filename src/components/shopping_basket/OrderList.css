@@ -1,0 +1,159 @@
+/*전체 div*/
+.basket-body-area {
+    margin-left: 22rem;
+    display: flex;
+    margin-top: 1rem;
+    position:relative;
+    border-bottom: 2px solid #e5e5e5;
+    padding-bottom: 1rem;
+    width:1200px;
+}
+/*피자 이미지*/
+.basket-body-area .body-image-area {
+    width: 200px;
+    height: 200px;
+}
+/*피자 이름, 설명*/
+.basket-body-area .body-left-area {
+    position: absolute;
+    margin: 2rem 13rem 0 5rem;
+    left:16%;
+}
+.basket-body-area .body-left-area .h4-black {
+    font-family: Noto Sans CJK KR Medium;
+    font-size: 18px;
+    color: #222;
+    font-weight: bold;
+    width: 100%;
+}
+.basket-body-area .body-left-area .h6-join-background {
+    font-family: Noto Sans CJK KR Regular;
+    font-size: 16px;
+    display: inline-block;
+    color: #fff;
+    background: #666;
+    border-radius: 14px;
+    padding: 6px 12px;
+    margin-top: 0.8rem;
+}
+/*옵션 변경*/
+.basket-body-area .footer-left .btn-option {
+    position:absolute;
+    left:22.5%;
+    top:70%;
+    background: #41b6e6;
+    height: 38px;
+    line-height: 38px;
+    width: 96px;
+    font-family: Noto Sans CJK KR Medium;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+/*피자 수량*/
+.basket-body-area .body-right-area {
+    margin-top: 3rem;
+    position: absolute;
+    left:57%;
+}
+.basket-body-area .body-right-area img {
+    width:  40px;
+    height: 40px;
+}
+
+.basket-body-area .body-right-area  .plusBtn{
+    margin-left: 3rem;
+}
+.basket-body-area .body-right-area span {
+    font-family: Roboto;
+    font-size: 22px;
+    font-weight: 700;
+    position: absolute;
+    left: 46%;
+    top:8px;
+}
+/*가격*/
+.basket-body-area .footer-center {
+    font-family: Noto Sans CJK KR Medium;
+    font-size: 18px;
+    color: #222;
+    font-weight: bold;
+    margin: 3.5rem 3.5rem 0 3.5rem;
+    position:absolute;
+    left:67%;
+    width:90px;
+}
+/*변경*/
+.basket-body-area .footer-right .btn-change {
+    margin: 3rem 1rem 0 1rem;
+    background: #cbcbcb;
+    height: 35px;
+    line-height: 35px;
+    width: 80px;
+    font-family: Noto Sans CJK KR Medium;
+    font-size: 16px;
+    text-align: center;
+    color: #fff;
+    position:absolute;
+    left:82%;
+}
+/*삭제*/
+.basket-body-area .basket-toolbar-area img{
+    margin-top: 3.2rem;
+    margin-left: 1rem;
+    width: 30px;
+    height: 30px;
+    position:absolute;
+    left: 91%;
+}
+/*총합 레이아웃*/
+.total-layout {
+    height: 84px;
+    line-height: 84px;
+    padding: 0 30px;
+    border-bottom: 1px solid #999;
+    margin-bottom: 40px;
+    position: relative;
+    width:1200px;
+    margin-left: 22rem;
+    margin-top:8rem;
+}
+.total-layout .sum-total {
+    position:absolute;
+    font-family: Noto Sans CJK KR Regular;
+    font-size: 22px;
+    color: #41b6e6;
+    display: block;
+    width: 50%;
+    float: left;
+}
+.total-layout .total {
+    position:absolute;
+    left:80%;
+    font-family: Noto Sans CJK KR Regular;
+    font-size: 28px;
+    color: #41b6e6;
+}
+.total-layout .total-price {
+    padding: 0 0.5rem;
+    font-size: 35px;
+    font-weight: bold;
+}
+/*주문하기*/
+.basic-button {
+    position: absolute;
+    left: 65%;
+    top:130%;
+    width: 400px;
+    line-height: 64px;
+    height: 64px;
+    background: #41b6e6;
+    font-family: Noto Sans CJK KR Regular;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    color: #fff;
+}

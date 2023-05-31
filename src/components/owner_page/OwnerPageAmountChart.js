@@ -37,7 +37,7 @@ export function OwnerPageAmountChart({labels, amounts}) {
         labels,
         datasets: [
             {
-                label: '피자',
+                label: '수량',
                 data: amounts,
                 backgroundColor: 'rgba(53, 162, 235, 0.5)',
             },

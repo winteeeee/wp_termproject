@@ -37,7 +37,7 @@ export function OwnerPageSalesChart({labels, sales}) {
         labels,
         datasets: [
             {
-                label: '요일',
+                label: '매출',
                 data: sales,
                 backgroundColor: 'rgba(53, 162, 235, 0.5)',
             },
