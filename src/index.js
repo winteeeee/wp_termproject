@@ -5,13 +5,20 @@ import reportWebVitals from './reportWebVitals';
 
 import './index.css';
 import './fonts/Font.css';
+import MainPage from './components/main_page/MainPage';
+import OwnerPage from "./components/owner_page/OwnerPage";
+import ShoppingBasket from "./components/shopping_basket/ShoppingBasket";
 import Review from './components/review/Review';
 import InfoModify from './components/info_modify/InfoModify';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Review />
+    <BrowserRouter>
+        <ShoppingBasket/>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
