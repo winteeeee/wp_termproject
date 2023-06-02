@@ -10,14 +10,13 @@ function OwnerPageStats() {
     const [sales, setSales] = useState([]);
     const [dayOfTheWeek, setDayOfTheWeek] = useState([]);
     useEffect(() => {
-        axios.get("http://localhost:4000/Stats/loadData").then((res) => {
+        axios.get("http://localhost:4000/ownerPage/stats").then((res) => {
             setPizzas(res.data.pizzaName);
             setAmounts(res.data.amounts);
             setSales(res.data.sales);
             setDayOfTheWeek(res.data.dayOfTheWeek);
         });
     }, []);
-    //TODO DB에서 값 조회하여 amounts와 sales 구성
 
     return (
         <div className="my-page-stats">
