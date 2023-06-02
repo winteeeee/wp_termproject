@@ -1,70 +1,95 @@
-# Getting Started with Create React App
+# 2023년 웹 프로그래밍 텀 프로젝트 - 피자알볼로 클론코딩
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 사용 기술 스택
+| 프론트엔드 | 백엔드 | DB |
+| -- | -- | -- |
+| ![logo-og](https://github.com/winteeeee/wp_termproject/assets/102248077/928e4592-9955-4096-a293-0bb1f9e40ab5) | ![img-1](https://github.com/winteeeee/wp_termproject/assets/102248077/a45822ec-8b22-4c9b-aa97-b6a457876f5a) | ![img](https://github.com/winteeeee/wp_termproject/assets/102248077/d4af801c-2506-4384-93c6-a0a37b23b85a) |
 
-## Available Scripts
+## 팀 구성
+| 인원 | 역할 |
+| -- | -- |
+| 한성민 | 주문내역, 정보수정 백엔드, 점주 페이지 |
+| 박찬진 | 주문내역 프론트엔드, 장바구니 |
+| 김찬혁 | 정보수정 프론트엔드, 리뷰보기 |
+| 김준혁 | 메인 페이지, 피자 |
 
-In the project directory, you can run:
+## 메인 페이지
+### [요구사항]
+* 상단 네이게이션 메뉴 보이는대로 구현
+* 카루셀에 이미지 4개가 3초마다 전환(클릭될 필요 없음)
+* 배달주문을 클릭시 피자 메뉴 나오기
+* 포장주문은 이미지는 있으나 기능 구현 X
+* 좌측 상단 햄버거 메뉴 클릭시 네비게이션 메뉴 펼치기(토글로 동작)
+* Markup은 모두 나타내되, 클릭 가능 항목은 아래와 같음
+  * 피자 - 전체 피자
+  * 마이페이지-주문내역, 정보수정
 
-### `npm start`
+### [평가요소]
+* 전체 디자인 : 1점
+* 카루셀 : 1점
+* 햄버거 메뉴 : 1점
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 피자
+### [요구사항]
+* 탭 메뉴는 전체, 장인피자, 달인피자, 명품피자로 구성
+* 장인피자는 2개, 달인피자와 명품피자는 각 3개씩 DB에 저장
+* 한 페이지에 나타나는 피자 항목은 총 2항목
+* 즉, 한 카테고리에 총 3개의 메뉴가 있다면 2페이지가 나타나야 함
+* 전체 메뉴 탭에서만 정렬이 가능(인기순 제외, 메뉴 등록일은 임의로)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### [평가요소]
+* 탭구성을 통한 메뉴 표시 : 1점
+* 페이징 : 1점
+* 정렬 : 1점
 
-### `npm test`
+## 장바구니(로그인 진행 후)
+### [요구사항]
+* 메뉴에 마우스 오버하면 상세보기와 장바구니 항목 표시
+  * 상세보기 -> 리뷰보기로 변경
+  * 장바구니 클릭시 장바구니에 담기
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### [평가요소]
+* 장바구니에 담기 : 2점
 
-### `npm run build`
+## 리뷰보기(로그인 진행 후)
+### [요구사항]
+* 이름과 가격 표시해야 함
+* 상세 정보는 생략
+* 리뷰는 별점, 리뷰, 작성자가 보여야 함
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### [평가요소]
+* 리뷰보기 페이지 : 2점
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 마이페이지(로그인 진행 후) - 주문 내역
+### [요구사항]
+* 후기작성 버튼을 클릭하면 후기를 작성할 수 있는 컴포넌트 표시
+* 등록된 후기는 수정/삭제할 수 없음
+* 등록을 클릭하면 후기작성 컴포넌트는 사라지고 해당 메뉴를 클릭하면 후기 표시
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### [평가요소]
+* 주문내역 표시 : 2점
+* 리뷰 작성 : 2점
 
-### `npm run eject`
+## 마이페이지(로그인 진행 후) - 정보 수정
+### [요구사항]
+* 필요한 기본정보를 적절히 나타내되, 주소변경을 반드시 가능해야 함
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### [평가요소]
+* 정보수정 페이지 완성 : 1점
+* 정보수정 주소변경 : 1점
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 점주화면 구성
+### [요구사항]
+* 점주는 메뉴를 등록할 수 있다
+* 점주는 각 메뉴의 판매수량을 확인할 수 있다
+* 점주가 로그인을 할 경우 고객과 동일하게 마이페이지가 생성된다
+* 메뉴등록 페이지에서 등록을 위해 필요한 정보를 입력할 수 있어야 한다.
+* 메뉴의 이미지는 반드시 포함되어야 한다.
+* 각 메뉴별 판매수량을 확인할 수 있어야 한다.
+* 해당주의 요일별 총 매출을 chart.js 라이브러리의 Bar Chart로 표시해야 한다.
+* 점주의 화면 구성은 팀에서 자유롭게 디자인한다.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### [평가요소]
+* 메뉴등록 : 2점
+* 판매수량확인 : 1점
+* 그래프 시각화 : 1
