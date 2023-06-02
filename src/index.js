@@ -15,9 +15,8 @@ import InfoModify from './components/info_modify/InfoModify';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Review />
     <BrowserRouter>
-        <ShoppingBasket/>
+        <OwnerPage/>
     </BrowserRouter>
   </React.StrictMode>
 );

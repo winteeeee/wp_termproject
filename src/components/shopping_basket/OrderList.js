@@ -54,7 +54,7 @@ function OrderList() {
 
     const fetchData = async () => {
         try {
-            axios.get("http://localhost:4000/test").then((res) => {
+            axios.get("http://localhost:4000/shoppingBasket/test").then((res) => {
                  pizzaInfo = res.data;
                  setRenderPizza(renderPizzaInfo());
             });
