@@ -19,33 +19,6 @@
     opacity: 0.7;
 }
 
-.mypage-page-tab{
-    width: 1200px;
-    height: 60px;
-}
-
-.menutab-page-div{
-    width: 1200px;
-    height: 60px;
-    display: flex;
-}
-
-.menutab-page-title-div{
-    width: 16.6667%;
-    height: 60px;
-}
-
-.tab_start{
-    cursor: pointer;
-    line-height: 60px;
-    white-space: nowrap;
-    font-size: 18px;
-    color: #999;
-    border-bottom: 1px solid #999;
-    text-align: center;
-    margin: auto;
-}
-
 .pc-top-text{
     width: 1200px;
     font-family: 'Noto Sans KR Bold';
@@ -69,28 +42,6 @@
 .padding-box{
     width: 660px;
 }
-
-.collapse-box{
-    background-color: #eee;
-    width: 100%;
-    padding: 20px 15px;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-h5{
-    font-family: 'Noto Sans KR Regular';
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-h6 {
-    font-family: 'Noto Sans KR Regular';
-    font-size: 15px;
-    color: #999;
-    margin-bottom: 5px;
-}
-
 
 .padding-box2{
     width: 660px;
@@ -330,7 +281,6 @@ input::-webkit-inner-spin-button {
     position: relative;
 }
 
-
 .alvolo-input-box-text >.alvolo-input-auth >.input-add-span{
     position: absolute;
     width: 500px;
@@ -344,30 +294,20 @@ input::-webkit-inner-spin-button {
     position: absolute;
 }
 
-
-
-
 .toggle{
     width: 28px;
     height: 27px;
     cursor: pointer;
 }
 
-
-
-
-
-
-
-
-
-
 .edit-membership-button-container{
-    width: 100%;
+    width: 1200px;
     color: #fff;
     font-size: 22px;
     font-family: Noto Sans CJK KR Medium;
     margin-top: 60px;
+    display: flex;
+    float: left;
 }
 
 .gray-button{

@@ -1,0 +1,33 @@
+.mypage-page-tab{
+    width: 1200px;
+    height: 60px;
+}
+
+.menutab-page-div{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    float: left;
+}
+
+.menutab-page-title-div{
+    width: 16.6667%;
+    height: 100%;
+}
+
+.tab_start{
+    cursor: pointer;
+    line-height: 60px;
+    white-space: nowrap;
+    font-size: 18px;
+    color: #999;
+    border-bottom: 1px solid #999;
+    text-align: center;
+    margin: auto;
+}
+
+h5{
+    font-family: 'Noto Sans KR Regular';
+    font-size: 18px;
+    margin-bottom: 10px;
+}

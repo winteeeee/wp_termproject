@@ -1,17 +1,22 @@
 import React from 'react';
 import { useState, useRef, useEffect } from "react";
 import "./Review.css";
+import ShoppingHeader from "../shopping_basket/ShoppingHeader";
 import ReviewData from "./ReveiwData.js";
 import PizzaData from "../pizza/PizzaData.js";
 
 const Review = () => {
     return (
-        <ReviewInfo pizza = {PizzaData[5]}></ReviewInfo>
+        <div>
+        <ShoppingHeader></ShoppingHeader>
+        <ReviewInfo pizza = {PizzaData[6]}></ReviewInfo>
+        </div>
     )
 }
 export default Review;
 
 function ReviewInfo({pizza}){
+    
     return (
         <div className="pizza-menu-detail">
             <div className = "info-container">
