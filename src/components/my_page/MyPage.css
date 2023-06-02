@@ -1,0 +1,50 @@
+.My_page {
+    text-align: center;
+}
+
+.my-page-head {
+    width: 1200px;
+    height: 142px;
+    line-height: 3;
+    font-family: 'Noto Sans KR Light';
+    font-size: 42px;
+    letter-spacing: .01em;
+    font-weight: 400;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.7;
+    margin-left: 20rem;
+    display: flex;
+}
+.MyPageMenu{
+    height: 60px;
+    background-color: #fff;
+    width: 100%;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.MyPageMenu .My_page_tab {
+    text-align: center;
+    overflow: auto;
+    white-space: nowrap;
+    width: 100%;
+    display: inline-block;
+}
+
+.MyPageMenu .My_page_tab .menutab-page-insertMenu {
+    width: 50%;
+    display: inline-block;
+}
+
+.MyPageMenu .My_page_tab .menutab-page-insertMenu, .menutab-page-ModifyInfo h5 {
+    cursor: pointer;
+    line-height: 60px;
+    white-space: nowrap;
+    font-size: 18px;
+    color: #999;
+}
+
+.m.MyPageMenu .My_page_tab .menutab-page-insertMenu, .menutab-page-ModifyInfo {
+    width: 50%;
+    display: inline-block;
+}
