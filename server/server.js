@@ -34,6 +34,7 @@ app.get("/api/loadPizzaData", async (req, res) => {
     const pizzaList = await db.collection("PizzaData").find().toArray();
     const result = pizzaList.map((pizza) => ({
         name: pizza.name,
+        imgPath: pizza.imgPath,
         nameEnglish: pizza.nameEnglish,
         description: pizza.description,
         kind: pizza.kind,

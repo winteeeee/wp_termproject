@@ -123,12 +123,13 @@ function PizzaList({pizzaData}) {
 }
 
 function PizzaItem({pizza}) {
-    console.log({pizza});
+    console.log(pizza);
+    const img = require(`${pizza.imgPath}`)
     return(
         <div className="pizzamenu-area-item">
             <div className="carditem-web-container">
                 <div className="image-container">
-                    <img src={pizza_test} className="image" alt='#'></img>
+                    <img src={img} className="image" alt='#'></img>
                 </div>
                 <div className="item">
                     <h5 className='item-name'>{pizza.name}</h5>
