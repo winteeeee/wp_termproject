@@ -37,8 +37,8 @@
 }
 
 .pizza-slide-box{
-    width: 1710px;
-    height: 475px;
+    width: 570px;
+    height: 390px;
     background-color: #999;
     overflow: hidden;
 }
@@ -46,7 +46,7 @@
 .slider{
     display: flex;
     position: absolute;
-    width: 570px;
+    width: 488px;
     height: 475px;
     z-index : 100;
     
