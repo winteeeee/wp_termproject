@@ -6,7 +6,7 @@ import PizzaData from "../pizza/PizzaData.js";
 
 const Review = () => {
     return (
-        <ReviewInfo pizza = {PizzaData[0]}></ReviewInfo>
+        <ReviewInfo pizza = {PizzaData[5]}></ReviewInfo>
     )
 }
 export default Review;
