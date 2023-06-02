@@ -1,7 +1,7 @@
 import {Route, Routes} from "react-router-dom";
 import ShoppingHeader from "./ShoppingHeader";
 import ShoppingSubHeader from "./ShoppingSubHeader";
-import OrderList from "./OrderList";
+import Order from "./Order";
 
 
 function ShoppingBasket() {
@@ -9,8 +9,15 @@ function ShoppingBasket() {
         <div className="shoppingBasket_page">
             <ShoppingHeader></ShoppingHeader>
             <ShoppingSubHeader></ShoppingSubHeader>
-            <OrderList></OrderList>
+            <Order></Order>
+
+            <Routes>
+                <Route path = "/shoppingBasket" elment = {<ShoppingHeader></ShoppingHeader>}></Route>
+                <Route path = "/shoppingBasket" elment = {<ShoppingSubHeader></ShoppingSubHeader>}></Route>
+                <Route path = "/shoppingBasket" elment = {<Order></Order>}></Route>
+            </Routes>
         </div>
+
     )
 }
 

@@ -11,7 +11,6 @@ import ShoppingBasket from "./components/shopping_basket/ShoppingBasket";
 import Review from './components/review/Review';
 import InfoModify from './components/my_page/info_modify/InfoModify';
 
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
