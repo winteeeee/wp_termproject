@@ -10,13 +10,14 @@ import OwnerPage from "./components/owner_page/OwnerPage";
 import ShoppingBasket from "./components/shopping_basket/ShoppingBasket";
 import Review from './components/review/Review';
 import InfoModify from './components/info_modify/InfoModify';
+import MyPage from "./components/my_page/MyPage";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-        <ShoppingBasket/>
+        <MyPage/>
     </BrowserRouter>
   </React.StrictMode>
 );
