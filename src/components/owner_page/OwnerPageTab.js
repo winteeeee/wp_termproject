@@ -1,4 +1,5 @@
 import {Link, useLocation} from "react-router-dom";
+import './OwnerPageTab.css'
 
 function OwnerPageTab() {
     const location = useLocation();

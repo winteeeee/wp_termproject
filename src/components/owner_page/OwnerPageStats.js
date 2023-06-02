@@ -2,6 +2,7 @@ import {OwnerPageSalesChart} from "./OwnerPageSalesChart";
 import {OwnerPageAmountChart} from "./OwnerPageAmountChart";
 import axios from "axios";
 import {useEffect, useState} from "react";
+import './OwnerPageStats.css'
 
 function OwnerPageStats() {
     const [pizzas, setPizzas] = useState([]);

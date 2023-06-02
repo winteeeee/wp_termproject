@@ -17,7 +17,7 @@ root.render(
   <React.StrictMode>
     <Review />
     <BrowserRouter>
-        <ShoppingBasket/>
+        <OwnerPage/>
     </BrowserRouter>
   </React.StrictMode>
 );
