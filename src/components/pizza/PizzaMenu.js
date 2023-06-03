@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 import "./Pizza.css";
 
 import icon_view from "./img/icon-view.png";
@@ -10,11 +11,16 @@ function PizzaMenu({activeTab}) {
     const [activePage, setActivePage] = useState(1);
   
     useEffect(() => {
-        // fetch Pizza Count
-        fetch(`http://localhost:4000/api/PizzaDataCount?type=${activeTab}`)
-            .then((response) => response.json())
-            .then((data) => setPizzaCount(data))
-            .catch((error) => console.error(error));
+        const fetchPizzaCount = async () => {
+            const response = await axios.get("http://localhost:4000/pizzaPage/api/PizzaDataCount" , {
+                params: {
+                    type: activeTab
+                }
+            });
+            setPizzaCount(response.data);
+        }
+
+        fetchPizzaCount();
         setActivePage(1);
         if (activeTab !== 0) {
             setSelected("3");
@@ -56,10 +62,18 @@ function PizzaList({activePage, type, sort}) {
     const [pizzaData, setPizzaData] = useState([]); // 피자 데이터 정보
 
     useEffect(() => {
-      fetch(`http://localhost:4000/api/loadPizzaData?currentPage=${activePage}&type=${type}&sort=${sort}`)
-        .then(response => response.json())
-        .then(data => setPizzaData(data))
-        .catch(error => console.error(error));
+        const fetchPizzaData = async () => {
+            const response = await axios.get("http://localhost:4000/pizzaPage/api/loadPizzaData" , {
+                params: {
+                    type: type,
+                    sort: sort,
+                    currentPage: activePage
+                }
+            });
+            setPizzaData(response.data);
+        }
+
+        fetchPizzaData();
     }, [activePage, type, sort]);
 
     return(
