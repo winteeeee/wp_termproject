@@ -40,11 +40,6 @@ function Order() {
         try {
             axios.get("http://localhost:4000/shoppingBasket/test").then((res) => {
                 setPizzaInfo(res.data)
-                pizzaInfo.map(pizzaInfo => ({
-                    ...pizzaInfo,
-                    pizzaCount: 1
-                }));
-
             });
         } catch (error) {
             console.error("Error fetching data:", error);
