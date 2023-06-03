@@ -72,6 +72,7 @@ function OrderListTab({clickBtn, visiable}) {
                             </div>
                             <h3>리뷰 작성하세요</h3>
                             <input className="myOpinion"></input>
+                            <div className="ReviewBtn">등록</div>
                         </div> : <div/>}
                     </div>
                 )
