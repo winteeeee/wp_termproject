@@ -6,22 +6,20 @@ import icon_basket from "./img/icon-basket.png";
 
 function PizzaMenu({activeTab}) {
     const [pizzaCount, setPizzaCount] = useState(0);
-    const [selected, setSelected] = useState("2");
+    const [selected, setSelected] = useState("3");
     const [activePage, setActivePage] = useState(1);
   
     useEffect(() => {
-        fetchPizzaCount();
-        if (activeTab !== 0) {
-            setSelected("2");
-        }
-    }, [activeTab]);
-  
-    const fetchPizzaCount = () => {
+        // fetch Pizza Count
         fetch(`http://localhost:4000/api/PizzaDataCount?type=${activeTab}`)
             .then((response) => response.json())
             .then((data) => setPizzaCount(data))
             .catch((error) => console.error(error));
-    };
+        setActivePage(1);
+        if (activeTab !== 0) {
+            setSelected("3");
+        }
+    }, [activeTab]);
 
     const pageNum = Math.floor((pizzaCount + 1) / 2);
   
@@ -41,9 +39,9 @@ function PizzaMenu({activeTab}) {
                 </div>
                 <div className="pizzamenu-rank">
                     <select id="selectActive" value={selected} disabled={isDisabled} className={selectClassName} style={{height:"68px"}} onChange={handleSelectChange}>
-                        <option value="2">신제품순</option>
-                        <option value="1">가격낮은순</option>
-                        <option value="0">가격높은순</option>
+                        <option value="3">신제품순</option>
+                        <option value="2">가격낮은순</option>
+                        <option value="1">가격높은순</option>
                     </select>
                 </div>
             </div>

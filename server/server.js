@@ -32,15 +32,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/api/loadPizzaData", async (req, res) => {
     const pizzaType = req.query.type || "전체";
-    const pizzaSelectedSort = parseInt(req.query.sort) || 2;
+    const pizzaSelectedSort = parseInt(req.query.sort) || 3;
     const currentPage = parseInt(req.query.currentPage) || 1;
     const perPage = 2; // 한 페이지 당 보여질 피자 개수
 
     let findOption = (pizzaType === "전체") ? {} : {kind:`${pizzaType}`}
 
     let sortOption = {};
-    if(pizzaSelectedSort === 1) sortOption = {priceL: 1};
-    else if(pizzaSelectedSort === 0) sortOption = {priceL: -1};
+    if(pizzaSelectedSort === 2) sortOption = {priceL: 1};
+    else if(pizzaSelectedSort === 1) sortOption = {priceL: -1};
 
     const pizzaList = await db
         .collection("PizzaData")
