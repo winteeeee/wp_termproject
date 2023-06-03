@@ -29,7 +29,6 @@ function ReviewInfo({pizza}){
                     </div>
                     <div className="pizza-item-info">
                         <div className="pizza-item-name">{pizza.name}</div>
-                        <div className="pizza-item-english-name">{pizza.nameEnglish}</div>
                         <div className="pizza-item-price">
                             <span className="pizza-item-large">L</span>
                             <span className="pizza-item-large-price">{pizza.priceL}</span>
