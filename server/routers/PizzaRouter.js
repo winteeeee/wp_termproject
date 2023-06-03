@@ -24,8 +24,7 @@ const PizzaRouter = (db) => {
     
         const result = pizzaList.map((pizza) => ({
             name: pizza.name,
-            imgPath: pizza.imgPath,
-            nameEnglish: pizza.nameEnglish,
+            img: pizza.imgPath,
             description: pizza.description,
             kind: pizza.kind,
             priceL: pizza.priceL,

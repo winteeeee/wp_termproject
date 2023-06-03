@@ -86,12 +86,11 @@ function PizzaList({activePage, type, sort}) {
 }
 
 function PizzaItem({pizza}) {
-    const img = require(`${pizza.imgPath}`)
     return(
         <div className="pizzamenu-area-item">
             <div className="carditem-web-container">
                 <div className="image-container">
-                    <img src={img} className="image" alt='#'></img>
+                    <img src={pizza.img} className="image" alt='#'></img>
                 </div>
                 <div className="item">
                     <h5 className='item-name'>{pizza.name}</h5>
