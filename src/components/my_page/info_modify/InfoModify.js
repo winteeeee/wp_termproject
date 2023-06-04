@@ -1,19 +1,51 @@
-import React from 'react';
-import { useState, useRef, useEffect } from "react";
+import React, {useEffect} from 'react';
+import { useState } from "react";
 import "./InfoModify.css";
 import TitleHeaderLayout from "./TitleHeaderLayout";
 import toggleBasic from "./img/no_check.png";
 import toggleBlue from "./img/check.png";
+import axios from "axios";
 
 
-const InfoModify = () => {
-    return (
-        <Modify></Modify>
-    )
-}
-export default InfoModify;
+function InfoModify(){
+    const [user, setUser] = useState({});
+    const [name, setName] = useState("");
+    const [id, setId] = useState("");
+    const [password, setPassword] = useState("");
+    const [phoneNumberFront, setPhoneNumberFront] = useState("");
+    const [phoneNumberRear, setPhoneNumberRear] = useState("");
+    const [birthDay, setBirthDay] = useState("");
+    const [emailFront, setEmailFront] = useState("");
+    const [emailRear, setEmailRear] = useState("");
+    const [address, setAddress] = useState("");
+    const [detailedAddress, setDetailedAddress] = useState("");
 
-function Modify(){
+    const submit = () => {
+        axios.post("http://localhost:4000/myPage/userUpdate", {
+            ...user,
+            address: address,
+            detailed_address: detailedAddress
+        }).then((r) => {console.log(r)});
+    }
+
+
+    useEffect(() => {
+        axios.get("http://localhost:4000/myPage/loadInfo/testID").then((r) => {
+            const emailArr = r.data.email.split("@");
+
+            setUser(r.data);
+            setName(r.data.name);
+            setId(r.data.id);
+            setPhoneNumberFront(r.data.phoneNumber.substring(0, 3));
+            setPhoneNumberRear(r.data.phoneNumber.substring(3, 11));
+            setBirthDay(r.data.birthDay);
+            setEmailFront(emailArr[0]);
+            setEmailRear(emailArr[1]);
+            setAddress(r.data.address);
+            setDetailedAddress(r.data.detailed_address);
+        });
+    }, []);
+    //TODO 로그인한 유저의 ID를 경로변수로 넣기
 
     return(
         <div className = "my-page-inside">
@@ -23,21 +55,21 @@ function Modify(){
                 <div className ="pc-top-text">나의 기본정보</div>
 
                 <div className="pc-body-container">
-                    <div className="padding-box"> 
+                    <div className="padding-box">
                         <div className="alvolo-input-box-text">
-                            {PutTextLine("text",524288,"이름",true)} 
+                            {PutTextLine("text",524288, name,true)}
                         </div>
                         <div className="alvolo-input-box-text">
-                            {PutTextLine("text",524288,"아이디",true)} 
+                            {PutTextLine("text",524288, id,true)}
                         </div>
                         <div className="alvolo-input-box-text">
-                            {PutTextLine("text",524288,"비밀번호",false)} 
+                            {PutTextLine("text",524288,"비밀번호",false)}
                         </div>
                         <div className ="special_signInfo">
                             ※ 특수기호는 ! @ # $ % ^ * + = - 가능합니다
                         </div>
                         <div className="alvolo-input-box-text">
-                            {PutTextLine("text",524288,"비밀번호 확인",false)} 
+                            {PutTextLine("text",524288,"비밀번호 확인",false)}
                         </div>
                         <div className ="number-area">
                             <div className ="number-area-left">
@@ -51,18 +83,18 @@ function Modify(){
                             </div>
                             <div className ="number-area-right">
                                 <div className ="alvolo-input-auth">
-                                {PutTextLine("number",524288,"전화번호 뒷부분",false)} 
+                                {PutTextLine("number",524288,phoneNumberRear,false)}
                                 </div>
                             </div>
                         </div>
-                    </div>    
-                    <div className="padding-box2"> 
-                        <div className="alvolo-input-box-text"> 
-                            {PutTextLine("text",524288,"생년월일",true)} 
+                    </div>
+                    <div className="padding-box2">
+                        <div className="alvolo-input-box-text">
+                            {PutTextLine("text",524288, birthDay,true)}
                         </div>
-                        <div className="mail-area"> 
+                        <div className="mail-area">
                             <div className ="mail-area-left">
-                                {PutTextLine("text",524288,"이메일 앞부분",false)} 
+                                {PutTextLine("text",524288, emailFront,false)}
                             </div>
                             @
                             <div className ="mail-area-right">
@@ -76,11 +108,13 @@ function Modify(){
                                 </select>
                             </div>
                         </div>
-                        <div className="alvolo-input-box-text"> 
-                            {PutTextLine("text",524288,"주소",false)} 
+                        <div className="alvolo-input-box-text">
+                            <input type="text" maxLength="524288" placeholder={address}
+                                   disabled={false} className="input-defalut" onChange={(e) => {setAddress(e.target.value);}}></input>
                         </div>
                         <div className="alvolo-input-box-text">
-                            {PutTextLine("text",524288,"상세주소",false)}  
+                            <input type="text" maxLength="524288" placeholder={detailedAddress}
+                                   disabled={false} className="input-defalut" onChange={(e) => {setDetailedAddress(e.target.value)}}></input>
                          </div>
 
                         <div className="membership-check-toggle">
@@ -91,7 +125,7 @@ function Modify(){
                     </div>
                     <div className="edit-membership-button-container">
                         <div className="gray-button">취소</div> 
-                        <div className="blue-button">확인</div>
+                        <div className="blue-button" onClick={submit}>확인</div>
                     </div>
                 </div>
             </div>
@@ -121,8 +155,10 @@ const ToggleComponent = ({context}) => {
 
 function PutTextLine(type,maxlength,placeholder,isable){
     return(
-        <input type = {type} maxlength = {maxlength} placeholder={placeholder}
-         disabled={isable} oninput="" className="input-defalut" ></input>
+        <input type = {type} maxLength= {maxlength} placeholder={placeholder}
+               disabled={isable} className="input-defalut"></input>
     )
 }
+
+export default InfoModify;
 
