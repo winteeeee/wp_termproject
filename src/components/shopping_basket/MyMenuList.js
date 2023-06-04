@@ -6,32 +6,33 @@ const plusBtnImg = "data:image/svg+xml;base64,PHN2ZyBpZD0iXyIgZGF0YS1uYW1lPSIrIi
 const deleteImg = "data:image/svg+xml;base64,PHN2ZyBpZD0i64W47Jej7KeAIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MiIgaGVpZ2h0PSI5MiIgdmlld0JveD0iMCAwIDkyIDkyIj4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLmNscy0xIHsKICAgICAgICBmaWxsOiBub25lOwogICAgICB9CgogICAgICAuY2xzLTIsIC5jbHMtMyB7CiAgICAgICAgZmlsbDogIzAwMDAwMDsKICAgICAgfQoKICAgICAgLmNscy0yIHsKICAgICAgICBmaWxsLXJ1bGU6IGV2ZW5vZGQ7CiAgICAgIH0KICAgIDwvc3R5bGU+CiAgPC9kZWZzPgogIDxjaXJjbGUgY2xhc3M9ImNscy0xIiBjeD0iNDYiIGN5PSI0NiIgcj0iNDYiLz4KICA8cGF0aCBpZD0iYnRuX3giIGNsYXNzPSJjbHMtMiIgZD0iTTI3My4wMTQsNzAxTDI3NSw2OTkuMDEzLDMwMi45ODYsNzI3LDMwMSw3MjguOTg2Wm0yOS45NzIsMEwzMDEsNjk5LjAxMywyNzMuMDE0LDcyNywyNzUsNzI4Ljk4NloiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yNDIgLTY2OCkiLz4KICA8cmVjdCBpZD0i7IKs6rCB7ZiVXzEiIGRhdGEtbmFtZT0i7IKs6rCB7ZiVIDEiIGNsYXNzPSJjbHMtMyIgeD0iNDQiIHk9IjQ0IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+Cjwvc3ZnPgo="
 
 
-function MyMenuList(props) {
+function MyMenuList({pizzaInfo, numberCount, clickPlusBtn, clickMinusBtn, key, priceCheck }) {
     return (
         <div className="basket-body-area">
             <div className="body-image-area">
-                <img src={`data:${props.pizzaInfo.pizzaImg.mimetype};base64,${props.pizzaInfo.pizzaImg.buffer}`}
+                <img src={`data:${pizzaInfo.pizzaImg.mimetype};base64,${pizzaInfo.pizzaImg.buffer}`}
                      className="basket-item-img"></img>
             </div>
             <div className="body-left-area">
-                <div className="h4-black">{props.pizzaInfo.pizzaName}</div>
+                <div className="h4-black">{pizzaInfo.pizzaName}</div>
                 <div>
-                    <span className="h6-join-background">{props.pizzaInfo.pizzaOption}</span>
+                    <span className="h6-join-background">{pizzaInfo.pizzaOption}</span>
                 </div>
             </div>
             <div className="body-right-area">
                 <div className="number-picker-outer">
                     <div className="number-picker">
-                        <img src={minusBtnImg} className="minusBtn" onClick={props.clickMinusBtn}></img>
-                        <span className="number_count">{props.numberCount}</span>
-                        <img src={plusBtnImg} className="plusBtn" onClick={props.clickPlusBtn}></img>
+                        <img src={minusBtnImg} className="minusBtn" onClick={clickMinusBtn}></img>
+                        <span className="number_count">{numberCount}</span>
+                        <img src={plusBtnImg} className="plusBtn" onClick={clickPlusBtn}></img>
                     </div>
                 </div>
             </div>
             <div className="footer-left">
                 <div className="btn-option"> 옵션변경</div>
             </div>
-            <div className="footer-center">{props.pizzaInfo.pizzaPrice * props.numberCount}원</div>
+            <div className="footer-center">{pizzaInfo.pizzaPrice * numberCount}원</div>
+            {priceCheck(pizzaInfo.pizzaPrice)}
             <div className="footer-right">
                 <div className="btn-change" changed="0"> 변경저장</div>
             </div>
