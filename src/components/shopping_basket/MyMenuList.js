@@ -12,6 +12,7 @@ function MyMenuList({pizzaInfo, setPrice ,price}) {
     const clickMinusBtn = () => {
         if (numberCount > 1 ) {
             setNumberCount(numberCount - 1)
+            console.log(totalPrice)
         }
     }
 
@@ -28,7 +29,7 @@ function MyMenuList({pizzaInfo, setPrice ,price}) {
 
     const clickDeleteBtn = () => {
         if(pizzaInfo != null) {
-            console.log("삭제");
+            console.log("DB에서 삭제");
         }
     }
 
