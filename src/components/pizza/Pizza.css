@@ -193,7 +193,7 @@
 /*<pc-pizzamenu-top-text>*/
 .pizza-menu .pizza-menu-content .pc-pizzamenu .pc-pizzamenu-top-text {
     width: 1200px;
-    height: 144px;
+    height: 204px;
     text-align: center;
     border-bottom: 1px solid #ccc;
     margin: auto;
@@ -294,7 +294,7 @@
     text-align: center;
     font-size: 14px;
     width: 22px;
-    height: 16px;
+    height: 22px;
     border-radius: 22px;
     background-color: #f9423a;
     color: #fff;
@@ -304,7 +304,7 @@
     border: 2px solid #ccc;
     position: relative;
     display: inline-block;
-    width: 276px;
+    width: 280px;
     background: #fff;
 }
 
@@ -319,7 +319,7 @@
     -moz-appearance: none;
     appearance: none;
     color: #666;
-    width: calc(100% - 60px);
+    width: 100%;
     font-family: "Noto Sans KR Light", serif;
     font-size: 20px;
     color: #222;
@@ -332,7 +332,7 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    width: calc(100% - 60px);
+    width: 100%;
     font-family: "Noto Sans KR Light",serif;
     font-size: 20px;
     color: #ccc;

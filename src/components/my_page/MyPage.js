@@ -1,8 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 import TitleHeaderLayout from "./info_modify/TitleHeaderLayout";
 import ShoppingHeader from "../shopping_basket/ShoppingHeader";
 import "../my_page/info_modify/TitleHeaderLayout.css";
 import "../my_page/info_modify/InfoModify.css"
+import OrderListTab from "./OrderListTab";
 
 function MyPage() {
     return (
@@ -11,6 +12,7 @@ function MyPage() {
             <div className="my-page-inside">
                 <div className="my-page-header">마이페이지</div>
                 <TitleHeaderLayout></TitleHeaderLayout>
+                <OrderListTab/>
             </div>
         </div>
     )

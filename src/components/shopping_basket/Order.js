@@ -31,6 +31,9 @@ function Order() {
         }
     }
 
+    const priceCheck = (price) => {
+        setTotalPrice(totalPrice + price)
+    }
 
     useEffect(() => {
         fetchData().then();
@@ -40,11 +43,6 @@ function Order() {
         try {
             axios.get("http://localhost:4000/shoppingBasket/test").then((res) => {
                 setPizzaInfo(res.data)
-                pizzaInfo.map(pizzaInfo => ({
-                    ...pizzaInfo,
-                    pizzaCount: 1
-                }));
-
             });
         } catch (error) {
             console.error("Error fetching data:", error);
@@ -55,7 +53,7 @@ return (
     <body>
     {
         pizzaInfo.map((pizzaInfo, index) => (
-            <MyMenuList key={index} pizzaInfo={pizzaInfo} numberCount = {numberCount} clickMinusBtn={clickMinusBtn} clickPlusBtn={clickPlusBtn}></MyMenuList>
+            <MyMenuList key={index} pizzaInfo={pizzaInfo} numberCount = {numberCount} clickMinusBtn={clickMinusBtn} clickPlusBtn={clickPlusBtn} priceCheck = {priceCheck}></MyMenuList>
         ))
     }
     <div className="total-layout">
