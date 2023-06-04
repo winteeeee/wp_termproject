@@ -26,6 +26,19 @@ function Order() {
             console.error("Error fetching data:", error);
         }
     }
+    const submit = () => {
+        //정보 저장
+        pizzaInfo.map((pizzaInfo) => {
+            axios.post("http://localhost:4000/shoppingBasket/orderInsert", {
+                orderDate: new Date(),
+                orderMenu: pizzaInfo.pizzaName+ "(" + pizzaInfo.pizzaOption + ")",
+                price: pizzaInfo.pizzaPrice,
+                address: "금오공과대학교",
+                store: "구미도량봉곡점(054-454-8495)"
+            }).then((r) => (console.log(r)));
+        })
+        //address랑 store은 어떻게 받아올까..
+    }
 
 return (
     <body>
@@ -41,7 +54,7 @@ return (
             <font className="total-price">{price}원</font>
             원
         </h4>
-        <div className="basic-button">주문하기</div>
+        <div className="basic-button" >주문하기</div>
     </div>
     </body>
 )
