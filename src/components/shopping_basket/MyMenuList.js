@@ -23,17 +23,13 @@ function MyMenuList({pizzaInfo, setPrice, price}) {
     }
 
     useEffect(() => {
-        setTotalPrice(numberCount * pizzaInfo.pizzaPrice)
-    }, [numberCount])
-
-    useEffect(() => {
-        setPrice(price)
-        console.log(price)
-    }, [totalPrice])
+        setPrice(price - totalPrice + Number(pizzaInfo.pizzaPrice) * numberCount)
+        setTotalPrice(Number(pizzaInfo.pizzaPrice) * numberCount)
+    }, [numberCount]);
 
     const clickDeleteBtn = () => {
         if(pizzaInfo != null) {
-            console.log("삭제");
+            console.log("DB에서 삭제");
         }
     }
 
