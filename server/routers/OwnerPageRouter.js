@@ -23,16 +23,18 @@ const ownerPageRouter = (form_data, db) => {
         const sales = [];
         const dayOfTheWeek = [];
         await db.collection("orderHistory").find({"ownerID": "ownerID"}).sort({"date": 1}).forEach((r) => {
+            const date = r.date.split(" ");
+
             if (idx !== 0) {
-                if (dayOfTheWeek[idx - 1] !== r.date) {
-                    dayOfTheWeek[idx] = r.date;
-                    sales[idx++] = Number(r.amount);
+                if (dayOfTheWeek[idx - 1] !== date[0]) {
+                    dayOfTheWeek[idx] = date[0];
+                    sales[idx++] = Number(r.price);
                 } else {
-                    sales[idx - 1] += Number(r.amount);
+                    sales[idx - 1] += Number(r.price);
                 }
             } else {
-                dayOfTheWeek[idx] = r.date;
-                sales[idx++] = Number(r.amount);
+                dayOfTheWeek[idx] = date[0];
+                sales[idx++] = Number(r.price);
             }
 
         });
