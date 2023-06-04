@@ -8,6 +8,7 @@ const mongoose= require("mongoose");
 const ownerPage = require("./routers/OwnerPageRouter");
 const shoppingBasket = require("./routers/ShoppingBasketRouter");
 const pizzaPage = require("./routers/PizzaRouter");
+const myPage = require("./routers/MyPageRouter")
 
 const app = express();
 const form_data = multer();
@@ -34,6 +35,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/ownerPage", ownerPage(form_data, db));
 app.use("/shoppingBasket", shoppingBasket(db));
 app.use("/pizzaPage", pizzaPage(db));
+app.use("/myPage", myPage(db));
 
 app.listen(port, hostname, () => {
     console.log(`Server running at http://${hostname}:${port}/`);

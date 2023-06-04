@@ -3,7 +3,7 @@ import img from "./img/expert1.png"
 import {useEffect, useState} from "react";
 import axios from 'axios'
 import userEvent from "@testing-library/user-event";
-import MyMenuList from "./MyMenuList";
+//import MyMenuList from "./MyMenuList";
 import pizza from "../pizza/Pizza";
 
 function Order() {
@@ -49,9 +49,9 @@ function Order() {
 return (
     <body>
     {
-        pizzaInfo.map((pizzaInfo, index) => (
+/*        pizzaInfo.map((pizzaInfo, index) => (
             <MyMenuList key={index} pizzaInfo={pizzaInfo} numberCount = {numberCount} clickMinusBtn={clickMinusBtn} clickPlusBtn={clickPlusBtn}></MyMenuList>
-        ))
+        ))*/
     }
     <div className="total-layout">
         <h4 className="sum-total">합계</h4>
