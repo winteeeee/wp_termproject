@@ -3,7 +3,7 @@ import TitleHeaderLayout from "./info_modify/TitleHeaderLayout";
 import "../my_page/info_modify/TitleHeaderLayout.css";
 import "../my_page/info_modify/InfoModify.css"
 import OrderListTab from "./OrderListTab";
-import {Route, Routes} from "react-router-dom";
+import {Link, Route, Routes} from "react-router-dom";
 import InfoModify from "./info_modify/InfoModify";
 import HeaderLayout from "../main_page/HeaderLayout";
 
@@ -17,8 +17,8 @@ function MyPage() {
                 <div className="my-page-header">마이페이지</div>
                 <TitleHeaderLayout/>
                 <Routes>
-                    <Route path="/myOrder" element={<OrderListTab/>}/>
-                    <Route path="/myInfo" element={<InfoModify/>}/>
+                    <Route path="/myPage/myOrder" element={<OrderListTab/>}/>
+                    <Route path="/myPage/myInfo" element={<InfoModify/>}/>
                 </Routes>
             </div>
         </div>
