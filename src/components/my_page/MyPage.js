@@ -4,6 +4,8 @@ import ShoppingHeader from "../shopping_basket/ShoppingHeader";
 import "../my_page/info_modify/TitleHeaderLayout.css";
 import "../my_page/info_modify/InfoModify.css"
 import OrderListTab from "./OrderListTab";
+import {Route, Routes} from "react-router-dom";
+import InfoModify from "./info_modify/InfoModify";
 
 function MyPage() {
     return (
@@ -12,7 +14,10 @@ function MyPage() {
             <div className="my-page-inside">
                 <div className="my-page-header">마이페이지</div>
                 <TitleHeaderLayout></TitleHeaderLayout>
-                <OrderListTab/>
+                <Routes>
+                    <Route path="/myOrder" element={<OrderListTab/>}></Route>
+                    <Route path={"/myInfo"} element={<InfoModify/>}></Route>
+                </Routes>
             </div>
         </div>
     )

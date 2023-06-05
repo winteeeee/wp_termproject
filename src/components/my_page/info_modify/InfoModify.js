@@ -49,8 +49,6 @@ function InfoModify(){
 
     return(
         <div className = "my-page-inside">
-            <div className = "my-page-header">마이페이지</div>
-                <TitleHeaderLayout></TitleHeaderLayout>
             <div className = "mypage-page-content">
                 <div className ="pc-top-text">나의 기본정보</div>
 
