@@ -2,21 +2,24 @@ import React from 'react';
 import { useState, useRef, useEffect } from "react";
 import "./Review.css";
 import ShoppingHeader from "../shopping_basket/ShoppingHeader";
-import ReviewData from "./ReveiwData.js";
-import PizzaData from "../pizza/PizzaData.js";
+import axios from 'axios';
+import HeaderLayout from "../main_page/HeaderLayout";
 
-const Review = () => {
+const Review = ({PizzaData}) => {
+
     return (
         <div>
-        <ShoppingHeader></ShoppingHeader>
-        <ReviewInfo pizza = {PizzaData[6]}></ReviewInfo>
+            <div className="web-main-tab-header-layout">
+                <HeaderLayout/>
+            </div>
+        <ReviewInfo pizza = {PizzaData}></ReviewInfo>
         </div>
     )
 }
 export default Review;
 
 function ReviewInfo({pizza}){
-    
+
     return (
         <div className="pizza-menu-detail">
             <div className = "info-container">
@@ -25,7 +28,7 @@ function ReviewInfo({pizza}){
                 </div>
                 <div className = "pizza-info-container">
                     <div className= "pizza-slide-box">
-                        <img className="slider" src={pizza.imgPath}></img>
+                        <img className="slider" src={`data:${pizza.img.mimetype};base64,${pizza.img.buffer}`}></img>
                     </div>
                     <div className="pizza-item-info">
                         <div className="pizza-item-name">{pizza.name}</div>
@@ -47,7 +50,6 @@ function ReviewInfo({pizza}){
                 </div>
                 <div class = "whole-review-box">
                     {ShowReview(pizza.name)}
-                    
                 </div>
             </div>
         </div>
@@ -55,15 +57,31 @@ function ReviewInfo({pizza}){
 }
 
 function ShowReview(name){
+
     let matchedReviews = [];
 
-    for(let i=0;i<ReviewData.length;i++){
-        if(ReviewData[i].name == name){
+    const [reviewData, setReviewData] = useState([]); // 피자 데이터 정보
+
+    useEffect(() => {
+        const fetchReviewData = async () => {
+            const response = await axios.get("http://localhost:4000/reviewPage/api/ReviewTest" , {
+                params: {
+                    name:name
+
+                }
+            });
+            setReviewData(response.data);
+        }
+        fetchReviewData();
+    }, [name]);
+
+    for(let i=0;i<reviewData.length;i++){
+        if(reviewData[i].name == name){
             matchedReviews.push(
                 <div className="review-box" id="review">
-                    <div className="review-star-rate-box">{ShowStarRate(ReviewData[i].rate)}</div>
-                    <div className="review-context-box">{ReviewData[i].context}</div>
-                    <div className="review-writer-box">{ReviewData[i].writer}</div>
+                    <div className="review-star-rate-box">{ShowStarRate(reviewData[i].rate)}</div>
+                    <div className="review-context-box">{reviewData[i].context}</div>
+                    <div className="review-writer-box">{reviewData[i].writer}</div>
                 </div>
             );
         }

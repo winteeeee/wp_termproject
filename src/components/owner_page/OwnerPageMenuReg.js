@@ -104,9 +104,9 @@ const tempDummy = () => {
                         <div className="alvolo-input">
                             <select defaultValue="null" onChange={kindChange}>
                                 <option value="null" disabled>종류 선택</option>
-                                <option value="masterPizza">장인피자</option>
-                                <option value="expertPizza">달인피자</option>
-                                <option value="luxuryPizza">명품피자</option>
+                                <option value="장인피자">장인피자</option>
+                                <option value="달인피자">달인피자</option>
+                                <option value="명품피자">명품피자</option>
                             </select>
                         </div>
                         <div className="alvolo-input">

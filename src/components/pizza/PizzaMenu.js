@@ -4,6 +4,7 @@ import "./Pizza.css";
 
 import icon_view from "./img/icon-view.png";
 import icon_basket from "./img/icon-basket.png";
+import {Link} from "react-router-dom";
 
 function PizzaMenu({activeTab}) {
     const [pizzaCount, setPizzaCount] = useState(0);
@@ -90,7 +91,7 @@ function PizzaItem({pizza}) {
         <div className="pizzamenu-area-item">
             <div className="carditem-web-container">
                 <div className="image-container">
-                    <img src={pizza.img} className="image" alt='#'></img>
+                    <img src={`data:${pizza.img.mimetype};base64,${pizza.img.buffer}`} className="image" alt='#'></img>
                 </div>
                 <div className="item">
                     <h5 className='item-name'>{pizza.name}</h5>
@@ -118,10 +119,12 @@ function PizzaItem({pizza}) {
             </div>
             <div className="click-active shadow-box">
                 <div className="view-button">
+                    <Link to="/review">
                     <div className='inner-container'>
                         <img src={icon_view} className="view-card" alt='#'></img>
                         상세보기
                     </div>
+                    </Link>
                 </div>
                 <div className="basket-button">
                     <div className="inner-container">

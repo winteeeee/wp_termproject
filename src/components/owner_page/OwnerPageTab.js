@@ -7,15 +7,15 @@ function OwnerPageTab() {
     return (
         <div className="menutab-page-whole-div">
             <div className="menutab-page-menutab">
-                <Link to="/MenuReg">
+                <Link to="/ownerPage/MenuReg">
                     <div className="menutab-page-title">
-                        <h5 className={location.pathname === "/MenuReg" ? "selected" : ""}>메뉴등록</h5>
+                        <h5 className={location.pathname === "/ownerPage/MenuReg" ? "selected" : ""}>메뉴등록</h5>
                     </div>
                 </Link>
 
-                <Link to="/Stats">
+                <Link to="/ownerPage/Stats">
                     <div className="menutab-page-title">
-                        <h5 className={location.pathname === "/Stats"? "selected" : ""}>판매수량확인</h5>
+                        <h5 className={location.pathname === "/ownerPage/Stats"? "selected" : ""}>판매수량확인</h5>
                     </div>
                 </Link>
             </div>
