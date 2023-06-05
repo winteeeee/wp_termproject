@@ -13,11 +13,15 @@ import x_button from "./img/header_layout/x_button.png";
 
 const HeaderLayout = () => {
     const [isOpen, setMenu] = useState(false);
-
     const navigate = useNavigate();
+    const location = useLocation();
 
     function movePage(pagePath) {
-        navigate(pagePath);
+        if (location.pathname === "/") {
+            navigate(pagePath);
+        } else {
+            navigate("../" + pagePath);
+        }
         setMenu(false);
     }
     

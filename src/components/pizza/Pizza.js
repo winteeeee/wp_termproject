@@ -20,7 +20,7 @@ const PizzaPage = () => {
                                 <div className="pizza-menu">
                                     <div className="pizza-menu-content">
                                         <div className="pc-pizzamenu">
-                                            <PizzaTopText></PizzaTopText>
+                                            <PizzaTopText/>
                                             <PizzaTab activeTab={activeTab} setActiveTab={setActiveTab}></PizzaTab>
                                             <PizzaMenu activeTab={activeTab}></PizzaMenu>
                                         </div>

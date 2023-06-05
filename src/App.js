@@ -8,16 +8,18 @@ import Review from './components/review/Review';
 
 import './index.css';
 import './fonts/Font.css';
+import Pizza from "./components/pizza/Pizza";
 
 function App() {
   return (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<MainPage/>}/>
-          <Route path="/myPage" element={<MyPage/>}/>
-          <Route path="/ownerPage" element={<OwnerPage/>}/>
-          <Route path="/review" element={<Review/>}/>
-          <Route path="/shoppingBasket" element={<ShoppingBasket/>}/>
+          <Route path="/pizzaPage/*" element={<Pizza/>}/>
+          <Route path="/myPage/*" element={<MyPage/>}/>
+          <Route path="/ownerPage/*" element={<OwnerPage/>}/>
+          <Route path="/review/*" element={<Review/>}/>
+          <Route path="/shoppingBasket/*" element={<ShoppingBasket/>}/>
         </Routes>
       </BrowserRouter>
   );
