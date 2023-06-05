@@ -2,12 +2,7 @@ import React from 'react';
 import { useState, useRef, useEffect } from "react";
 import "./Review.css";
 import ShoppingHeader from "../shopping_basket/ShoppingHeader";
-<<<<<<< Updated upstream
-import PizzaData from "../pizza/PizzaData";
 import axios from 'axios';
-=======
-import ReviewData from "./ReveiwData.js";
->>>>>>> Stashed changes
 
 const Review = ({PizzaData}) => {
 
@@ -66,23 +61,14 @@ function ShowReview(name){
 
     useEffect(() => {
         const fetchReviewData = async () => {
-<<<<<<< Updated upstream
             const response = await axios.get("http://localhost:4000/reviewPage/api/ReviewTest" , {
                 params: {
                     name:name
-=======
-            const response = await axios.get("http://localhost:4000/reviewPage/api/reviewTest" , {
-                params: {
-                    name: name,
->>>>>>> Stashed changes
+
                 }
             });
             setReviewData(response.data);
         }
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
         fetchReviewData();
     }, [name]);
 

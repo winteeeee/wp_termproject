@@ -8,12 +8,8 @@ const mongoose= require("mongoose");
 const ownerPage = require("./routers/OwnerPageRouter");
 const shoppingBasket = require("./routers/ShoppingBasketRouter");
 const pizzaPage = require("./routers/PizzaRouter");
-<<<<<<< Updated upstream
 const myPage = require("./routers/MyPageRouter")
 const reviewPage = require("./routers/ReviewPageRouter")
-=======
-const reviewPage = require("./routers/ReviewPageRouter");
->>>>>>> Stashed changes
 
 const app = express();
 const form_data = multer();
@@ -40,10 +36,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/ownerPage", ownerPage(form_data, db));
 app.use("/shoppingBasket", shoppingBasket(db));
 app.use("/pizzaPage", pizzaPage(db));
-<<<<<<< Updated upstream
 app.use("/myPage", myPage(db));
-=======
->>>>>>> Stashed changes
 app.use("/reviewPage", reviewPage(db));
 
 app.listen(port, hostname, () => {
