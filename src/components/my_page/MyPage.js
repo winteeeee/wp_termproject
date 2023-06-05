@@ -16,7 +16,7 @@ function MyPage() {
                 <TitleHeaderLayout></TitleHeaderLayout>
                 <Routes>
                     <Route path="/myOrder" element={<OrderListTab/>}></Route>
-                    <Route path={"/myInfo"} element={<InfoModify/>}></Route>
+                    <Route path="/myInfo" element={<InfoModify/>}></Route>
                 </Routes>
             </div>
         </div>
