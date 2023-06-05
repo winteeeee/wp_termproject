@@ -8,6 +8,7 @@
     height: 60px;
     display: flex;
     float: left;
+    border-bottom: 1px solid #999;
 }
 
 .menutab-page-title-div{
@@ -21,9 +22,8 @@
     white-space: nowrap;
     font-size: 18px;
     color: #999;
-    border-bottom: 1px solid #999;
     text-align: center;
-    margin: auto;
+    margin-left: 6rem;
 }
 
 h5{
