@@ -12,7 +12,6 @@ function MyMenuList({pizzaInfo, setPrice ,price}) {
     const clickMinusBtn = () => {
         if (numberCount > 1 ) {
             setNumberCount(numberCount - 1)
-            console.log(totalPrice)
         }
     }
 
@@ -37,7 +36,7 @@ function MyMenuList({pizzaInfo, setPrice ,price}) {
         <div className="basket-body-area">
             <div className="body-image-area">
                 <img src={`data:${pizzaInfo.pizzaImg.mimetype};base64,${pizzaInfo.pizzaImg.buffer}`}
-                     className="basket-item-img"></img>
+                     className="basket-item-img" alt="pizza"></img>
             </div>
             <div className="body-left-area">
                 <div className="h4-black">{pizzaInfo.pizzaName}</div>

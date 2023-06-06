@@ -10,6 +10,7 @@ import icon_pizza from "./img/header_layout/icon_pizza.png";
 import icon_airplane from "./img/header_layout/icon_airplane.png";
 import icon_arrow_more from "./img/header_layout/icon_arrow_more.png";
 import x_button from "./img/header_layout/x_button.png";
+import {Link} from "react-router-dom";
 
 const HeaderLayout = () => {
     const [isOpen, setMenu] = useState(false);
@@ -93,7 +94,10 @@ function MainTabTop({toggleMenu, movePage}) {
                             : <span className="top-right-text" onClick={logout}> 로그아웃 </span>}
                         
                     </div>
-                    <img src={icon_pizza} alt="#" className="icon-pizza"></img>
+                    <Link to="/shoppingBasket">
+                        <img src={icon_pizza} alt="#" className="icon-pizza"></img>
+                    </Link>
+
                 </div>
             </div>
         </div>
