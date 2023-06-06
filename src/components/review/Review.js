@@ -1,25 +1,44 @@
 import React from 'react';
 import { useState, useRef, useEffect } from "react";
 import "./Review.css";
-import ShoppingHeader from "../shopping_basket/ShoppingHeader";
 import axios from 'axios';
+import { useLocation } from 'react-router-dom';
 import HeaderLayout from "../main_page/HeaderLayout";
 
-const Review = ({PizzaData}) => {
-
+const Review = () => {
+    const [pizza, setPizza] = useState([]);
+    const location = useLocation();
+    const nameParam = new URLSearchParams(location.search).get("name");
+    let decodedName = nameParam.replace(/&/g, "%26");
+    if(decodedName == "쉬림프ㅎ핫치킨골드피자"){
+        decodedName = "쉬림프&핫치킨골드피자";
+    } 
+    useEffect(() => {
+        
+        const fetchPizzaData = async () => {
+            const response = await axios.get("http://localhost:4000/pizzaPage/api/loadOnePizzaData" , {
+                params: {
+                    name: decodedName
+                }
+            });
+            setPizza(response.data[0]);
+        }
+        fetchPizzaData();
+        
+    });
     return (
         <div>
             <div className="web-main-tab-header-layout">
                 <HeaderLayout/>
             </div>
-        <ReviewInfo pizza = {PizzaData}></ReviewInfo>
+        <ReviewInfo pizza = {null}></ReviewInfo>
         </div>
     )
 }
 export default Review;
 
-function ReviewInfo({pizza}){
 
+function ReviewInfo({pizza}){
     return (
         <div className="pizza-menu-detail">
             <div className = "info-container">
@@ -37,7 +56,6 @@ function ReviewInfo({pizza}){
                             <span className="pizza-item-large-price">{pizza.priceL}</span>
                             <span className="pizza-item-ragular">R</span>
                             <span className="pizza-item-ragular-price">{pizza.priceR}</span>
-
                         </div>
                     </div>
                 </div>
@@ -48,23 +66,25 @@ function ReviewInfo({pizza}){
                         <div className="review-context">리뷰</div>
                         <div className="review-writer">작성자</div>
                 </div>
-                <div class = "whole-review-box">
-                    {ShowReview(pizza.name)}
+
+                <div className = "whole-review-box">
+                    <ShowReview name={pizza.name} ></ShowReview>
+                    
+
                 </div>
             </div>
         </div>
     )
 }
 
-function ShowReview(name){
-
+function ShowReview({name}){
     let matchedReviews = [];
-
     const [reviewData, setReviewData] = useState([]); // 피자 데이터 정보
 
     useEffect(() => {
         const fetchReviewData = async () => {
-            const response = await axios.get("http://localhost:4000/reviewPage/api/ReviewTest" , {
+
+            const response = await axios.get("http://localhost:4000/reviewPage/api/loadReview" , {
                 params: {
                     name:name
 

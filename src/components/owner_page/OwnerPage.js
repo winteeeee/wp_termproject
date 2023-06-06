@@ -6,7 +6,7 @@ import './OwnerPage.css'
 import {Routes, Route} from "react-router-dom";
 import HeaderLayout from "../main_page/HeaderLayout";
 
-function OwnerPage({test}) {
+function OwnerPage() {
     return (
         <div className="owner_page">
             <div className="web-main-tab-header-layout">

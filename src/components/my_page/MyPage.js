@@ -3,7 +3,7 @@ import TitleHeaderLayout from "./info_modify/TitleHeaderLayout";
 import "../my_page/info_modify/TitleHeaderLayout.css";
 import "../my_page/info_modify/InfoModify.css"
 import OrderListTab from "./OrderListTab";
-import {Route, Routes} from "react-router-dom";
+import {Link, Route, Routes} from "react-router-dom";
 import InfoModify from "./info_modify/InfoModify";
 import HeaderLayout from "../main_page/HeaderLayout";
 

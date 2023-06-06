@@ -4,7 +4,10 @@ import "./Pizza.css";
 
 import icon_view from "./img/icon-view.png";
 import icon_basket from "./img/icon-basket.png";
+import { BrowserRouter, Route, useNavigate } from 'react-router-dom';
+import pizzaData from './PizzaData';
 import {Link} from "react-router-dom";
+import {useCookies} from "react-cookie";
 
 function PizzaMenu({activeTab}) {
     const [pizzaCount, setPizzaCount] = useState(0);
@@ -87,6 +90,27 @@ function PizzaList({activePage, type, sort}) {
 }
 
 function PizzaItem({pizza}) {
+
+    const navigate = useNavigate();
+    const [cookies, setCookie, removeCookie] = useCookies(['loginID']);
+
+    function moveReviewPage(pathPage){
+        navigate(pathPage);
+    }
+
+    // 파라마스 & 인식 피하기 용도
+    const pizzaName = pizza.name.replace('&', 'ㅎ');
+
+    const shoppingBasketInsert = () => {
+        const data = {
+            userID: cookies.loginID,
+            name: pizza.name,
+            price: pizza.priceL,
+            img: pizza.img
+        }
+        axios.post("http://localhost:4000/pizzaPage/api/basketInsert", data).then((r) => {console.log(r)});
+    }
+
     return(
         <div className="pizzamenu-area-item">
             <div className="carditem-web-container">
@@ -127,7 +151,7 @@ function PizzaItem({pizza}) {
                     </Link>
                 </div>
                 <div className="basket-button">
-                    <div className="inner-container">
+                    <div className="inner-container" onClick={shoppingBasketInsert}>
                         <img src={icon_basket} className="basket-card" alt='#'></img>
                         장바구니
                     </div>
@@ -175,3 +199,4 @@ function PizzaPagination({setActivePage, activePage, pageNum}) {
         </div>
     );
 }
+

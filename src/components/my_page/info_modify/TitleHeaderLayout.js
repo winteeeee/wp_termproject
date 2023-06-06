@@ -21,6 +21,5 @@ const TitleHeaderLayout = () => {
             </div>
         </div>
     );
-    //TODO 선택 시 스타일 적용안됨
 }
 export default TitleHeaderLayout;
