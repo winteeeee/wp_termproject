@@ -4,6 +4,8 @@ import "./Pizza.css";
 
 import icon_view from "./img/icon-view.png";
 import icon_basket from "./img/icon-basket.png";
+import { BrowserRouter, Route, useNavigate } from 'react-router-dom';
+import pizzaData from './PizzaData';
 
 function PizzaMenu({activeTab}) {
     const [pizzaCount, setPizzaCount] = useState(0);
@@ -86,6 +88,16 @@ function PizzaList({activePage, type, sort}) {
 }
 
 function PizzaItem({pizza}) {
+
+    const navigate = useNavigate();
+
+    function moveReviewPage(pathPage){
+        navigate(pathPage);
+    }
+
+    // 파라마스 & 인식 피하기 용도
+    const pizzaName = pizza.name.replace('&', 'ㅎ');
+
     return(
         <div className="pizzamenu-area-item">
             <div className="carditem-web-container">
@@ -118,7 +130,7 @@ function PizzaItem({pizza}) {
             </div>
             <div className="click-active shadow-box">
                 <div className="view-button">
-                    <div className='inner-container'>
+                    <div className='inner-container' onClick={()=>moveReviewPage(`Review?name=${pizzaName}`)}>
                         <img src={icon_view} className="view-card" alt='#'></img>
                         상세보기
                     </div>
@@ -172,3 +184,4 @@ function PizzaPagination({setActivePage, activePage, pageNum}) {
         </div>
     );
 }
+

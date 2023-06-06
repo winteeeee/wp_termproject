@@ -47,8 +47,34 @@ const PizzaRouter = (db) => {
     
         return res.json(count);
     })
+
+    router.get("/api/loadOnePizzaData", async (req, res) => {
+        const pizzaName = req.query.name ;
+
+        const pizzaList = await db
+        .collection("PizzaData")
+        .find({"name":pizzaName})
+        .toArray();
+        
+        const result = pizzaList.map((pizza) => ({
+            name: pizza.name,
+            img: pizza.img,
+            description: pizza.description,
+            kind: pizza.kind,
+            priceL: pizza.priceL,
+            priceR: pizza.priceR,
+            topping1: pizza.topping1,
+            topping2: pizza.topping2,
+            topping3: pizza.topping3,
+          }));
+    
+        return res.json(result);
+    })
     
     return router;
+
+   
+    
 }
 
 module.exports = PizzaRouter;
