@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState, useRef, useEffect } from "react";
 import "./Review.css";
-import ShoppingHeader from "../shopping_basket/ShoppingHeader";
 import axios from 'axios';
 import HeaderLayout from "../main_page/HeaderLayout";
 

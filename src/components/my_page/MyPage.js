@@ -17,8 +17,8 @@ function MyPage() {
                 <div className="my-page-header">마이페이지</div>
                 <TitleHeaderLayout/>
                 <Routes>
-                    <Route path="/myPage/myOrder" element={<OrderListTab/>}/>
-                    <Route path="/myPage/myInfo" element={<InfoModify/>}/>
+                    <Route path="/myOrder" element={<OrderListTab/>}/>
+                    <Route path="/myInfo" element={<InfoModify/>}/>
                 </Routes>
             </div>
         </div>
