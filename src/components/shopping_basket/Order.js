@@ -9,6 +9,7 @@ function Order() {
     let [pizzaInfo, setPizzaInfo] = useState([])
     const [price, setPrice] = useState(0)
     const [cookies, setCookie, removeCookie] = useCookies(['loginID']);
+    let [countArray, setCountArray] = useState([])
 
     useEffect(() => {
         fetchData().then();
@@ -57,9 +58,14 @@ function Order() {
 return (
     <body>
     {
-        pizzaInfo.map((pizzaInfo) => (
-            <MyMenuList pizzaInfo={pizzaInfo} setPrice = {setPrice} price = {price}></MyMenuList>
+        pizzaInfo.map((pizzaInfo, index) => (
+            <MyMenuList index = {index} pizzaInfo={pizzaInfo} setPrice = {setPrice} price = {price} countArray = {countArray} setCountArray = {setCountArray}></MyMenuList>
         ))
+    }
+    {
+        countArray.map((countArray, index) => {
+            console.log(index, countArray)
+        })
     }
     <div className="total-layout">
         <h4 className="sum-total">합계</h4>

@@ -8,12 +8,13 @@ const plusBtnImg = "data:image/svg+xml;base64,PHN2ZyBpZD0iXyIgZGF0YS1uYW1lPSIrIi
 const deleteImg = "data:image/svg+xml;base64,PHN2ZyBpZD0i64W47Jej7KeAIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MiIgaGVpZ2h0PSI5MiIgdmlld0JveD0iMCAwIDkyIDkyIj4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLmNscy0xIHsKICAgICAgICBmaWxsOiBub25lOwogICAgICB9CgogICAgICAuY2xzLTIsIC5jbHMtMyB7CiAgICAgICAgZmlsbDogIzAwMDAwMDsKICAgICAgfQoKICAgICAgLmNscy0yIHsKICAgICAgICBmaWxsLXJ1bGU6IGV2ZW5vZGQ7CiAgICAgIH0KICAgIDwvc3R5bGU+CiAgPC9kZWZzPgogIDxjaXJjbGUgY2xhc3M9ImNscy0xIiBjeD0iNDYiIGN5PSI0NiIgcj0iNDYiLz4KICA8cGF0aCBpZD0iYnRuX3giIGNsYXNzPSJjbHMtMiIgZD0iTTI3My4wMTQsNzAxTDI3NSw2OTkuMDEzLDMwMi45ODYsNzI3LDMwMSw3MjguOTg2Wm0yOS45NzIsMEwzMDEsNjk5LjAxMywyNzMuMDE0LDcyNywyNzUsNzI4Ljk4NloiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yNDIgLTY2OCkiLz4KICA8cmVjdCBpZD0i7IKs6rCB7ZiVXzEiIGRhdGEtbmFtZT0i7IKs6rCB7ZiVIDEiIGNsYXNzPSJjbHMtMyIgeD0iNDQiIHk9IjQ0IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+Cjwvc3ZnPgo="
 
 
-function MyMenuList({pizzaInfo, setPrice ,price}) {
+
+function MyMenuList({index, pizzaInfo, setPrice ,price,setCountArray, countArray}) {
     const [visiable, setVisiable] = useState(true);
     const [numberCount, setNumberCount] = useState(1)
     const [totalPrice, setTotalPrice] = useState(Number(pizzaInfo.pizzaPrice))
     const [cookies, setCookie, removeCookie] = useCookies(['loginID']);
-
+    const [count, setCount] = useState(Number(index))
     const clickMinusBtn = () => {
         if (numberCount > 1 ) {
             setNumberCount(numberCount - 1)
@@ -31,6 +32,14 @@ function MyMenuList({pizzaInfo, setPrice ,price}) {
         setTotalPrice(Number(pizzaInfo.pizzaPrice) * numberCount)
     }, [numberCount]);
 
+    const clickChangeResult = () => {
+        setCountArray((countArray) => {
+            const newArray =  [...countArray]
+            newArray[count] = numberCount;
+            return newArray
+        })
+    }
+
     const clickDeleteBtn = () => {
         setVisiable(false);
         setPrice(price - pizzaInfo.pizzaPrice)
@@ -40,10 +49,10 @@ function MyMenuList({pizzaInfo, setPrice ,price}) {
             pizzaName: pizzaInfo.pizzaName
         }).then((r) => {console.log(r)});
     }
-
     return (
         <body>
             {visiable ? <div className="basket-body-area">
+
                 <div className="body-image-area">
                     <img src={`data:${pizzaInfo.pizzaImg.mimetype};base64,${pizzaInfo.pizzaImg.buffer}`}
                          className="basket-item-img" alt="pizza"></img>
@@ -68,7 +77,7 @@ function MyMenuList({pizzaInfo, setPrice ,price}) {
                 </div>
                 <div className="footer-center">{totalPrice}원</div>
                 <div className="footer-right">
-                    <div className="btn-change" changed="0"> 변경저장</div>
+                    <div className="btn-change" onClick={clickChangeResult}> 변경저장</div>
                 </div>
                 <div className="basket-toolbar-area">
                     <img src={deleteImg} alt="장바구니 닫기" className="delete-btn" onClick={clickDeleteBtn}></img>
