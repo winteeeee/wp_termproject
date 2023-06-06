@@ -9,6 +9,7 @@ const deleteImg = "data:image/svg+xml;base64,PHN2ZyBpZD0i64W47Jej7KeAIiB4bWxucz0
 function MyMenuList({pizzaInfo, setPrice ,price}) {
     const [numberCount, setNumberCount] = useState(1)
     const [totalPrice, setTotalPrice] = useState(Number(pizzaInfo.pizzaPrice))
+    const [visable, setVisiavle] = useState(true)
     const clickMinusBtn = () => {
         if (numberCount > 1 ) {
             setNumberCount(numberCount - 1)
@@ -27,43 +28,45 @@ function MyMenuList({pizzaInfo, setPrice ,price}) {
     }, [numberCount]);
 
     const clickDeleteBtn = () => {
-        if(pizzaInfo != null) {
-            console.log("DB에서 삭제");
-        }
+        setVisiavle(false)
+        setPrice(price - pizzaInfo.pizzaPrice)
     }
 
     return (
-        <div className="basket-body-area">
-            <div className="body-image-area">
-                <img src={`data:${pizzaInfo.pizzaImg.mimetype};base64,${pizzaInfo.pizzaImg.buffer}`}
-                     className="basket-item-img" alt="pizza"></img>
-            </div>
-            <div className="body-left-area">
-                <div className="h4-black">{pizzaInfo.pizzaName}</div>
-                <div>
-                    <span className="h6-join-background">{pizzaInfo.pizzaOption}</span>
+        <body>
+        {visable ? <div className="basket-body-area">
+                <div className="body-image-area">
+                    <img src={`data:${pizzaInfo.pizzaImg.mimetype};base64,${pizzaInfo.pizzaImg.buffer}`}
+                         className="basket-item-img" alt="pizza"></img>
                 </div>
-            </div>
-            <div className="body-right-area">
-                <div className="number-picker-outer">
-                    <div className="number-picker">
-                        <img src={minusBtnImg} className="minusBtn" onClick={clickMinusBtn}></img>
-                        <span className="number_count">{numberCount}</span>
-                        <img src={plusBtnImg} className="plusBtn" onClick={clickPlusBtn}></img>
+                <div className="body-left-area">
+                    <div className="h4-black">{pizzaInfo.pizzaName}</div>
+                    <div>
+                        <span className="h6-join-background">{pizzaInfo.pizzaOption}</span>
                     </div>
                 </div>
-            </div>
-            <div className="footer-left">
-                <div className="btn-option"> 옵션변경</div>
-            </div>
-            <div className="footer-center">{totalPrice}원</div>
-            <div className="footer-right">
-                <div className="btn-change" changed="0"> 변경저장</div>
-            </div>
-            <div className="basket-toolbar-area">
-                <img src={deleteImg} alt="장바구니 닫기" className="delete-btn" onClick={clickDeleteBtn}></img>
-            </div>
-        </div>
+                <div className="body-right-area">
+                    <div className="number-picker-outer">
+                        <div className="number-picker">
+                            <img src={minusBtnImg} className="minusBtn" onClick={clickMinusBtn}></img>
+                            <span className="number_count">{numberCount}</span>
+                            <img src={plusBtnImg} className="plusBtn" onClick={clickPlusBtn}></img>
+                        </div>
+                    </div>
+                </div>
+                <div className="footer-left">
+                    <div className="btn-option"> 옵션변경</div>
+                </div>
+                <div className="footer-center">{totalPrice}원</div>
+                <div className="footer-right">
+                    <div className="btn-change" changed="0"> 변경저장</div>
+                </div>
+                <div className="basket-toolbar-area">
+                    <img src={deleteImg} alt="장바구니 닫기" className="delete-btn" onClick={clickDeleteBtn}></img>
+                </div>
+            </div> : <div></div>}
+        </body>
+
     )
 }
 
