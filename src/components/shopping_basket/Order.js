@@ -45,22 +45,17 @@ function Order() {
             data.push({menu: e.pizzaName, price: e.pizzaPrice * curAmount, amount: curAmount})
         });
 
-        let count;
-        axios.get("http://localhost:4000/shoppingBasket/orderCount").then((r) => {
-            count = r.data;
+        axios.post("http://localhost:4000/shoppingBasket/orderInsert", {
+            userID: cookies.loginID,
+            ownerID: "ownerID",
+            date: `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()} ${today.getHours()}:${today.getMinutes()}`,
+            data: data,
+            totalAmount: totalAmount,
+            totalPrice: totalPrice
+        }).then((r) => (console.log(r)));
 
-            axios.post("http://localhost:4000/shoppingBasket/orderInsert", {
-                orderHistoryNumber: count + 1,
-                userID: cookies.loginID,
-                ownerID: "ownerID",
-                date: `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()} ${today.getHours()}:${today.getMinutes()}`,
-                data: data,
-                totalAmount: totalAmount,
-                totalPrice: totalPrice
-            }).then((r) => (console.log(r)));
+        axios.get(`http://localhost:4000/shoppingBasket/deleteAll/${cookies.loginID}`).then((r) => {console.log(r)})
 
-            axios.get(`http://localhost:4000/shoppingBasket/deleteAll/${cookies.loginID}`).then((r) => {console.log(r)})
-        })
     }
 
 return (

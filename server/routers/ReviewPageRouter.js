@@ -6,11 +6,12 @@ const ReviewPageRouter = (db) => {
     router.get("/api/loadReview", async (req, res) => {
         let result = [];
         const response = req.query.name;
+        const regexPattern = new RegExp(response);
 
         const data = await db
             .collection("Review")
             .find({
-                "name": response
+                "name": regexPattern
             })
             .toArray();
 
@@ -20,6 +21,7 @@ const ReviewPageRouter = (db) => {
             context: review.context,
             writer: review.writer
         }));
+        console.log(data);
         return res.json(result);
     })
     return router;

@@ -28,7 +28,7 @@ const myPageRouter = (db) => {
     })
 
     router.post("/reviewInsert", async (req, res) => {
-        await db.collection("review").insertOne({...req.body}).then(() => {
+        await db.collection("Review").insertOne({...req.body}).then(() => {
             console.log("리뷰 등록 성공");
         });
     })

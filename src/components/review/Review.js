@@ -36,7 +36,6 @@ const Review = () => {
 }
 export default Review;
 
-
 function ReviewInfo({pizza}){
     return (
         <div className="pizza-menu-detail">
@@ -46,7 +45,7 @@ function ReviewInfo({pizza}){
                 </div>
                 <div className = "pizza-info-container">
                     <div className= "pizza-slide-box">
-                        <img className="slider" src={pizza.img}></img>
+                        {pizza.img ? <img className="slider" src={`data:${pizza.img.mimetype};base64,${pizza.img.buffer}`}/> : <img className="slider" src={null}/>}
                     </div>
                     <div className="pizza-item-info">
                         <div className="pizza-item-name">{pizza.name}</div>
@@ -84,16 +83,15 @@ function ShowReview({name}){
             const response = await axios.get("http://localhost:4000/reviewPage/api/loadReview" , {
                 params: {
                     name:name
-
                 }
             });
             setReviewData(response.data);
         }
-        fetchReviewData();
+        fetchReviewData().then();
     }, [name]);
 
     for(let i=0;i<reviewData.length;i++){
-        if(reviewData[i].name == name){
+        if(reviewData[i].name.includes(name)){
             matchedReviews.push(
                 <div className="review-box" id="review">
                     <div className="review-star-rate-box">{ShowStarRate(reviewData[i].rate)}</div>
