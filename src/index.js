@@ -2,18 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import App from "./App";
-import {BrowserRouter} from "react-router-dom";
 
 import './index.css';
 import './fonts/Font.css';
-import MainPage from './components/main_page/MainPage';
-import OwnerPage from "./components/owner_page/OwnerPage";
-import ShoppingBasket from "./components/shopping_basket/ShoppingBasket";
-import Review from './components/review/Review';
-import InfoModify from './components/my_page/info_modify/InfoModify';
-import MyPage from "./components/my_page/MyPage";
-import PizzaPage from "./components/pizza/Pizza";
-import PizzaMenuPage from "./components/pizza/PizzaMenu";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

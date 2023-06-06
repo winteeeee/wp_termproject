@@ -70,6 +70,18 @@ function MainTabTop({toggleMenu, movePage}) {
         else alert("로그인이 필요한 페이지입니다!");
     }
 
+    function gotoShoppingBasket() {
+        const userID = cookies.loginID;
+
+        if(userID === testUserID) {
+            movePage("/shoppingBasket")
+        } else if (userID === testOwnerID) {
+            alert("장바구니 기능은 일반 회원만 사용할 수 있습니다!");
+        } else {
+            alert("로그인이 필요한 페이지입니다!");
+        }
+    }
+
     return (
         <div className="web-main-tab-top">
             <div className="tab-top-left">
@@ -94,10 +106,7 @@ function MainTabTop({toggleMenu, movePage}) {
                             : <span className="top-right-text" onClick={logout}> 로그아웃 </span>}
                         
                     </div>
-                    <Link to="/shoppingBasket">
-                        <img src={icon_pizza} alt="#" className="icon-pizza"></img>
-                    </Link>
-
+                    <img src={icon_pizza} alt="#" className="icon-pizza" onClick={gotoShoppingBasket}></img>
                 </div>
             </div>
         </div>

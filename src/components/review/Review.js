@@ -31,7 +31,7 @@ const Review = () => {
             <div className="web-main-tab-header-layout">
                 <HeaderLayout/>
             </div>
-        <ReviewInfo pizza = {PizzaData}></ReviewInfo>
+        <ReviewInfo pizza = {null}></ReviewInfo>
         </div>
     )
 }

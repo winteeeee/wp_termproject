@@ -52,7 +52,7 @@ const PizzaRouter = (db) => {
         const pizzaName = req.query.name ;
 
         const pizzaList = await db
-        .collection("PizzaData")
+        .collection("pizza")
         .find({"name":pizzaName})
         .toArray();
         
@@ -69,6 +69,12 @@ const PizzaRouter = (db) => {
           }));
     
         return res.json(result);
+    })
+
+    router.post("/api/basketInsert", async (req, res) => {
+        db.collection("shoppingBasket").insertOne({...req.body}).then(() => {
+            console.log("장바구니 삽입 성공");
+        })
     })
     
     return router;
