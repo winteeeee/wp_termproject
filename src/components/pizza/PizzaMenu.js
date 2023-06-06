@@ -4,6 +4,8 @@ import "./Pizza.css";
 
 import icon_view from "./img/icon-view.png";
 import icon_basket from "./img/icon-basket.png";
+import { BrowserRouter, Route, useNavigate } from 'react-router-dom';
+import pizzaData from './PizzaData';
 import {Link} from "react-router-dom";
 
 function PizzaMenu({activeTab}) {
@@ -87,6 +89,16 @@ function PizzaList({activePage, type, sort}) {
 }
 
 function PizzaItem({pizza}) {
+
+    const navigate = useNavigate();
+
+    function moveReviewPage(pathPage){
+        navigate(pathPage);
+    }
+
+    // 파라마스 & 인식 피하기 용도
+    const pizzaName = pizza.name.replace('&', 'ㅎ');
+
     return(
         <div className="pizzamenu-area-item">
             <div className="carditem-web-container">
@@ -175,3 +187,4 @@ function PizzaPagination({setActivePage, activePage, pageNum}) {
         </div>
     );
 }
+
