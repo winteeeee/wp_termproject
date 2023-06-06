@@ -2,7 +2,8 @@ const express = require("express");
 const router = express.Router();
 
 const ReviewPageRouter = (db) => {
-    router.get("/api/reviewTest", async (req, res) => {
+
+    router.get("/api/loadReview", async (req, res) => {
         let result = [];
         const response = req.query.name;
 

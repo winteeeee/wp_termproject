@@ -2,19 +2,22 @@ import "./Order.css"
 import {useEffect, useState} from "react";
 import axios from 'axios'
 import MyMenuList from "./MyMenuList";
+import {useCookies} from "react-cookie";
+import {Link} from "react-router-dom";
 
 function Order() {
     let [pizzaInfo, setPizzaInfo] = useState([])
     const [price, setPrice] = useState(0)
+    const [cookies, setCookie, removeCookie] = useCookies(['loginID']);
     let [countArray, setCountArray] = useState([])
 
     useEffect(() => {
         fetchData().then();
     }, []);
 
-    const fetchData = async () => { //TODO 나중에 세션으로 수정해야함.
+    const fetchData = async () => {
         try {
-            axios.get("http://localhost:4000/shoppingBasket/test").then((res) => {
+            axios.get("http://localhost:4000/shoppingBasket/loadData").then((res) => {
                 setPizzaInfo(res.data)
 
                 let totalPrice = 0;
@@ -29,16 +32,27 @@ function Order() {
         }
     }
     const submit = () => {
-        pizzaInfo.map((pizzaInfo) => {
-            axios.post("http://localhost:4000/shoppingBasket/orderInsert", {
-                userID: "userID", //session으로 ID로 해주기
-                ownerID: "ownerID",
-                date: new Date(),
-                menu: pizzaInfo.pizzaName,
-                price: pizzaInfo.pizzaPrice
-            }).then((r) => (console.log(r)));
+        const today = new Date();
+        const data = [];
+        pizzaInfo.map(e => {
+            data.push({menu: e.pizzaName, price: e.pizzaPrice})
+        });
+        console.log(data);
+        let count;
+        axios.get("http://localhost:4000/shoppingBasket/orderCount").then((r) => {
+            count = r.data;
+
+            // axios.post("http://localhost:4000/shoppingBasket/orderInsert", {
+            //     orderHistoryNumber: count + 1,
+            //     userID: cookies.loginID,
+            //     ownerID: "ownerID",
+            //     date: `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()} ${today.getHours()}:${today.getMinutes()}`,
+            //     menu: pizzaInfo.map(e => e.pizzaName),
+            //     totalPrice: pizzaInfo.pizzaPrice
+            // }).then((r) => (console.log(r)));
+
+            axios.get(`http://localhost:4000/shoppingBasket/deleteAll/${cookies.loginID}`).then((r) => {console.log(r)})
         })
-        //주문하기 누르면 장바구니 전부 삭제.
     }
 
 return (
@@ -60,7 +74,9 @@ return (
             <font className="total-price">{price}원</font>
             원
         </h4>
-        <div className="basic-button" >주문하기</div>
+        <Link to="/">
+            <div className="basic-button" onClick={submit}>주문하기</div>
+        </Link>
     </div>
     </body>
 )

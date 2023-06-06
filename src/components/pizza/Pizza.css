@@ -414,12 +414,16 @@
 
 .click-active .view-button:hover, .click-active .basket-button:hover {
     background-color: #41b6e6;
+}
+
+.click-active .view-button:hover .inner-container, .click-active .basket-button:hover .inner-container {
     color: #fff;
 }
 
 .click-active .view-button .inner-container, .click-active .basket-button .inner-container {
     cursor: pointer;
     margin-top: 15px;
+    color: #41b6e6;
 }
 
 .click-active .view-button .inner-container .view-card, .click-active .basket-button .inner-container .basket-card {
