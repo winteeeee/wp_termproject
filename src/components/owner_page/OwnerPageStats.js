@@ -15,6 +15,7 @@ function OwnerPageStats() {
             setAmounts(res.data.amounts);
             setSales(res.data.sales);
             setDayOfTheWeek(res.data.dayOfTheWeek);
+            console.log(res.data.amounts);
         });
     }, []);
 

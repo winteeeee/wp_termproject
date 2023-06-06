@@ -9,30 +9,47 @@ const ownerPageRouter = (form_data, db) => {
         let idx = 0;
 
         const pizzaName = [];
+        let nameMap = {};
         await db.collection("pizza").find().sort({"name": 1}).forEach((r) => {
-            pizzaName.push(r.name);
+            const curName = r.name;
+
+            pizzaName.push(curName);
+            nameMap = {...nameMap, [curName]: idx++}
         });
 
         const amounts = [];
-        await db.collection("orderHistory").find({"ownerID": "ownerID"}).sort({"menu": 1}).forEach((r) => {
-            idx = amounts[idx] === undefined ? idx + 1 : idx;
-            amounts.splice(idx, 0, amounts[idx] ? amounts[idx] + 1 : 1);
+        await db.collection("orderHistory").find().forEach((r) => {
+            const data = r.data.sort((a, b) => {
+                if (a.menu > b.menu) {
+                    return 1;
+                } else if (a.menu < b.menu) {
+                    return -1;
+                } else {
+                    return 0;
+                }
+            });
+
+            data.map((e) => {
+                amounts[nameMap[e.menu]] = e.amount;
+            })
         });
 
         idx = 0;
         const sales = [];
         const dayOfTheWeek = [];
         await db.collection("orderHistory").find({"ownerID": "ownerID"}).sort({"date": 1}).forEach((r) => {
+            const date = r.date.split(" ")[0];
+
             if (idx !== 0) {
-                if (dayOfTheWeek[idx - 1] !== r.date) {
-                    dayOfTheWeek[idx] = r.date;
-                    sales[idx++] = Number(r.amount);
+                if (dayOfTheWeek[idx - 1] !== date) {
+                    dayOfTheWeek[idx] = date;
+                    sales[idx++] = Number(r.totalPrice);
                 } else {
-                    sales[idx - 1] += Number(r.amount);
+                    sales[idx - 1] += Number(r.totalPrice);
                 }
             } else {
-                dayOfTheWeek[idx] = r.date;
-                sales[idx++] = Number(r.amount);
+                dayOfTheWeek[idx] = date;
+                sales[idx++] = Number(r.totalPrice);
             }
 
         });
