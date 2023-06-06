@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import "./Pizza.css";
 
+import HeaderLayout from "../main_page/HeaderLayout";
 import PizzaMenu from "./PizzaMenu";
 
 const PizzaPage = () => {
@@ -8,13 +9,24 @@ const PizzaPage = () => {
 
     return(
         <div>
-            <div className="main-pizza-menu">
-                <div className="pizza-menu">
-                    <div className="pizza-menu-content">
-                        <div className="pc-pizzamenu">
-                            <PizzaTopText></PizzaTopText>
-                            <PizzaTab activeTab={activeTab} setActiveTab={setActiveTab}></PizzaTab>
-                            <PizzaMenu activeTab={activeTab}></PizzaMenu>
+            <div className="web-main-tab-header-layout">
+                <HeaderLayout></HeaderLayout>
+            </div>
+            <div className="client-main-page">
+                <div className="content-body">
+                    <div className="md-content-body">
+                        <div className="layout-content-scroll">
+                            <div className="main-pizza-menu">
+                                <div className="pizza-menu">
+                                    <div className="pizza-menu-content">
+                                        <div className="pc-pizzamenu">
+                                            <PizzaTopText/>
+                                            <PizzaTab activeTab={activeTab} setActiveTab={setActiveTab}></PizzaTab>
+                                            <PizzaMenu activeTab={activeTab}></PizzaMenu>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

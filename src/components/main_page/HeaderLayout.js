@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from 'react';
+import { useNavigate, useLocation, useParams } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
 
 import "./HeaderLayout.css";
 
@@ -8,51 +10,74 @@ import icon_pizza from "./img/header_layout/icon_pizza.png";
 import icon_airplane from "./img/header_layout/icon_airplane.png";
 import icon_arrow_more from "./img/header_layout/icon_arrow_more.png";
 import x_button from "./img/header_layout/x_button.png";
+import {Link} from "react-router-dom";
 
-const pageData = {
-    main: 0,
-    pizza: 1
-}
-
-const HeaderLayout = ({gotoMain, gotoPizza}) => {
+const HeaderLayout = () => {
     const [isOpen, setMenu] = useState(false);
-    const [pageCode, setPage] = useState(pageData.main);
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    function movePage(pagePath) {
+        if (location.pathname === "/") {
+            navigate(pagePath);
+        } else {
+            navigate("../" + pagePath);
+        }
+        setMenu(false);
+    }
     
     function toggleMenu() {
         setMenu(isOpen => !isOpen);
     }
 
-    function gotoPizzaPage() {
-        gotoPizza();
-        setMenu(false);
-        setPage(pageData.pizza);
-    }
-
-    function gotoMainPage() {
-        gotoMain();
-        setMenu(false);
-        setPage(pageData.main);
-    }
-
     return(
         <div className="web-main-tab-header">
-            <MainTabTop toggleMenu={toggleMenu} gotoMain={gotoMainPage} gotoPizza={gotoPizzaPage}></MainTabTop>
-            <LayoutTabSlide pageNum={pageCode}></LayoutTabSlide>
-            <MainTabCollapse isOpen={isOpen} gotoPizza={gotoPizzaPage}></MainTabCollapse>
+            <MainTabTop toggleMenu={toggleMenu} movePage={movePage} ></MainTabTop>
+            <LayoutTabSlide></LayoutTabSlide>
+            <MainTabCollapse isOpen={isOpen} movePage={movePage}></MainTabCollapse>
         </div>
     );
 }
 export default HeaderLayout;
 
-function MainTabTop({toggleMenu, gotoMain, gotoPizza}) {
+function MainTabTop({toggleMenu, movePage}) {
+    const testUserID = "testUser"
+    const testOwnerID = "testOwner"
+    const [cookies, setCookie, removeCookie] = useCookies(['loginID']);
+
+    function login(userID) {
+        setCookie('loginID', userID, { path: '/' });
+    }
+
+    function userLogin() {
+        login(testUserID);
+    }
+
+    function ownerLogin() {
+        login(testOwnerID);
+    }
+
+    function logout() {
+        removeCookie('loginID');
+        movePage("/");
+    }
+
+    function gotoMyPage() {
+        const userID = cookies.loginID;
+
+        if(userID === testOwnerID) movePage("/ownerPage");
+        else if(userID) movePage("/myPage");
+        else alert("로그인이 필요한 페이지입니다!");
+    }
+
     return (
         <div className="web-main-tab-top">
             <div className="tab-top-left">
                 <img src={hambuger_button} onClick={()=>toggleMenu()} alt="#" className="web-icon-menu"></img>
-                <img src={logo} onClick={()=>gotoMain()} alt="#" className="web-icon-logo"></img>
+                <img src={logo} onClick={()=>movePage("/")} alt="#" className="web-icon-logo"></img>
             </div>
             <div className="tab-top-middle">
-                <span onClick={()=>gotoPizza()} className="top-middle-text">피자</span>
+                <span onClick={()=>movePage("pizzaPage")} className="top-middle-text">피자</span>
                 <span className="top-middle-text">스페셜반반피자</span>
                 <span className="top-middle-text">세트</span>
                 <span className="top-middle-text">사이드</span>
@@ -63,18 +88,23 @@ function MainTabTop({toggleMenu, gotoMain, gotoPizza}) {
             <div className="tab-top-right">
                 <div className="tab-text-img-layout">
                     <div className="top-right-text-layout">
-                        <span className="top-right-text"> 마이페이지 </span>
-                        <span className="top-right-text"> 회원가입 </span>
-                        <span className="top-right-text"> 로그인 </span>
+                        <span className="top-right-text" onClick={gotoMyPage}> 마이페이지 </span>
+                        <span className="top-right-text" onClick={ownerLogin}> 회원가입 </span>
+                        {!cookies.loginID ? <span className="top-right-text" onClick={userLogin}> 로그인 </span>
+                            : <span className="top-right-text" onClick={logout}> 로그아웃 </span>}
+                        
                     </div>
-                    <img src={icon_pizza} alt="#" className="icon-pizza"></img>
+                    <Link to="/shoppingBasket">
+                        <img src={icon_pizza} alt="#" className="icon-pizza"></img>
+                    </Link>
+
                 </div>
             </div>
         </div>
     );
 }
 
-function LayoutTabSlide({pageNum}) {
+function LayoutTabSlide() {
     const minLeft = 284;
     const minWindowWidth = 1297;
     const [leftValue, setLeftValue] = useState(minLeft + (window.innerWidth - minWindowWidth) * 0.425);
@@ -98,9 +128,11 @@ function LayoutTabSlide({pageNum}) {
         };
     }, [leftValue]);
 
+    const location = useLocation();
+    const {loginID} = useParams();
     const iconStyle = {
         left: `${leftValue}px`,
-        display: pageNum === 0 ? "none" : "block"
+        display: location.pathname === "/" ? "none" : "block"
     }
 
     return(
@@ -111,7 +143,7 @@ function LayoutTabSlide({pageNum}) {
     );
 }
 
-function MainTabCollapse({isOpen, gotoPizza}) {
+function MainTabCollapse({isOpen, movePage}) {
     const collapseArray =
     [["사이드메뉴"],
     ["멤버십 ˙ 제휴할인", "멤버십 혜택", "통신사 제휴 할인"],
@@ -126,8 +158,8 @@ function MainTabCollapse({isOpen, gotoPizza}) {
         <div className={`web-main-tab-collapse ${isOpen ? "open" : ''}`}>
             <div className="web-collapse-tab-top">
                 <div className="collapse-tab-item">
-                    <div onClick={()=>gotoPizza()} className="tab-item"> 피자 </div>
-                    <div onClick={()=>gotoPizza()} className="tab-item"> 전체피자 </div>
+                    <div onClick={()=>movePage("/pizzaPage")} className="tab-item"> 피자 </div>
+                    <div onClick={()=>movePage("/pizzaPage")} className="tab-item"> 전체피자 </div>
                     <div className="tab-item"> 스페셜반반피자 </div>
                     <div className="tab-item"> 세트메뉴 </div>
                     <div className="tab-item"> 하프앤하프 </div>

@@ -21,7 +21,7 @@ function InfoModify(){
     const [detailedAddress, setDetailedAddress] = useState("");
 
     const submit = () => {
-        axios.post("http://localhost:4000/myPage/update", {
+        axios.post("http://localhost:4000/myPage/userUpdate", {
             ...user,
             address: address,
             detailed_address: detailedAddress
@@ -30,7 +30,7 @@ function InfoModify(){
 
 
     useEffect(() => {
-        axios.get("http://localhost:4000/myPage/load/testID").then((r) => {
+        axios.get("http://localhost:4000/myPage/loadInfo/testID").then((r) => {
             const emailArr = r.data.email.split("@");
 
             setUser(r.data);
@@ -49,8 +49,6 @@ function InfoModify(){
 
     return(
         <div className = "my-page-inside">
-            <div className = "my-page-header">마이페이지</div>
-                <TitleHeaderLayout></TitleHeaderLayout>
             <div className = "mypage-page-content">
                 <div className ="pc-top-text">나의 기본정보</div>
 

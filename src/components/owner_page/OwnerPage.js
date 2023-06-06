@@ -6,7 +6,7 @@ import './OwnerPage.css'
 import {Routes, Route} from "react-router-dom";
 import HeaderLayout from "../main_page/HeaderLayout";
 
-function OwnerPage() {
+function OwnerPage({test}) {
     return (
         <div className="owner_page">
             <div className="web-main-tab-header-layout">
@@ -16,9 +16,8 @@ function OwnerPage() {
                 <OwnerPageHeader></OwnerPageHeader>
                 <OwnerPageTab></OwnerPageTab>
                 <Routes>
-                    <Route path="/" element={null}></Route>
-                    <Route path="/MenuReg" element={<OwnerPageMenuReg></OwnerPageMenuReg>}></Route>
-                    <Route path="/Stats" element={<OwnerPageStats></OwnerPageStats>}></Route>
+                    <Route path="/MenuReg" element={<OwnerPageMenuReg/>}/>
+                    <Route path="/Stats" element={<OwnerPageStats/>}/>
                 </Routes>
             </div>
         </div>

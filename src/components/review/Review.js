@@ -1,9 +1,9 @@
 import React from 'react';
 import { useState, useRef, useEffect } from "react";
 import "./Review.css";
-import ShoppingHeader from "../shopping_basket/ShoppingHeader";
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
+import HeaderLayout from "../main_page/HeaderLayout";
 
 const Review = () => {
     const [pizza, setPizza] = useState([]);
@@ -28,9 +28,10 @@ const Review = () => {
     });
     return (
         <div>
-        <ShoppingHeader></ShoppingHeader>
-        <ReviewInfo pizza = {pizza}></ReviewInfo>
-
+            <div className="web-main-tab-header-layout">
+                <HeaderLayout/>
+            </div>
+        <ReviewInfo pizza = {PizzaData}></ReviewInfo>
         </div>
     )
 }
@@ -46,7 +47,7 @@ function ReviewInfo({pizza}){
                 </div>
                 <div className = "pizza-info-container">
                     <div className= "pizza-slide-box">
-                        <img className="slider" src={pizza.img}></img>
+                        <img className="slider" src={`data:${pizza.img.mimetype};base64,${pizza.img.buffer}`}></img>
                     </div>
                     <div className="pizza-item-info">
                         <div className="pizza-item-name">{pizza.name}</div>

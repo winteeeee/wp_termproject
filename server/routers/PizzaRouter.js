@@ -15,7 +15,7 @@ const PizzaRouter = (db) => {
         else if(pizzaSelectedSort === 1) sortOption = {priceL: -1};
     
         const pizzaList = await db
-            .collection("PizzaData")
+            .collection("pizza")
             .find(findOption)
             .sort(sortOption)
             .skip((currentPage - 1) * perPage)
@@ -24,7 +24,7 @@ const PizzaRouter = (db) => {
     
         const result = pizzaList.map((pizza) => ({
             name: pizza.name,
-            img: pizza.imgPath,
+            img: pizza.img,
             description: pizza.description,
             kind: pizza.kind,
             priceL: pizza.priceL,
@@ -38,11 +38,11 @@ const PizzaRouter = (db) => {
     })
     
     router.get("/api/PizzaDataCount", async (req, res) => {
-        const pizzaType = req.query.type || "전체";
+        let pizzaType = req.query.type || "전체";
         let findOption = (pizzaType === "전체") ? {} : {kind:`${pizzaType}`}
     
         const count = await db
-            .collection("PizzaData")
+            .collection("pizza")
             .countDocuments(findOption); // 총 데이터 개수
     
         return res.json(count);
