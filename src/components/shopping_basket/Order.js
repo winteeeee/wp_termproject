@@ -34,22 +34,30 @@ function Order() {
     const submit = () => {
         const today = new Date();
         const data = [];
-        pizzaInfo.map(e => {
-            data.push({menu: e.pizzaName, price: e.pizzaPrice})
+        let totalAmount = 0;
+        let totalPrice = 0;
+
+        pizzaInfo.map((e, index) => {
+            let curAmount = countArray[index] === undefined ? 1 : countArray[index];
+            let curPrice = e.pizzaPrice * curAmount;
+            totalAmount += curAmount;
+            totalPrice += curPrice;
+            data.push({menu: e.pizzaName, price: e.pizzaPrice * curAmount, amount: curAmount})
         });
-        console.log(data);
+
         let count;
         axios.get("http://localhost:4000/shoppingBasket/orderCount").then((r) => {
             count = r.data;
 
-            // axios.post("http://localhost:4000/shoppingBasket/orderInsert", {
-            //     orderHistoryNumber: count + 1,
-            //     userID: cookies.loginID,
-            //     ownerID: "ownerID",
-            //     date: `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()} ${today.getHours()}:${today.getMinutes()}`,
-            //     menu: pizzaInfo.map(e => e.pizzaName),
-            //     totalPrice: pizzaInfo.pizzaPrice
-            // }).then((r) => (console.log(r)));
+            axios.post("http://localhost:4000/shoppingBasket/orderInsert", {
+                orderHistoryNumber: count + 1,
+                userID: cookies.loginID,
+                ownerID: "ownerID",
+                date: `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()} ${today.getHours()}:${today.getMinutes()}`,
+                data: data,
+                totalAmount: totalAmount,
+                totalPrice: totalPrice
+            }).then((r) => (console.log(r)));
 
             axios.get(`http://localhost:4000/shoppingBasket/deleteAll/${cookies.loginID}`).then((r) => {console.log(r)})
         })

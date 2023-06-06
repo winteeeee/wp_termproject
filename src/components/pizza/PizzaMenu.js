@@ -143,12 +143,10 @@ function PizzaItem({pizza}) {
             </div>
             <div className="click-active shadow-box">
                 <div className="view-button">
-                    <Link to="/review">
-                    <div className='inner-container'>
+                    <div className='inner-container' onClick={()=>moveReviewPage(`../Review?name=${pizzaName}`)}>
                         <img src={icon_view} className="view-card" alt='#'></img>
                         상세보기
                     </div>
-                    </Link>
                 </div>
                 <div className="basket-button">
                     <div className="inner-container" onClick={shoppingBasketInsert}>

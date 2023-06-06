@@ -24,14 +24,13 @@ const Review = () => {
             setPizza(response.data[0]);
         }
         fetchPizzaData();
-        
     });
     return (
         <div>
             <div className="web-main-tab-header-layout">
                 <HeaderLayout/>
             </div>
-        <ReviewInfo pizza = {null}></ReviewInfo>
+        <ReviewInfo pizza = {pizza}></ReviewInfo>
         </div>
     )
 }
@@ -43,11 +42,11 @@ function ReviewInfo({pizza}){
         <div className="pizza-menu-detail">
             <div className = "info-container">
                 <div className = "review-page-header">
-                리뷰보기
+                    리뷰보기
                 </div>
                 <div className = "pizza-info-container">
                     <div className= "pizza-slide-box">
-                        <img className="slider" src={`data:${pizza.img.mimetype};base64,${pizza.img.buffer}`}></img>
+                        <img className="slider" src={pizza.img}></img>
                     </div>
                     <div className="pizza-item-info">
                         <div className="pizza-item-name">{pizza.name}</div>
@@ -62,15 +61,13 @@ function ReviewInfo({pizza}){
             </div>
             <div className= "review-info-container">
                 <div className="review-menu">
-                        <div className="review-star-rate">별점</div>
-                        <div className="review-context">리뷰</div>
-                        <div className="review-writer">작성자</div>
+                    <div className="review-star-rate">별점</div>
+                    <div className="review-context">리뷰</div>
+                    <div className="review-writer">작성자</div>
                 </div>
 
                 <div className = "whole-review-box">
                     <ShowReview name={pizza.name} ></ShowReview>
-                    
-
                 </div>
             </div>
         </div>
@@ -115,26 +112,26 @@ function ShowStarRate(rate){
         case 1:
             return(<div className="star">
                 <span>★☆☆☆☆</span>
-                </div>)
+            </div>)
         case 2:
             return(<div className="star">
                 <span>★★☆☆☆</span>
-                </div>)    
+            </div>)
         case 3:
             return(<div className="star">
                 <span>★★★☆☆</span>
-                </div>)
+            </div>)
         case 4:
             return(<div className="star">
                 <span>★★★★☆</span>
-                </div>)   
+            </div>)
         case 5:
             return(<div className="star">
                 <span>★★★★★</span>
-                </div>)  
+            </div>)
         default:
             return(<div className="star">
                 <span>☆☆☆☆☆</span>
-                </div>)                       
+            </div>)
     }
 }
