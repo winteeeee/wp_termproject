@@ -9,12 +9,12 @@ const deleteImg = "data:image/svg+xml;base64,PHN2ZyBpZD0i64W47Jej7KeAIiB4bWxucz0
 
 
 
-function MyMenuList({key, pizzaInfo, setPrice ,price,setCountArray}) {
+function MyMenuList({index, pizzaInfo, setPrice ,price,setCountArray}) {
     const [visiable, setVisiable] = useState(true);
     const [numberCount, setNumberCount] = useState(1)
     const [totalPrice, setTotalPrice] = useState(Number(pizzaInfo.pizzaPrice))
     const [cookies, setCookie, removeCookie] = useCookies(['loginID']);
-    const [count, setCount] = useState(Number(key))
+    const [count, setCount] = useState(Number(index))
     const clickMinusBtn = () => {
         if (numberCount > 1 ) {
             setNumberCount(numberCount - 1)
