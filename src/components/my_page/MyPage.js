@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import TitleHeaderLayout from "./info_modify/TitleHeaderLayout";
 import "../my_page/info_modify/TitleHeaderLayout.css";
 import "../my_page/info_modify/InfoModify.css"
@@ -14,7 +14,9 @@ function MyPage() {
                 <HeaderLayout/>
             </div>
             <div className="my-page-inside">
-                <div className="my-page-header">마이페이지</div>
+                <Link to="/myPage">
+                    <div className="my-page-header">마이페이지</div>
+                </Link>
                 <TitleHeaderLayout/>
                 <Routes>
                     <Route path="/myOrder" element={<OrderListTab/>}/>

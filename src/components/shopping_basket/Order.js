@@ -49,6 +49,7 @@ function Order() {
             userID: cookies.loginID,
             ownerID: "ownerID",
             date: `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()} ${today.getHours()}:${today.getMinutes()}`,
+            dayOfTheWeek: `${today.getDay()}`,
             data: data,
             totalAmount: totalAmount,
             totalPrice: totalPrice

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./Review.css";
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';

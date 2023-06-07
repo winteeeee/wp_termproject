@@ -1,12 +1,11 @@
 import React, {useEffect} from 'react';
 import { useState } from "react";
 import "./InfoModify.css";
-import TitleHeaderLayout from "./TitleHeaderLayout";
 import toggleBasic from "./img/no_check.png";
 import toggleBlue from "./img/check.png";
 import axios from "axios";
 import {useCookies} from "react-cookie";
-import {Link, useNavigate, useNavigation} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 
 function InfoModify(){
@@ -126,8 +125,8 @@ function InfoModify(){
                         </div>
                     </div>
                     <div className="edit-membership-button-container">
-                        <div className="gray-button">취소</div>
                         <Link to="/myPage">
+                            <div className="gray-button">취소</div>
                             <div className="blue-button" onClick={submit}>확인</div>
                         </Link>
                     </div>

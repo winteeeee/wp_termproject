@@ -4,9 +4,7 @@ import "./Pizza.css";
 
 import icon_view from "./img/icon-view.png";
 import icon_basket from "./img/icon-basket.png";
-import { BrowserRouter, Route, useNavigate } from 'react-router-dom';
-import pizzaData from './PizzaData';
-import {Link} from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import {useCookies} from "react-cookie";
 
 function PizzaMenu({activeTab}) {
@@ -90,6 +88,8 @@ function PizzaList({activePage, type, sort}) {
 }
 
 function PizzaItem({pizza}) {
+    const testUserID = "testUser"
+    const testOwnerID = "testOwner"
 
     const navigate = useNavigate();
     const [cookies, setCookie, removeCookie] = useCookies(['loginID']);
@@ -102,13 +102,23 @@ function PizzaItem({pizza}) {
     const pizzaName = pizza.name.replace('&', 'ㅎ');
 
     const shoppingBasketInsert = () => {
-        const data = {
-            userID: cookies.loginID,
-            name: pizza.name,
-            price: pizza.priceL,
-            img: pizza.img
+        const userID = cookies.loginID;
+
+        if(userID === testUserID) {
+            const data = {
+                userID: cookies.loginID,
+                name: pizza.name,
+                price: pizza.priceL,
+                img: pizza.img
+            }
+
+            alert("장바구니에 담겼습니다!");
+            axios.post("http://localhost:4000/pizzaPage/api/basketInsert", data).then();
+        } else if (userID === testOwnerID) {
+            alert("장바구니 기능은 일반 회원만 사용할 수 있습니다!");
+        } else {
+            alert("로그인이 필요한 기능입니다!");
         }
-        axios.post("http://localhost:4000/pizzaPage/api/basketInsert", data).then((r) => {console.log(r)});
     }
 
     return(

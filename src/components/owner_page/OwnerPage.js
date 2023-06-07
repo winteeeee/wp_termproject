@@ -10,11 +10,11 @@ function OwnerPage() {
     return (
         <div className="owner_page">
             <div className="web-main-tab-header-layout">
-                <HeaderLayout></HeaderLayout>
+                <HeaderLayout/>
             </div>
             <div className="owner_page_content">
-                <OwnerPageHeader></OwnerPageHeader>
-                <OwnerPageTab></OwnerPageTab>
+                <OwnerPageHeader/>
+                <OwnerPageTab/>
                 <Routes>
                     <Route path="/MenuReg" element={<OwnerPageMenuReg/>}/>
                     <Route path="/Stats" element={<OwnerPageStats/>}/>

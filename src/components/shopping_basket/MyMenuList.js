@@ -33,6 +33,7 @@ function MyMenuList({index, pizzaInfo, setPrice ,price,setCountArray, countArray
     }, [numberCount]);
 
     const clickChangeResult = () => {
+        alert("변경 사항이 저장되었습니다!");
         setCountArray((countArray) => {
             const newArray =  [...countArray]
             newArray[count] = numberCount;

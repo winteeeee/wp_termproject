@@ -75,18 +75,6 @@ function OwnerPageMenuReg() {
         axios.post("http://localhost:4000/ownerPage/menuReg", pizza).then(r => console.log(r));
     }
 
-/*    //테스트할 때 사용했던 더미 거래내역 넣는 함수 취소 버튼에 등록하여 사용했음
-const tempDummy = () => {
-        const orderHistory = new FormData();
-        const today = new Date();
-        orderHistory.append("ownerNumber", "1");
-        orderHistory.append("customerNumber", "2");
-        orderHistory.append("menu", name);
-        orderHistory.append("amount", priceL);
-        orderHistory.append("date", `${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate()}`);
-        axios.post("http://localhost:4000/ownerPage/tempDummyInsert", orderHistory).then(r => console.log(r));
-    }*/
-
     return (
         <div className="my-page-menureg">
             <div className="my-page-menureg-container">

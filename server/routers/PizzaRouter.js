@@ -72,9 +72,15 @@ const PizzaRouter = (db) => {
     })
 
     router.post("/api/basketInsert", async (req, res) => {
-        db.collection("shoppingBasket").insertOne({...req.body}).then(() => {
-            console.log("장바구니 삽입 성공");
-        })
+        const count = await db.collection("shoppingBasket").countDocuments({name: req.body.name});
+
+        if (count === 0) {
+            db.collection("shoppingBasket").insertOne({...req.body}).then(() => {
+                console.log("장바구니 삽입 성공");
+            })
+        } else {
+            console.log("이미 장바구니에 담긴 항목");
+        }
     })
     
     return router;
