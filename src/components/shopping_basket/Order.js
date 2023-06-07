@@ -60,10 +60,10 @@ function Order() {
     }
 
 return (
-    <body>
+    <div className="total-whole-layout">
     {
         pizzaInfo.map((pizzaInfo, index) => (
-            <MyMenuList index = {index} pizzaInfo={pizzaInfo} setPrice = {setPrice} price = {price} countArray = {countArray} setCountArray = {setCountArray}></MyMenuList>
+            <MyMenuList key = {index} pizzaInfo={pizzaInfo} setPrice = {setPrice} price = {price} setCountArray = {setCountArray}></MyMenuList>
         ))
     }
     {
@@ -82,7 +82,7 @@ return (
             <div className="basic-button" onClick={submit}>주문하기</div>
         </Link>
     </div>
-    </body>
+    </div>
 )
 }
 

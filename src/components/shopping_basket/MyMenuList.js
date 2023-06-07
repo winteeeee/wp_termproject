@@ -9,12 +9,12 @@ const deleteImg = "data:image/svg+xml;base64,PHN2ZyBpZD0i64W47Jej7KeAIiB4bWxucz0
 
 
 
-function MyMenuList({index, pizzaInfo, setPrice ,price,setCountArray, countArray}) {
+function MyMenuList({key, pizzaInfo, setPrice ,price,setCountArray}) {
     const [visiable, setVisiable] = useState(true);
     const [numberCount, setNumberCount] = useState(1)
     const [totalPrice, setTotalPrice] = useState(Number(pizzaInfo.pizzaPrice))
     const [cookies, setCookie, removeCookie] = useCookies(['loginID']);
-    const [count, setCount] = useState(Number(index))
+    const [count, setCount] = useState(Number(key))
     const clickMinusBtn = () => {
         if (numberCount > 1 ) {
             setNumberCount(numberCount - 1)
@@ -51,7 +51,7 @@ function MyMenuList({index, pizzaInfo, setPrice ,price,setCountArray, countArray
         }).then((r) => {console.log(r)});
     }
     return (
-        <body>
+        <div className="basket-whole-area">
             {visiable ? <div className="basket-body-area">
 
                 <div className="body-image-area">
@@ -84,7 +84,7 @@ function MyMenuList({index, pizzaInfo, setPrice ,price,setCountArray, countArray
                     <img src={deleteImg} alt="장바구니 닫기" className="delete-btn" onClick={clickDeleteBtn}></img>
                 </div>
             </div> : <div></div>}
-        </body>
+        </div>
     )
 }
 
