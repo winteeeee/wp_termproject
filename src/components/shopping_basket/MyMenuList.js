@@ -50,6 +50,7 @@ function MyMenuList({index, pizzaInfo, setPrice ,price,setCountArray, countArray
             pizzaName: pizzaInfo.pizzaName
         }).then((r) => {console.log(r)});
     }
+
     return (
         <body>
             {visiable ? <div className="basket-body-area">
