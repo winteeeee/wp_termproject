@@ -32,7 +32,7 @@ const HeaderLayout = () => {
     return(
         <div className="web-main-tab-header">
             <MainTabTop toggleMenu={toggleMenu} movePage={movePage} ></MainTabTop>
-            <LayoutTabSlide></LayoutTabSlide>
+            <LayoutTabSlide/>
             <MainTabCollapse isOpen={isOpen} movePage={movePage}></MainTabCollapse>
         </div>
     );
@@ -57,7 +57,7 @@ function MainTabTop({toggleMenu, movePage}) {
     }
 
     function logout() {
-        removeCookie('loginID');
+        removeCookie('loginID', {path: '/'});
         movePage("/");
     }
 
