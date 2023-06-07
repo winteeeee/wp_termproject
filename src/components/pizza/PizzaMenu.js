@@ -4,6 +4,8 @@ import "./Pizza.css";
 
 import icon_view from "./img/icon-view.png";
 import icon_basket from "./img/icon-basket.png";
+import { useNavigate } from 'react-router-dom';
+import {useCookies} from "react-cookie";
 
 function PizzaMenu({activeTab}) {
     const [pizzaCount, setPizzaCount] = useState(0);
@@ -86,11 +88,44 @@ function PizzaList({activePage, type, sort}) {
 }
 
 function PizzaItem({pizza}) {
+    const testUserID = "testUser"
+    const testOwnerID = "testOwner"
+
+    const navigate = useNavigate();
+    const [cookies, setCookie, removeCookie] = useCookies(['loginID']);
+
+    function moveReviewPage(pathPage){
+        navigate(pathPage);
+    }
+
+    // 파라마스 & 인식 피하기 용도
+    const pizzaName = pizza.name.replace('&', 'ㅎ');
+
+    const shoppingBasketInsert = () => {
+        const userID = cookies.loginID;
+
+        if(userID === testUserID) {
+            const data = {
+                userID: cookies.loginID,
+                name: pizza.name,
+                price: pizza.priceL,
+                img: pizza.img
+            }
+
+            alert("장바구니에 담겼습니다!");
+            axios.post("http://localhost:4000/pizzaPage/api/basketInsert", data).then();
+        } else if (userID === testOwnerID) {
+            alert("장바구니 기능은 일반 회원만 사용할 수 있습니다!");
+        } else {
+            alert("로그인이 필요한 기능입니다!");
+        }
+    }
+
     return(
         <div className="pizzamenu-area-item">
             <div className="carditem-web-container">
                 <div className="image-container">
-                    <img src={pizza.img} className="image" alt='#'></img>
+                    <img src={`data:${pizza.img.mimetype};base64,${pizza.img.buffer}`} className="image" alt='#'></img>
                 </div>
                 <div className="item">
                     <h5 className='item-name'>{pizza.name}</h5>
@@ -118,13 +153,13 @@ function PizzaItem({pizza}) {
             </div>
             <div className="click-active shadow-box">
                 <div className="view-button">
-                    <div className='inner-container'>
+                    <div className='inner-container' onClick={()=>moveReviewPage(`../Review?name=${pizzaName}`)}>
                         <img src={icon_view} className="view-card" alt='#'></img>
                         상세보기
                     </div>
                 </div>
                 <div className="basket-button">
-                    <div className="inner-container">
+                    <div className="inner-container" onClick={shoppingBasketInsert}>
                         <img src={icon_basket} className="basket-card" alt='#'></img>
                         장바구니
                     </div>
@@ -172,3 +207,4 @@ function PizzaPagination({setActivePage, activePage, pageNum}) {
         </div>
     );
 }
+

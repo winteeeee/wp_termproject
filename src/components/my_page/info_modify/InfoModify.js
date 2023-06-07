@@ -1,10 +1,11 @@
 import React, {useEffect} from 'react';
 import { useState } from "react";
 import "./InfoModify.css";
-import TitleHeaderLayout from "./TitleHeaderLayout";
 import toggleBasic from "./img/no_check.png";
 import toggleBlue from "./img/check.png";
 import axios from "axios";
+import {useCookies} from "react-cookie";
+import {Link} from "react-router-dom";
 
 
 function InfoModify(){
@@ -19,18 +20,21 @@ function InfoModify(){
     const [emailRear, setEmailRear] = useState("");
     const [address, setAddress] = useState("");
     const [detailedAddress, setDetailedAddress] = useState("");
+    const [cookies, setCookie, removeCookie] = useCookies(['loginID']);
 
     const submit = () => {
         axios.post("http://localhost:4000/myPage/userUpdate", {
             ...user,
             address: address,
             detailed_address: detailedAddress
-        }).then((r) => {console.log(r)});
+        }).then((r) => {
+            console.log(r)
+        });
     }
 
 
     useEffect(() => {
-        axios.get("http://localhost:4000/myPage/loadInfo/testID").then((r) => {
+        axios.get(`http://localhost:4000/myPage/loadInfo/${cookies.loginID}`).then((r) => {
             const emailArr = r.data.email.split("@");
 
             setUser(r.data);
@@ -45,12 +49,9 @@ function InfoModify(){
             setDetailedAddress(r.data.detailed_address);
         });
     }, []);
-    //TODO 로그인한 유저의 ID를 경로변수로 넣기
 
     return(
         <div className = "my-page-inside">
-            <div className = "my-page-header">마이페이지</div>
-                <TitleHeaderLayout></TitleHeaderLayout>
             <div className = "mypage-page-content">
                 <div className ="pc-top-text">나의 기본정보</div>
 
@@ -124,8 +125,10 @@ function InfoModify(){
                         </div>
                     </div>
                     <div className="edit-membership-button-container">
-                        <div className="gray-button">취소</div> 
-                        <div className="blue-button" onClick={submit}>확인</div>
+                        <Link to="/myPage">
+                            <div className="gray-button">취소</div>
+                            <div className="blue-button" onClick={submit}>확인</div>
+                        </Link>
                     </div>
                 </div>
             </div>

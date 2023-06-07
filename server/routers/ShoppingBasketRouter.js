@@ -2,13 +2,39 @@ const express = require("express");
 const router = express.Router();
 
 const ShoppingBasketRouter = (db) => {
-    router.get("/test", async (req, res) => {
+    router.get("/loadData", async (req, res) => {
         let result = [];
-        await db.collection("pizza").find().forEach((r) => {
-            result.push({pizzaImg: r.img, pizzaName: r.name, pizzaPrice: r.priceL, pizzaOption: "테스트"});
+        await db.collection("shoppingBasket").find().forEach((r) => {
+            result.push({pizzaImg: r.img, pizzaName: r.name, pizzaPrice: r.price, pizzaOption: "L, 오리지널"});
         })
-        //TODO 피자 컬렉션이 아니라 장바구니 컬렉션에서 조회하기
         return res.json(result);
+    })
+
+    router.get("/deleteAll/:id", async (req, res) => {
+        const {id} = req.params;
+
+        await db.collection("shoppingBasket").deleteMany({userID: id}).then(() => {
+            console.log("장바구니 전체 삭제 완료");
+        })
+    })
+
+    router.post("/deleteData", async (req, res) => {
+        await db.collection("shoppingBasket").deleteOne({userID: req.body.userID, name: req.body.pizzaName}).then(() => {
+            console.log("장바구니 삭제 완료");
+        })
+    })
+
+    router.post("/orderInsert", async (req, res) => {
+        const data = {
+            ...req.body,
+            dest: "금오공과대학교",
+            store: "구미도량봉곡점",
+            storePhoneNumber: "054-454-8495",
+        }
+
+        await db.collection("orderHistory").insertOne(data).then(() => {
+            console.log("주문 완료");
+        })
     })
 
     return router;

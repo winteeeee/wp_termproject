@@ -75,18 +75,6 @@ function OwnerPageMenuReg() {
         axios.post("http://localhost:4000/ownerPage/menuReg", pizza).then(r => console.log(r));
     }
 
-/*    //테스트할 때 사용했던 더미 거래내역 넣는 함수 취소 버튼에 등록하여 사용했음
-const tempDummy = () => {
-        const orderHistory = new FormData();
-        const today = new Date();
-        orderHistory.append("ownerNumber", "1");
-        orderHistory.append("customerNumber", "2");
-        orderHistory.append("menu", name);
-        orderHistory.append("amount", priceL);
-        orderHistory.append("date", `${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate()}`);
-        axios.post("http://localhost:4000/ownerPage/tempDummyInsert", orderHistory).then(r => console.log(r));
-    }*/
-
     return (
         <div className="my-page-menureg">
             <div className="my-page-menureg-container">
@@ -104,9 +92,9 @@ const tempDummy = () => {
                         <div className="alvolo-input">
                             <select defaultValue="null" onChange={kindChange}>
                                 <option value="null" disabled>종류 선택</option>
-                                <option value="masterPizza">장인피자</option>
-                                <option value="expertPizza">달인피자</option>
-                                <option value="luxuryPizza">명품피자</option>
+                                <option value="장인피자">장인피자</option>
+                                <option value="달인피자">달인피자</option>
+                                <option value="명품피자">명품피자</option>
                             </select>
                         </div>
                         <div className="alvolo-input">

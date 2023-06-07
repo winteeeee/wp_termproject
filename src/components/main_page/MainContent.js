@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import "./MainContent.css";
 
@@ -9,12 +10,12 @@ import page_4 from "./img/main_content/page_4.jpg";
 import icon_delivery from "./img/main_content/icon_delivery.png";
 import icon_box from "./img/main_content/icon_packaging.png";
 
-const MainContent = ({gotoPizza}) => {
+const MainContent = () => {
     return(
         <div className="login-before-outbox">
             <div className="remain-area-fill"></div>
                 <MainImageSlide></MainImageSlide>
-                <HomeOrder gotoPizza={gotoPizza}></HomeOrder>
+                <HomeOrder></HomeOrder>
         </div>
     );
 }
@@ -100,11 +101,13 @@ function MainImageSlide() {
     );
 }
 
-function HomeOrder({gotoPizza}) {
+function HomeOrder() {
+    const navigate = useNavigate();
+
     return(
         <div className="home-logout-order">
             <div className="btn-red-order">
-                <div className="inner-div" onClick={()=>gotoPizza()}>
+                <div className="inner-div" onClick={()=>navigate("/pizzaPage")}>
                     <img src={icon_delivery} alt="배달아이콘" className="btn-delivery-icon"></img>
                     <div className="btn-delivery-text">배달주문</div>
                 </div>

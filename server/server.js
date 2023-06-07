@@ -8,7 +8,8 @@ const mongoose= require("mongoose");
 const ownerPage = require("./routers/OwnerPageRouter");
 const shoppingBasket = require("./routers/ShoppingBasketRouter");
 const pizzaPage = require("./routers/PizzaRouter");
-const myPage = require("./routers/MyPageRouter")
+const myPage = require("./routers/MyPageRouter");
+const ReviewPageRouter = require("./routers/ReviewPageRouter");
 
 const app = express();
 const form_data = multer();
@@ -25,17 +26,24 @@ mongoose.connect(`mongodb://${dbHost}:${dbPort}/${dbName}`).then(() => {
 });
 const db = mongoose.connection;
 
-app.use(express.json());
+app.use(express.json({
+    limit: "50mb"
+}));
 app.use(cors({
     origin: "*",
     credential: true
 }));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json({limit: "50mb"}));
+app.use(bodyParser.urlencoded({
+    limit: "50mb",
+    extended: true
+}));
+
 app.use("/ownerPage", ownerPage(form_data, db));
 app.use("/shoppingBasket", shoppingBasket(db));
 app.use("/pizzaPage", pizzaPage(db));
 app.use("/myPage", myPage(db));
+app.use("/reviewPage", ReviewPageRouter(db));
 
 app.listen(port, hostname, () => {
     console.log(`Server running at http://${hostname}:${port}/`);
