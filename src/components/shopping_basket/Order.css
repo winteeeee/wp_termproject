@@ -1,8 +1,7 @@
 /*전체 div*/
 .basket-body-area {
-    margin-left: 22rem;
+    margin: 0 auto;
     display: flex;
-    margin-top: 1rem;
     position:relative;
     border-bottom: 2px solid #e5e5e5;
     padding-bottom: 1rem;
@@ -12,12 +11,13 @@
 .basket-body-area .body-image-area {
     width: 200px;
     height: 200px;
+    margin: 1rem 0 0 2rem
 }
 /*피자 이름, 설명*/
 .basket-body-area .body-left-area {
     position: absolute;
     margin: 2rem 13rem 0 5rem;
-    left:16%;
+    left:20%;
 }
 .basket-body-area .body-left-area .h4-black {
     font-family: Noto Sans CJK KR Medium;
@@ -39,7 +39,7 @@
 /*옵션 변경*/
 .basket-body-area .footer-left .btn-option {
     position:absolute;
-    left:22.5%;
+    left:27%;
     top:70%;
     background: #41b6e6;
     height: 38px;
@@ -55,7 +55,7 @@
 .basket-body-area .body-right-area {
     margin-top: 3rem;
     position: absolute;
-    left:57%;
+    left:59%;
 }
 .basket-body-area .body-right-area img {
     width:  40px;
@@ -81,7 +81,7 @@
     font-weight: bold;
     margin: 3.5rem 3.5rem 0 3.5rem;
     position:absolute;
-    left:67%;
+    left:70%;
     width:90px;
 }
 /*변경*/
@@ -96,7 +96,7 @@
     text-align: center;
     color: #fff;
     position:absolute;
-    left:82%;
+    left:84%;
 }
 /*삭제*/
 .basket-body-area .basket-toolbar-area img{
@@ -105,7 +105,7 @@
     width: 30px;
     height: 30px;
     position:absolute;
-    left: 91%;
+    left: 94%;
 }
 /*총합 레이아웃*/
 .total-layout {
@@ -113,11 +113,9 @@
     line-height: 84px;
     padding: 0 30px;
     border-bottom: 1px solid #999;
-    margin-bottom: 40px;
     position: relative;
     width:1200px;
-    margin-left: 22rem;
-    margin-top:8rem;
+    margin: 10rem auto;
 }
 .total-layout .sum-total {
     position:absolute;
@@ -126,17 +124,15 @@
     color: #41b6e6;
     display: block;
     width: 50%;
-    float: left;
 }
 .total-layout .total {
     position:absolute;
-    left:80%;
+    left:85%;
     font-family: Noto Sans CJK KR Regular;
     font-size: 28px;
     color: #41b6e6;
 }
 .total-layout .total-price {
-    padding: 0 0.5rem;
     font-size: 35px;
     font-weight: bold;
 }
