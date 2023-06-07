@@ -50,39 +50,44 @@ const ownerPageRouter = (form_data, db) => {
         db.collection("orderHistory").find({"ownerID": "ownerID"}).sort({"date": -1}).toArray().then((r) => {
             let curDay = new Date();
             let curDayString = `${curDay.getFullYear()}-${curDay.getMonth() + 1}-${curDay.getDate()}`;
-            let day = r[0].date.split(" ")[0];
-            let date = r[0].dayOfTheWeek;
-            let j = 0;
 
-            dayOfTheWeek[6] = dayOfTheWeekMap[date];
-            sales[6] = Number(r[0].totalPrice);
+            if (r.length > 0) {
+                let resultIdx = 6;
+                let elementIdx = 0;
 
-            for(let i = 0; i < 7; i++) {
-                day = r[i + j].date.split(" ")[0];
-                date = r[i + j].dayOfTheWeek;
+                for (; resultIdx >= 0 && elementIdx < r.length; elementIdx++) {
+                    let day = r[elementIdx].date.split(" ")[0];
+                    let date = r[elementIdx].dayOfTheWeek;
 
-                if (day === curDayString) { //이전 날짜와 똑같으면 합산만
-                    if (isNaN(sales[6 - i])) {
-                        sales[6 - i] = Number(r[i + j].totalPrice);
-                    } else {
-                        sales[6 - i] += Number(r[i + j].totalPrice);
+                    if (day === curDayString) { //이전 날짜와 똑같으면 합산만
+                        if (isNaN(sales[resultIdx])) {
+                            sales[resultIdx] = Number(r[elementIdx].totalPrice);
+                        } else {
+                            sales[resultIdx] += Number(r[elementIdx].totalPrice);
+                        }
+                        dayOfTheWeek[resultIdx] = dayOfTheWeekMap[date];
+                        continue;
                     }
-                    j++;
-                    continue;
+
+                    curDay.setDate(curDay.getDate() - 1);
+                    curDayString = `${curDay.getFullYear()}-${curDay.getMonth() + 1}-${curDay.getDate()}`;
+                    resultIdx--;
+
+                    if (day === curDayString) {
+                        dayOfTheWeek[resultIdx] = dayOfTheWeekMap[date];
+                        sales[resultIdx] = Number(r[elementIdx].totalPrice);
+                    } else {
+                        elementIdx--;
+                    }
                 }
 
-                curDay.setDate(curDay.getDate() - 1);
-                curDayString = `${curDay.getFullYear()}-${curDay.getMonth() + 1}-${curDay.getDate()}`;
-
-                if (day === curDayString) {
-                    dayOfTheWeek[6 - i] = dayOfTheWeekMap[date];
-                    sales[6 - i] = Number(r[i + j].totalPrice);
-                }
+                result = {result, pizzaName: pizzaName, amounts: amounts, sales: sales, dayOfTheWeek: dayOfTheWeek};
+            } else {
+                result = {result, pizzaName: pizzaName, amounts: amounts};
             }
-
-            result = {result, pizzaName: pizzaName, amounts: amounts, sales: sales, dayOfTheWeek: dayOfTheWeek};
             return res.json(result);
         });
+
     })
 
     router.post("/menuReg", form_data.single("img"), (req, res) => {

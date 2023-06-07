@@ -22,7 +22,7 @@ function PizzaMenu({activeTab}) {
             setPizzaCount(response.data);
         }
 
-        fetchPizzaCount();
+        fetchPizzaCount().then();
         setActivePage(1);
         if (activeTab !== 0) {
             setSelected("3");
@@ -75,7 +75,7 @@ function PizzaList({activePage, type, sort}) {
             setPizzaData(response.data);
         }
 
-        fetchPizzaData();
+        fetchPizzaData().then();
     }, [activePage, type, sort]);
 
     return(
