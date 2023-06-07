@@ -63,7 +63,7 @@ return (
     <div className="total-whole-layout">
     {
         pizzaInfo.map((pizzaInfo, index) => (
-            <MyMenuList key = {index} pizzaInfo={pizzaInfo} setPrice = {setPrice} price = {price} setCountArray = {setCountArray}></MyMenuList>
+            <MyMenuList index = {index} pizzaInfo={pizzaInfo} setPrice = {setPrice} price = {price} setCountArray = {setCountArray}></MyMenuList>
         ))
     }
     {
@@ -75,7 +75,7 @@ return (
         <h4 className="sum-total">합계</h4>
         <h4 className="total">
             총
-            <font className="total-price">{price}원</font>
+            <font className="total-price">{price}</font>
             원
         </h4>
         <Link to="/">
