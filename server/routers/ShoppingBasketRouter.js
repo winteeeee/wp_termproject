@@ -30,6 +30,7 @@ const ShoppingBasketRouter = (db) => {
             dest: "금오공과대학교",
             store: "구미도량봉곡점",
             storePhoneNumber: "054-454-8495",
+            isReview: false,
         }
 
         await db.collection("orderHistory").insertOne(data).then(() => {
