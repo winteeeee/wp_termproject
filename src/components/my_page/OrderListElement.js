@@ -8,6 +8,7 @@ const plusBtnImg = "data:image/svg+xml;base64,PHN2ZyBpZD0iXyIgZGF0YS1uYW1lPSIrIi
 
 
 function OrderListElement({element}) {
+    const [isExist, setIsExist] = useState(false);
     const [visible, setVisible] = useState(false);
     const [number, setNumber] = useState(1);
     const [opinion, setOpinion] = useState("");
@@ -51,6 +52,7 @@ function OrderListElement({element}) {
 
         setOpinion("");
         setVisible(!visible);
+        setIsExist(!isExist);
     }
 
     return(
@@ -75,7 +77,7 @@ function OrderListElement({element}) {
                 <span className="info">주문 매장</span>
                 <span className="orderStore">{element.store + "(" + element.storePhoneNumber + ")"}</span>
             </div>
-            <div className="ReviewBtn" onClick={clickBtn}>후기 작성</div>
+            {isExist ? <div/> : <div className="ReviewBtn" onClick={clickBtn}>후기 작성</div>}
             {visible ? <div className="myReview">
                 <div className="myScore">
                     <img src={minusBtnImg} className="minusBtn" onClick={clickMinusBtn}></img>
