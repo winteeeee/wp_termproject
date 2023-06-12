@@ -57,7 +57,7 @@ function OrderListElement({element}) {
 
         setOpinion("");
         setVisible(!visible);
-        setIsReview(!isReview);
+        setIsReview(true);
 
 
     }

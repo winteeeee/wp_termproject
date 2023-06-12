@@ -35,7 +35,7 @@ const myPageRouter = (db) => {
 
     router.post("/isReviewUpdate", async (req, res) => {
         await db.collection("orderHistory").updateOne(
-            { userID: req.body.userID },
+            { date: req.body.date },
             { $set: { isReview: req.body.isReview } }
         )
             .then(() => {
