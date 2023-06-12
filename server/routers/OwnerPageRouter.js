@@ -1,6 +1,10 @@
 const express = require("express");
 const router = express.Router();
 
+const isSameDate = (d1, d2) => {
+    return d1.getFullYear() === d2.getFullYear() && d1.getMonth() === d2.getMonth() && d1.getDate() === d2.getDate();
+}
+
 const ownerPageRouter = (form_data, db) => {
     //DB 조회가 완료된 후 send 해야하므로 비동기 처리 필수
     //비동기 처리하지 않으면 빈배열만 보내게 됨
@@ -49,42 +53,40 @@ const ownerPageRouter = (form_data, db) => {
 
         db.collection("orderHistory").find({"ownerID": "ownerID"}).sort({"date": -1}).toArray().then((r) => {
             let curDay = new Date();
-            let curDayString = `${curDay.getFullYear()}-${curDay.getMonth() + 1}-${curDay.getDate()}`;
+            let resultIdx = 6;
+            let elementIdx = 0;
 
-            if (r.length > 0) {
-                let resultIdx = 6;
-                let elementIdx = 0;
+            for (; resultIdx >= 0 && elementIdx < r.length; elementIdx++) {
+                const day = new Date(r[elementIdx].date.split("T")[0]);
 
-                for (; resultIdx >= 0 && elementIdx < r.length; elementIdx++) {
-                    let day = r[elementIdx].date.split(" ")[0];
-                    let date = r[elementIdx].dayOfTheWeek;
-
-                    if (day === curDayString) { //이전 날짜와 똑같으면 합산만
-                        if (isNaN(sales[resultIdx])) {
-                            sales[resultIdx] = Number(r[elementIdx].totalPrice);
-                        } else {
-                            sales[resultIdx] += Number(r[elementIdx].totalPrice);
-                        }
-                        dayOfTheWeek[resultIdx] = dayOfTheWeekMap[date];
-                        continue;
+                if (isSameDate(day, curDay)) {
+                    if (isNaN(sales[resultIdx])) {
+                        sales[resultIdx] = Number(r[elementIdx].totalPrice);
+                    } else {
+                        sales[resultIdx] += Number(r[elementIdx].totalPrice);
                     }
-
+                } else {
                     curDay.setDate(curDay.getDate() - 1);
-                    curDayString = `${curDay.getFullYear()}-${curDay.getMonth() + 1}-${curDay.getDate()}`;
                     resultIdx--;
-
-                    if (day === curDayString) {
-                        dayOfTheWeek[resultIdx] = dayOfTheWeekMap[date];
+                    if (isSameDate(day, curDay)) {
                         sales[resultIdx] = Number(r[elementIdx].totalPrice);
                     } else {
                         elementIdx--;
                     }
                 }
 
-                result = {result, pizzaName: pizzaName, amounts: amounts, sales: sales, dayOfTheWeek: dayOfTheWeek};
-            } else {
-                result = {result, pizzaName: pizzaName, amounts: amounts};
+                if (dayOfTheWeek[resultIdx] === undefined) {
+                    dayOfTheWeek[resultIdx] = dayOfTheWeekMap[curDay.getDay()];
+                }
             }
+
+            for (; resultIdx >= 0; resultIdx--, curDay.setDate(curDay.getDate() - 1)) {
+                if (dayOfTheWeek[resultIdx] === undefined) {
+                    dayOfTheWeek[resultIdx] = dayOfTheWeekMap[curDay.getDay()];
+                }
+            }
+
+            result = {result, pizzaName: pizzaName, amounts: amounts, sales: sales, dayOfTheWeek: dayOfTheWeek};
             return res.json(result);
         });
 

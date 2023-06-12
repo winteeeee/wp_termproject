@@ -48,15 +48,13 @@ function Order() {
         axios.post("http://localhost:4000/shoppingBasket/orderInsert", {
             userID: cookies.loginID,
             ownerID: "ownerID",
-            date: `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()} ${today.getHours()}:${today.getMinutes()}`,
-            dayOfTheWeek: `${today.getDay()}`,
+            date: `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")} ${today.getHours()}:${today.getMinutes()}`,
             data: data,
             totalAmount: totalAmount,
             totalPrice: totalPrice
-        }).then((r) => (console.log(r)));
+        }).then();
 
-        axios.get(`http://localhost:4000/shoppingBasket/deleteAll/${cookies.loginID}`).then((r) => {console.log(r)})
-
+        axios.get(`http://localhost:4000/shoppingBasket/deleteAll/${cookies.loginID}`).then();
     }
 
 return (
