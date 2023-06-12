@@ -33,6 +33,21 @@ const myPageRouter = (db) => {
         });
     })
 
+    router.post("/isReviewUpdate", async (req, res) => {
+        await db.collection("orderHistory").updateOne(
+            { date: req.body.date },
+            { $set: { isReview: req.body.isReview } }
+        )
+            .then(() => {
+                console.log("존재하는 리뷰로 업데이트 성공");
+                res.sendStatus(200);
+            })
+            .catch((error) => {
+                console.log("리뷰 업데이트 오류:", error);
+                res.sendStatus(500);
+            });
+    });
+
     return router;
 }
 

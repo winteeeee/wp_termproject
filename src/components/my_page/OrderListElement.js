@@ -8,7 +8,7 @@ const plusBtnImg = "data:image/svg+xml;base64,PHN2ZyBpZD0iXyIgZGF0YS1uYW1lPSIrIi
 
 
 function OrderListElement({element}) {
-    const [isExist, setIsExist] = useState(false);
+    const [isReview, setIsReview] = useState(element.isReview);
     const [visible, setVisible] = useState(false);
     const [number, setNumber] = useState(1);
     const [opinion, setOpinion] = useState("");
@@ -50,11 +50,17 @@ function OrderListElement({element}) {
             writer: cookies.loginID
         }).then(r => (console.log(r)));
 
+        axios.post("http://localhost:4000/myPage/isReviewUpdate", {
+            ...element,
+            isReview: true,
+        }).then(r => (console.log(r)))
+
         setOpinion("");
         setVisible(!visible);
-        setIsExist(!isExist);
-    }
+        setIsReview(true);
 
+
+    }
     return(
         <div className="myOrder">
             <div className="show">
@@ -77,7 +83,7 @@ function OrderListElement({element}) {
                 <span className="info">주문 매장</span>
                 <span className="orderStore">{element.store + "(" + element.storePhoneNumber + ")"}</span>
             </div>
-            {isExist ? <div/> : <div className="ReviewBtn" onClick={clickBtn}>후기 작성</div>}
+            {isReview ? <div/> : <div className="ReviewBtn" onClick={clickBtn}>후기 작성</div>}
             {visible ? <div className="myReview">
                 <div className="myScore">
                     <img src={minusBtnImg} className="minusBtn" onClick={clickMinusBtn}></img>
