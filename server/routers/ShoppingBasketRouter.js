@@ -19,6 +19,7 @@ const ShoppingBasketRouter = (db) => {
     })
 
     router.post("/deleteData", async (req, res) => {
+        console.log(req.body);
         await db.collection("shoppingBasket").deleteOne({userID: req.body.userID, name: req.body.pizzaName}).then(() => {
             console.log("장바구니 삭제 완료");
         })

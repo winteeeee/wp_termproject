@@ -4,6 +4,7 @@ import axios from 'axios'
 import MyMenuList from "./MyMenuList";
 import {useCookies} from "react-cookie";
 import {Link} from "react-router-dom";
+import pizza from "../pizza/Pizza";
 
 function Order() {
     let [pizzaInfo, setPizzaInfo] = useState([])
@@ -36,13 +37,14 @@ function Order() {
         const data = [];
         let totalAmount = 0;
         let totalPrice = 0;
-
         pizzaInfo.map((e, index) => {
-            let curAmount = countArray[index] === undefined ? 1 : countArray[index];
-            let curPrice = e.pizzaPrice * curAmount;
-            totalAmount += curAmount;
-            totalPrice += curPrice;
-            data.push({menu: e.pizzaName, price: e.pizzaPrice * curAmount, amount: curAmount})
+            if(e.pizzaPrice != 0) {
+                let curAmount = countArray[index] === undefined ? 1 : countArray[index];
+                let curPrice = e.pizzaPrice * curAmount;
+                totalAmount += curAmount;
+                totalPrice += curPrice;
+                data.push({menu: e.pizzaName, price: e.pizzaPrice * curAmount, amount: curAmount})
+            }
         });
 
         axios.post("http://localhost:4000/shoppingBasket/orderInsert", {
@@ -57,31 +59,32 @@ function Order() {
         axios.get(`http://localhost:4000/shoppingBasket/deleteAll/${cookies.loginID}`).then();
     }
 
-return (
-    <div className="total-whole-layout">
-    {
-        pizzaInfo.map((pizzaInfo, index) => (
-            <MyMenuList index = {index} pizzaInfo={pizzaInfo} setPrice = {setPrice} price = {price} setCountArray = {setCountArray}></MyMenuList>
-        ))
-    }
-    {
-        countArray.map((countArray, index) => {
-            console.log(index, countArray)
-        })
-    }
-    <div className="total-layout">
-        <h4 className="sum-total">합계</h4>
-        <h4 className="total">
-            총
-            <font className="total-price">{price}</font>
-            원
-        </h4>
-        <Link to="/">
-            <div className="basic-button" onClick={submit}>주문하기</div>
-        </Link>
-    </div>
-    </div>
-)
+    return (
+        <div className="total-whole-layout">
+            {
+                pizzaInfo.map((pizzaInfo, index) => (
+                    <MyMenuList index={index} pizzaInfo={pizzaInfo} setPrice={setPrice} price={price}
+                                setCountArray={setCountArray}></MyMenuList>
+                ))
+            }
+            {
+                countArray.map((countArray, index) => {
+                    console.log(index, countArray)
+                })
+            }
+            <div className="total-layout">
+                <h4 className="sum-total">합계</h4>
+                <h4 className="total">
+                    총
+                    <font className="total-price">{price}</font>
+                    원
+                </h4>
+                <Link to="/">
+                    <div className="basic-button" onClick={submit}>주문하기</div>
+                </Link>
+            </div>
+        </div>
+    )
 }
 
 export default Order;
