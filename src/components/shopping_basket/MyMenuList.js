@@ -43,8 +43,9 @@ function MyMenuList({index, pizzaInfo, setPrice ,price,setCountArray}) {
 
     const clickDeleteBtn = () => {
         setVisiable(false);
+        pizzaInfo.pizzaName = "";
         setPrice(price - pizzaInfo.pizzaPrice)
-
+        pizzaInfo.pizzaPrice = 0;
         axios.post("http://localhost:4000/shoppingBasket/deleteData", {
             userID: cookies.loginID,
             pizzaName: pizzaInfo.pizzaName
